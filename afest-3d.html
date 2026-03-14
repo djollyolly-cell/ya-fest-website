@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFest 3D Animation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas { display: block; }
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: opacity 0.8s ease;
+  }
+  .loader-ring {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #ff1493;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="loader"><div class="loader-ring"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ─── Scene Setup ────────────────────────────────────────────────────────────
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 100);
+camera.position.set(0, 0, 5);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+// ─── Colors ─────────────────────────────────────────────────────────────────
+const HOT_PINK   = 0xff1493;
+const CYAN       = 0x00bfff;
+const DARK       = 0x111111;
+const DEEP_PINK  = 0xd4006e;
+
+// ─── Textures (canvas-painted) ───────────────────────────────────────────────
+function makeGlobeTexture() {
+  const c = document.createElement('canvas');
+  c.width = 1024; c.height = 512;
+  const ctx = c.getContext('2d');
+
+  // base pink
+  ctx.fillStyle = '#ff1493';
+  ctx.fillRect(0, 0, 1024, 512);
+
+  // draw rough continents in cyan
+  ctx.fillStyle = '#00bfff';
+  const continents = [
+    // North America
+    [[180,80],[260,80],[270,120],[300,150],[280,200],[240,210],[200,180],[175,140]],
+    // South America
+    [[220,220],[270,215],[280,270],[265,340],[240,370],[210,350],[200,290],[210,250]],
+    // Europe
+    [[430,60],[490,55],[510,90],[500,130],[470,145],[440,130],[420,100]],
+    // Africa
+    [[440,155],[510,145],[530,200],[520,300],[490,360],[450,370],[420,310],[415,230],[430,185]],
+    // Asia
+    [[510,50],[680,40],[730,80],[750,120],[720,160],[680,180],[630,170],[590,140],[560,110],[520,90]],
+    // Australia
+    [[660,290],[720,280],[740,320],[720,360],[670,360],[640,330]],
+  ];
+  continents.forEach(pts => {
+    ctx.beginPath();
+    pts.forEach((p, i) => i === 0 ? ctx.moveTo(p[0]*2, p[1]*2) : ctx.lineTo(p[0]*2, p[1]*2));
+    ctx.closePath();
+    ctx.fill();
+  });
+
+  return new THREE.CanvasTexture(c);
+}
+
+// ─── Globe ───────────────────────────────────────────────────────────────────
+const globeGeo = new THREE.SphereGeometry(1.55, 64, 64);
+const globeMat = new THREE.MeshPhongMaterial({
+  map: makeGlobeTexture(),
+  shininess: 60,
+  specular: new THREE.Color(0x222222),
+});
+const globe = new THREE.Mesh(globeGeo, globeMat);
+scene.add(globe);
+
+// ─── Atmosphere glow ─────────────────────────────────────────────────────────
+const atmGeo = new THREE.SphereGeometry(1.62, 64, 64);
+const atmMat = new THREE.MeshPhongMaterial({
+  color: HOT_PINK,
+  transparent: true,
+  opacity: 0.12,
+  side: THREE.BackSide,
+});
+scene.add(new THREE.Mesh(atmGeo, atmMat));
+
+// ─── Logo Panel ──────────────────────────────────────────────────────────────
+const group = new THREE.Group();
+scene.add(group);
+group.add(globe);
+
+// Dark square background
+const squareGeo = new THREE.BoxGeometry(1.8, 1.8, 0.12);
+const squareMat = new THREE.MeshPhongMaterial({ color: DARK, shininess: 80 });
+const square = new THREE.Mesh(squareGeo, squareMat);
+square.position.set(0.05, 0.15, 0.45);
+group.add(square);
+
+// Pink frame border
+function addFrame() {
+  const thick = 0.05, depth = 0.1, w = 1.8, h = 1.8;
+  const frameMat = new THREE.MeshPhongMaterial({ color: HOT_PINK, shininess: 120, emissive: new THREE.Color(0x330022) });
+
+  const sides = [
+    { size: [w + thick*2, thick, depth], pos: [0, h/2 + thick/2, 0.48] },
+    { size: [w + thick*2, thick, depth], pos: [0, -h/2 - thick/2, 0.48] },
+    { size: [thick, h, depth], pos: [-w/2 - thick/2, 0, 0.48] },
+    { size: [thick, h, depth], pos: [w/2 + thick/2, 0, 0.48] },
+  ];
+  sides.forEach(s => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(...s.size), frameMat);
+    m.position.set(...s.pos);
+    group.add(m);
+  });
+}
+addFrame();
+
+// Diagonal slash lines (pink)
+function addSlash() {
+  const mat = new THREE.MeshPhongMaterial({ color: HOT_PINK, shininess: 100 });
+  const lines = [
+    { w: 0.07, h: 2.2, rx: 0, ry: 0, rz: -0.55, px: 0.15, py: 0 },
+    { w: 0.04, h: 2.0, rx: 0, ry: 0, rz: -0.55, px: 0.35, py: -0.1 },
+    { w: 0.03, h: 1.6, rx: 0, ry: 0, rz: -0.55, px: -0.15, py: 0.1 },
+  ];
+  lines.forEach(l => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(l.w, l.h, 0.06), mat);
+    m.position.set(l.px, l.py, 0.52);
+    m.rotation.z = l.rz;
+    group.add(m);
+  });
+}
+addSlash();
+
+// Comedy/Tragedy masks (simplified 3D)
+function makeMask(happy, x, y, z, scale) {
+  const g = new THREE.Group();
+  const mat = new THREE.MeshPhongMaterial({ color: HOT_PINK, shininess: 90 });
+
+  // Face oval
+  const face = new THREE.Mesh(new THREE.SphereGeometry(0.28*scale, 32, 24, 0, Math.PI*2, 0, Math.PI*0.7), mat);
+  face.rotation.x = 0.3;
+  g.add(face);
+
+  // Eyes
+  const eyeM = new THREE.MeshPhongMaterial({ color: DARK });
+  [-0.09, 0.09].forEach(ex => {
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.04*scale, 12, 8), eyeM);
+    eye.position.set(ex*scale, 0.05*scale, 0.26*scale);
+    g.add(eye);
+  });
+
+  // Mouth (happy or sad arc approximation)
+  const mouthGeo = new THREE.TorusGeometry(0.09*scale, 0.02*scale, 8, 16, Math.PI);
+  const mouth = new THREE.Mesh(mouthGeo, eyeM);
+  mouth.rotation.z = happy ? Math.PI : 0;
+  mouth.position.set(0, happy ? -0.05*scale : 0.05*scale, 0.26*scale);
+  g.add(mouth);
+
+  g.position.set(x, y, z);
+  return g;
+}
+
+const happyMask = makeMask(true, -0.22, 0.32, 0.58, 1);
+group.add(happyMask);
+const sadMask = makeMask(false, 0.22, 0.38, 0.62, 0.72);
+group.add(sadMask);
+
+// "Fest" text approximation using extruded shapes
+function makeFestText() {
+  const mat = new THREE.MeshPhongMaterial({ color: DARK, shininess: 60 });
+  // We'll use a simple bevelled box as placeholder text block
+  const geo = new THREE.BoxGeometry(1.2, 0.38, 0.1);
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.position.set(0, -0.72, 0.52);
+  group.add(mesh);
+
+  // F letterform hint
+  const festMat = new THREE.MeshPhongMaterial({ color: DARK, shininess: 100 });
+  const letters = [
+    { pos: [-0.52, -0.72, 0.58], size: [0.06, 0.34, 0.06] },
+    { pos: [-0.41, -0.60, 0.58], size: [0.16, 0.06, 0.06] },
+    { pos: [-0.41, -0.72, 0.58], size: [0.12, 0.06, 0.06] },
+  ];
+  letters.forEach(l => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(...l.size), festMat);
+    m.position.set(...l.pos);
+    group.add(m);
+  });
+}
+makeFestText();
+
+// ─── Lights ───────────────────────────────────────────────────────────────────
+const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(ambient);
+
+const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
+keyLight.position.set(3, 4, 5);
+scene.add(keyLight);
+
+const pinkLight = new THREE.PointLight(HOT_PINK, 3, 8);
+pinkLight.position.set(-2, 1, 3);
+scene.add(pinkLight);
+
+const cyanLight = new THREE.PointLight(CYAN, 2, 8);
+cyanLight.position.set(2, -1, 2);
+scene.add(cyanLight);
+
+const rimLight = new THREE.DirectionalLight(0xff69b4, 0.8);
+rimLight.position.set(-3, -2, -3);
+scene.add(rimLight);
+
+// ─── Starfield ────────────────────────────────────────────────────────────────
+const starGeo = new THREE.BufferGeometry();
+const starCount = 2000;
+const starPos = new Float32Array(starCount * 3);
+for (let i = 0; i < starCount * 3; i++) starPos[i] = (Math.random() - 0.5) * 80;
+starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.06 });
+scene.add(new THREE.Points(starGeo, starMat));
+
+// ─── Particle orbit ring ─────────────────────────────────────────────────────
+const orbitCount = 120;
+const orbitGeo = new THREE.BufferGeometry();
+const orbitPos = new Float32Array(orbitCount * 3);
+for (let i = 0; i < orbitCount; i++) {
+  const a = (i / orbitCount) * Math.PI * 2;
+  const r = 2.1 + Math.sin(i * 0.5) * 0.15;
+  orbitPos[i*3]   = Math.cos(a) * r;
+  orbitPos[i*3+1] = (Math.random() - 0.5) * 0.3;
+  orbitPos[i*3+2] = Math.sin(a) * r;
+}
+orbitGeo.setAttribute('position', new THREE.BufferAttribute(orbitPos, 3));
+const orbitMat = new THREE.PointsMaterial({ color: HOT_PINK, size: 0.04, transparent: true, opacity: 0.7 });
+const orbitRing = new THREE.Points(orbitGeo, orbitMat);
+scene.add(orbitRing);
+
+// Second ring (cyan)
+const orbitGeo2 = new THREE.BufferGeometry();
+const orbitPos2 = new Float32Array(orbitCount * 3);
+for (let i = 0; i < orbitCount; i++) {
+  const a = (i / orbitCount) * Math.PI * 2;
+  const r = 1.95 + Math.cos(i * 0.7) * 0.12;
+  orbitPos2[i*3]   = Math.cos(a + Math.PI/4) * r;
+  orbitPos2[i*3+1] = (Math.random() - 0.5) * 0.25;
+  orbitPos2[i*3+2] = Math.sin(a + Math.PI/4) * r;
+}
+orbitGeo2.setAttribute('position', new THREE.BufferAttribute(orbitPos2, 3));
+const orbitMat2 = new THREE.PointsMaterial({ color: CYAN, size: 0.035, transparent: true, opacity: 0.5 });
+const orbitRing2 = new THREE.Points(orbitGeo2, orbitMat2);
+scene.add(orbitRing2);
+
+// ─── Mouse interaction ───────────────────────────────────────────────────────
+let targetX = 0, targetY = 0;
+document.addEventListener('mousemove', e => {
+  targetX = (e.clientX / innerWidth - 0.5) * 1.2;
+  targetY = -(e.clientY / innerHeight - 0.5) * 1.2;
+});
+
+// ─── Animation ───────────────────────────────────────────────────────────────
+let clock = 0;
+let introScale = 0;
+
+// Hide loader
+setTimeout(() => {
+  const loader = document.getElementById('loader');
+  loader.style.opacity = '0';
+  setTimeout(() => loader.remove(), 800);
+}, 400);
+
+function animate() {
+  requestAnimationFrame(animate);
+  clock += 0.01;
+
+  // Intro scale-in
+  if (introScale < 1) {
+    introScale = Math.min(introScale + 0.015, 1);
+    const ease = 1 - Math.pow(1 - introScale, 3);
+    group.scale.setScalar(ease);
+  }
+
+  // Smooth mouse follow
+  group.rotation.y += (targetX - group.rotation.y) * 0.05;
+  group.rotation.x += (targetY - group.rotation.x) * 0.05;
+
+  // Auto slow rotation
+  group.rotation.y += 0.004;
+
+  // Globe counter-rotation (so continents drift)
+  globe.rotation.y -= 0.002;
+
+  // Orbit rings spin
+  orbitRing.rotation.y = clock * 0.4;
+  orbitRing2.rotation.y = -clock * 0.3;
+  orbitRing2.rotation.x = Math.sin(clock * 0.2) * 0.3;
+
+  // Pulsing glow lights
+  pinkLight.intensity = 2.5 + Math.sin(clock * 1.8) * 0.8;
+  cyanLight.intensity = 1.8 + Math.cos(clock * 2.1) * 0.6;
+
+  // Gentle float
+  group.position.y = Math.sin(clock * 0.7) * 0.08;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+// ─── Resize ───────────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480">
+  <!-- Globe circle -->
+  <circle cx="200" cy="190" r="170" fill="white"/>
+
+  <!-- Globe meridian lines (simple) -->
+  <ellipse cx="200" cy="190" rx="60" ry="170" fill="none" stroke="black" stroke-width="4" opacity="0.3"/>
+  <ellipse cx="200" cy="190" rx="120" ry="170" fill="none" stroke="black" stroke-width="3" opacity="0.2"/>
+  <line x1="30" y1="190" x2="370" y2="190" stroke="black" stroke-width="3" opacity="0.2"/>
+  <ellipse cx="200" cy="120" rx="165" ry="40" fill="none" stroke="black" stroke-width="3" opacity="0.2"/>
+  <ellipse cx="200" cy="260" rx="165" ry="40" fill="none" stroke="black" stroke-width="3" opacity="0.2"/>
+
+  <!-- Theatrical mask - comedy style -->
+  <g transform="translate(200,180)">
+    <!-- Mask face shape -->
+    <path d="M-80,-70 C-90,-20 -85,40 -50,70 C-20,95 20,95 50,70 C85,40 90,-20 80,-70 C60,-100 -60,-100 -80,-70Z" fill="white" stroke="white" stroke-width="8"/>
+
+    <!-- Left eye -->
+    <ellipse cx="-35" cy="-25" rx="22" ry="18" fill="black"/>
+    <!-- Right eye -->
+    <ellipse cx="35" cy="-25" rx="22" ry="18" fill="black"/>
+
+    <!-- Smiling mouth -->
+    <path d="M-40,25 Q0,65 40,25" fill="none" stroke="black" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Nose hint -->
+    <path d="M-5,-5 Q0,10 5,-5" fill="none" stroke="black" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Eyebrow strokes -->
+    <path d="M-55,-48 Q-35,-62 -15,-48" fill="none" stroke="black" stroke-width="5" stroke-linecap="round"/>
+    <path d="M15,-48 Q35,-62 55,-48" fill="none" stroke="black" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- "Я" letter - large, stylized, overlapping mask -->
+  <text x="200" y="215" text-anchor="middle" font-family="serif" font-weight="900" font-size="160" font-style="italic" fill="white" stroke="white" stroke-width="3">Я</text>
+
+  <!-- "Fest" text below globe -->
+  <text x="200" y="430" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="72" fill="white" letter-spacing="8">Fest</text>
+</svg>

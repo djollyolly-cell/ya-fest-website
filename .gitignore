@@ -1,0 +1,8 @@
+.DS_Store
+*.mp4
+*.MP4
+.agents/
+thoughts/
+node_modules/
+awesome-llm-apps/
+.claude/

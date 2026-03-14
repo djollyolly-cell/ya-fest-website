@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лаборатории — Я-Фест</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c18;--bg2:#12121f;--bg3:#191928;--accent:#DD568E;--accent2:#45BCE5;--gold:#d4a843;--text:#f0eef8;--muted:rgba(240,238,248,0.52);--border:rgba(240,238,248,0.08);--border2:rgba(240,238,248,0.14)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{color:inherit;text-decoration:none}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(12,12,24,0.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 48px;gap:32px}
+.hdr-logo{font-family:'Unbounded',sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:0.04em}
+.hdr-logo em{font-style:normal;color:var(--accent)}
+.hdr-nav{display:flex;gap:2px;flex:1}
+.hdr-nav a{padding:7px 15px;border-radius:40px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s}
+.hdr-nav a:hover,.hdr-nav a.on{color:var(--text);background:rgba(255,255,255,.08)}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-phone{font-size:.82rem;font-weight:700}
+.hdr-cta{padding:9px 20px;background:var(--accent);border-radius:40px;font-size:.8rem;font-weight:700;color:#fff}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sec-h{font-family:'Unbounded',sans-serif;font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:700;line-height:1.1}
+.btn-p{padding:13px 32px;background:var(--accent);border-radius:50px;font-weight:700;font-size:.9rem;color:#fff;display:inline-block;transition:all .2s}
+.btn-p:hover{background:#C44A7E;transform:translateY(-2px)}
+
+.page-hero{padding:130px 48px 70px;background:radial-gradient(ellipse 100% 60% at 50% 0%,rgba(221,86,142,.12),transparent 55%),var(--bg)}
+.ph-inner{max-width:1280px;margin:0 auto}
+.ph-h1{font-family:'Unbounded',sans-serif;font-size:clamp(2.2rem,6vw,5rem);font-weight:900;line-height:.95;margin-bottom:22px}
+.ph-sub{font-size:1.05rem;color:var(--muted);max-width:620px;line-height:1.8;font-weight:300}
+
+.body{max-width:1280px;margin:0 auto;padding:80px 48px 120px}
+
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-bottom:90px}
+.intro-text p{font-size:1rem;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:14px}
+.intro-text p strong{color:var(--text)}
+.intro-text .sec-h{margin-bottom:24px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feat{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px}
+.feat .icon{font-size:2rem;margin-bottom:12px}
+.feat h3{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.feat p{font-size:.83rem;color:var(--muted);line-height:1.6}
+
+.labs-title{font-family:'Unbounded',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:32px}
+.labs-list{display:flex;flex-direction:column;gap:16px;margin-bottom:70px}
+.lab{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:28px 32px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;transition:all .3s}
+.lab:hover{border-color:rgba(221,86,142,.3);transform:translateX(4px)}
+.lab-type{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:40px;margin-bottom:8px;display:inline-block}
+.lt-t{background:rgba(176,58,138,.18);color:#f08ed8}
+.lt-c{background:rgba(155,29,170,.18);color:#df90f5}
+.lt-g{background:rgba(212,168,67,.18);color:#d4a843}
+.lab h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.lab p{font-size:.86rem;color:var(--muted);line-height:1.6;max-width:560px}
+.lab-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.lab-dur{font-size:.8rem;color:var(--muted);text-align:right}
+.lab-btn{padding:9px 20px;background:rgba(221,86,142,.15);border:1px solid rgba(221,86,142,.3);border-radius:40px;font-size:.78rem;font-weight:700;color:var(--accent);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lab-btn:hover{background:rgba(221,86,142,.25)}
+
+.cta-block{background:linear-gradient(135deg,#1e0835,#3d0f6a);border-radius:24px;padding:52px;text-align:center;border:1px solid rgba(155,29,170,.3)}
+.cta-block h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:14px}
+.cta-block p{font-size:.97rem;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 30px;line-height:1.75;font-weight:300}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-w{padding:13px 30px;background:#fff;border-radius:50px;font-weight:700;font-size:.9rem;color:#3d0f6a;transition:all .2s}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.3)}
+.btn-gh{padding:12px 28px;border:2px solid rgba(255,255,255,.25);border-radius:50px;font-weight:700;font-size:.9rem;color:#fff;transition:all .2s}
+.btn-gh:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.08)}
+
+footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 32px}
+.foot-row{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px}
+.foot-logo{font-family:'Unbounded',sans-serif;font-size:1rem;font-weight:900;letter-spacing:.04em}
+.foot-logo em{font-style:normal;color:var(--accent)}
+.foot-info p{font-size:.8rem;color:var(--muted);margin-top:7px;max-width:260px;line-height:1.6}
+.foot-nav{display:flex;gap:44px;flex-wrap:wrap}
+.foot-col h4{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.foot-col a{display:block;font-size:.84rem;color:rgba(240,238,248,.5);margin-bottom:8px}
+.foot-col a:hover{color:var(--text)}
+.foot-bot{max-width:1280px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bot p,.foot-bot a{font-size:.74rem;color:var(--muted)}
+@media(max-width:900px){.intro{grid-template-columns:1fr;gap:40px}.features{grid-template-columns:1fr}}
+@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}.page-hero{padding:110px 20px 50px}.body{padding:50px 20px 80px}footer{padding:44px 20px 26px}.lab{grid-template-columns:1fr}.lab-meta{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <a href="index.html" class="hdr-logo">Я<em>-</em>ФЕСТ</a>
+  <nav class="hdr-nav">
+    <a href="festivals.html">фестивали</a>
+    <a href="laboratories.html" class="on">лаборатории</a>
+    <a href="camp.html">лагерь</a>
+    <a href="about.html">о нас</a>
+    <a href="index.html#contact">контакты</a>
+  </nav>
+  <div class="hdr-right">
+    <a href="tel:+79601343400" class="hdr-phone">8 (960) 134-34-00</a>
+    <a href="index.html#contact" class="hdr-cta">Напишите нам</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="ph-inner">
+    <div class="kicker">Режиссёрские лаборатории</div>
+    <div class="ph-h1">Лаборатории</div>
+    <div class="ph-sub">Присоединяйтесь к нам, чтобы сделать рывок вперёд на пути к новым творческим вершинам! Интенсивные мастер-классы и лаборатории от ведущих деятелей театра и кино</div>
+  </div>
+</section>
+
+<main class="body">
+  <div class="intro">
+    <div class="intro-text">
+      <div class="kicker">О лабораториях</div>
+      <div class="sec-h" style="margin-bottom:24px">Творческая<br>лаборатория</div>
+      <p>Лаборатории Я-Фест — это <strong>интенсивные творческие форматы</strong>, где участники работают под руководством профессионалов: режиссёров, педагогов ведущих театральных вузов, кинорежиссёров и продюсеров.</p>
+      <p>В отличие от традиционных мастер-классов, лаборатория — это <strong>практическое создание проекта</strong> с нуля за короткий срок: от идеи до сценического или экранного воплощения.</p>
+      <p>Лаборатории проводятся как в рамках фестивалей, так и <strong>отдельными интенсивами</strong> в Москве и Сочи.</p>
+      <br>
+      <a href="index.html#contact" class="btn-p">Записаться</a>
+    </div>
+    <div class="features">
+      <div class="feat"><div class="icon">🎭</div><h3>Театральная лаборатория</h3><p>Работа с текстом, сцена, режиссура — под руководством практикующего режиссёра</p></div>
+      <div class="feat"><div class="icon">🎬</div><h3>Кинолаборатория</h3><p>От сценария до готового короткометражного фильма за несколько дней</p></div>
+      <div class="feat"><div class="icon">🗣️</div><h3>Мастерство речи</h3><p>Сценическая речь, дикция, художественное слово с педагогами ведущих вузов</p></div>
+      <div class="feat"><div class="icon">🌟</div><h3>Актёрское мастерство</h3><p>Работа с образом, этюдная практика, пластика — для любого уровня подготовки</p></div>
+    </div>
+  </div>
+
+  <div class="labs-title">Расписание лабораторий</div>
+  <div class="labs-list">
+    <div class="lab">
+      <div>
+        <span class="lab-type lt-c">Кинолаборатория</span>
+        <h3>Кинозабег — «Кино у моря»</h3>
+        <p>В рамках фестиваля «Кино у моря» участники снимают короткометражный фильм до 5 минут за время проведения фестиваля на заданную тему. Лучший фильм отмечается специальным призом</p>
+      </div>
+      <div class="lab-meta">
+        <span class="lab-dur">📅 8–11 апр. 2026<br>📍 Сочи</span>
+        <a href="cinema-sea.html" class="lab-btn">Подробнее →</a>
+      </div>
+    </div>
+    <div class="lab">
+      <div>
+        <span class="lab-type lt-t">Театральная</span>
+        <h3>Режиссёрская лаборатория — «Театр у моря»</h3>
+        <p>В рамках фестиваля «Театр у моря» — мастер-классы и лаборатории от членов профессионального жюри. Разборы работ, этюдные практики, работа с текстом</p>
+      </div>
+      <div class="lab-meta">
+        <span class="lab-dur">📅 8–11 апр. 2026<br>📍 Сочи</span>
+        <a href="theatre-sea.html" class="lab-btn">Подробнее →</a>
+      </div>
+    </div>
+    <div class="lab">
+      <div>
+        <span class="lab-type lt-g">Открытая запись</span>
+        <h3>Авторские мастер-классы</h3>
+        <p>Индивидуальные и групповые мастер-классы от ведущих педагогов театральных и кинематографических вузов России. Актёрское мастерство, сценическая речь, режиссура</p>
+      </div>
+      <div class="lab-meta">
+        <span class="lab-dur">По расписанию<br>📍 Москва / онлайн</span>
+        <a href="index.html#contact" class="lab-btn">Узнать расписание</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>Присоединяйтесь<br>к лабораториям!</h2>
+    <p>Хотите прокачать навыки, поработать с профессиональным педагогом и создать что-то по-настоящему новое? Напишите нам — подберём формат под ваши задачи</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-w">Записаться</a>
+      <a href="tel:+79601343400" class="btn-gh">+7 (960) 134-34-00</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-row">
+    <div class="foot-info"><div class="foot-logo">Я<em>-</em>ФЕСТ</div><p>Продюсерский центр «Я» · Всероссийское фестивальное движение Я-фест · При поддержке Департамента культуры Москвы</p></div>
+    <div class="foot-nav">
+      <div class="foot-col"><h4>Фестивали</h4><a href="theatre-sea.html">Театр у моря</a><a href="cinema-sea.html">Кино у моря</a><a href="winter-theatre.html">Зимний театр (архив)</a></div>
+      <div class="foot-col"><h4>Направления</h4><a href="laboratories.html">Лаборатории</a><a href="camp.html">Творческий лагерь</a><a href="about.html">О нас</a></div>
+      <div class="foot-col"><h4>Контакты</h4><a href="tel:+79601343400">+7 (960) 134-34-00</a><a href="/cdn-cgi/l/email-protection#ed9d9f8289988e889fc3948cad808c8481c39f98"><span class="__cf_email__" data-cfemail="e494968b8091878196ca9d85a489858d88ca9691">[email&#160;protected]</span></a><a href="https://vk.com/i_festgo" target="_blank">vk.com/i_festgo</a></div>
+    </div>
+  </div>
+  <div class="foot-bot"><p>© 2026 Я-Фест · Продюс�

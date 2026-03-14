@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #E91E8C;
+  --color-secondary: #00BCD4;
+  --color-dark: #1A1A2E;
+  --color-light: #FDE4F2;
+  --color-accent: #FFD700;
+  
+  --font-sans: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0A0A14] text-white font-sans selection:bg-primary selection:text-white;
+    scroll-behavior: smooth;
+  }
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+@utility glass-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+  padding: 2rem;
+  transition-property: all;
+  transition-duration: 700ms;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+@utility text-glow {
+  text-shadow: 0 0 15px rgba(233, 30, 140, 0.4), 0 0 30px rgba(0, 188, 212, 0.2);
+}
+
+.gradient-mesh {
+  background: 
+    radial-gradient(at 0% 0%, rgba(233, 30, 140, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 188, 212, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(26, 26, 46, 0) 0px, transparent 80%),
+    radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(233, 30, 140, 0.1) 0px, transparent 50%);
+  filter: blur(80px);
+}
+
+.text-reveal {
+  background: linear-gradient(to right, white, white 50%, rgba(255,255,255,0.2) 50%);
+  background-size: 200% 100%;
+  background-position: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.8s ease-out;
+}
+
+.text-reveal:hover {
+  background-position: 0%;
+}

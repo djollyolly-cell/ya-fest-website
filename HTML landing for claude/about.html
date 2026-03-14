@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>О нас — Я-Фест</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c18;--bg2:#12121f;--bg3:#191928;--accent:#DD568E;--accent2:#45BCE5;--gold:#d4a843;--text:#f0eef8;--muted:rgba(240,238,248,0.52);--border:rgba(240,238,248,0.08)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{color:inherit;text-decoration:none}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(12,12,24,0.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 48px;gap:32px}
+.hdr-logo{font-family:'Unbounded',sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:0.04em}
+.hdr-logo em{font-style:normal;color:var(--accent)}
+.hdr-nav{display:flex;gap:2px;flex:1}
+.hdr-nav a{padding:7px 15px;border-radius:40px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s}
+.hdr-nav a:hover,.hdr-nav a.on{color:var(--text);background:rgba(255,255,255,.08)}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-phone{font-size:.82rem;font-weight:700}
+.hdr-cta{padding:9px 20px;background:var(--accent);border-radius:40px;font-size:.8rem;font-weight:700;color:#fff}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sec-h{font-family:'Unbounded',sans-serif;font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:700;line-height:1.1}
+.btn-p{padding:13px 32px;background:var(--accent);border-radius:50px;font-weight:700;font-size:.9rem;color:#fff;display:inline-block;transition:all .2s}
+.btn-p:hover{background:#C44A7E;transform:translateY(-2px)}
+
+.page-hero{padding:130px 48px 80px;background:radial-gradient(ellipse 100% 60% at 50% 0%,rgba(221,86,142,.1),transparent 55%),var(--bg)}
+.ph-inner{max-width:1280px;margin:0 auto}
+.ph-h1{font-family:'Unbounded',sans-serif;font-size:clamp(2.4rem,6vw,5.5rem);font-weight:900;line-height:.92;margin-bottom:22px}
+.ph-sub{font-size:1.05rem;color:var(--muted);max-width:640px;line-height:1.8;font-weight:300}
+
+.body{max-width:1280px;margin:0 auto;padding:80px 48px 60px}
+.body2{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 48px}
+.body3{max-width:1280px;margin:0 auto;padding:80px 48px 120px}
+
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:0}
+.mission-text .sec-h{margin-bottom:24px}
+.mission-text p{font-size:1rem;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:14px}
+.mission-text p strong{color:var(--text)}
+.values{display:grid;grid-template-columns:1fr;gap:14px}
+.val{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:all .3s}
+.val:hover{border-color:rgba(221,86,142,.25);transform:translateX(4px)}
+.val-icon{font-size:2rem;flex-shrink:0;margin-top:2px}
+.val-h{font-size:.95rem;font-weight:700;margin-bottom:5px}
+.val-p{font-size:.84rem;color:var(--muted);line-height:1.6}
+
+.stats2{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:0}
+.stat2-wrap{max-width:1280px;margin:0 auto}
+.stat2{background:var(--bg);border:1px solid var(--border);border-radius:18px;padding:28px;text-align:center;transition:all .3s}
+.stat2:hover{border-color:rgba(221,86,142,.3);transform:translateY(-3px)}
+.stat2-n{font-family:'Unbounded',sans-serif;font-size:2.6rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat2-l{font-size:.83rem;color:var(--muted);line-height:1.45}
+
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.goal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:26px}
+.goal-n{font-family:'Unbounded',sans-serif;font-size:2.2rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:12px}
+.goal h3{font-size:.92rem;font-weight:700;margin-bottom:7px}
+.goal p{font-size:.83rem;color:var(--muted);line-height:1.6}
+
+/* LETTER */
+.letter{background:linear-gradient(135deg,#1a0830,#2d0f55);border:1px solid rgba(155,29,170,.25);border-radius:24px;padding:50px 56px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
+.letter-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0}
+.letter-text blockquote{font-size:1.05rem;color:rgba(255,255,255,.75);line-height:1.85;font-style:italic;font-weight:300;margin-bottom:20px;font-family:'Raleway',sans-serif}
+.letter-sig{font-size:.9rem;font-weight:700;color:var(--text)}
+.letter-sig span{display:block;font-size:.8rem;font-weight:400;color:var(--muted);margin-top:3px}
+
+footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 32px}
+.foot-row{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px}
+.foot-logo{font-family:'Unbounded',sans-serif;font-size:1rem;font-weight:900;letter-spacing:.04em}
+.foot-logo em{font-style:normal;color:var(--accent)}
+.foot-info p{font-size:.8rem;color:var(--muted);margin-top:7px;max-width:260px;line-height:1.6}
+.foot-nav{display:flex;gap:44px;flex-wrap:wrap}
+.foot-col h4{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.foot-col a{display:block;font-size:.84rem;color:rgba(240,238,248,.5);margin-bottom:8px}
+.foot-col a:hover{color:var(--text)}
+.foot-bot{max-width:1280px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bot p,.foot-bot a{font-size:.74rem;color:var(--muted)}
+
+@media(max-width:1000px){.mission-grid{grid-template-columns:1fr;gap:44px}.stats2{grid-template-columns:repeat(2,1fr)}.goals{grid-template-columns:1fr 1fr}.letter{grid-template-columns:1fr}.letter-avatar{display:none}}
+@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}.page-hero,.body,.body3{padding-left:20px;padding-right:20px}.body2{padding-left:20px;padding-right:20px}.goals{grid-template-columns:1fr}footer{padding:44px 20px 26px}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <a href="index.html" class="hdr-logo">Я<em>-</em>ФЕСТ</a>
+  <nav class="hdr-nav">
+    <a href="festivals.html">фестивали</a>
+    <a href="laboratories.html">лаборатории</a>
+    <a href="camp.html">лагерь</a>
+    <a href="about.html" class="on">о нас</a>
+    <a href="index.html#contact">контакты</a>
+  </nav>
+  <div class="hdr-right">
+    <a href="tel:+79601343400" class="hdr-phone">8 (960) 134-34-00</a>
+    <a href="index.html#contact" class="hdr-cta">Напишите нам</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="ph-inner">
+    <div class="kicker">О движении</div>
+    <div class="ph-h1">Я&#8209;Фест</div>
+    <div class="ph-sub">Продюсерский центр «Я» и Всероссийское фестивальное движение — объединяем талантливых деятелей театрального и кинематографического искусства со всей России</div>
+  </div>
+</section>
+
+<section style="padding:80px 48px">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="mission-grid">
+      <div class="mission-text">
+        <div class="kicker">Наша миссия</div>
+        <div class="sec-h" style="margin-bottom:24px">Лаборатория<br>творчества</div>
+        <p>Мы создаём фестивали, лаборатории и лагеря, где участники не просто соревнуются — они учатся, растут и создают новое.</p>
+        <p>Продюсерский центр «Я» и движение Я-фест работают при поддержке <strong>Департамента культуры Москвы</strong>. Наши мероприятия проходят в Москве и Сочи.</p>
+        <p>Фестивали «Зимний театр», «Театр у моря» и «Кино у моря» — это живая творческая среда, где профессиональные педагоги работают с участниками напрямую.</p>
+        <br>
+        <a href="festivals.html" class="btn-p">Смотреть фестивали</a>
+      </div>
+      <div class="values">
+        <div class="val"><div class="val-icon">🎭</div><div><div class="val-h">Театральные фестивали</div><div class="val-p">«Зимний театр» в Москве и «Театр у моря» в Сочи — для любительских театров, студий и солистов</div></div></div>
+        <div class="val"><div class="val-icon">🎬</div><div><div class="val-h">Кинематографический фестиваль</div><div class="val-p">«Кино у моря» в Сочи — конкурс короткометражных фильмов и уникальный «Кинозабег»</div></div></div>
+        <div class="val"><div class="val-icon">🔬</div><div><div class="val-h">Лаборатории</div><div class="val-p">Режиссёрские и актёрские лаборатории, мастер-классы от педагогов ГИТИС, РГИСИ, ВГИК</div></div></div>
+        <div class="val"><div class="val-icon">🏕️</div><div><div class="val-h">Творческий лагерь</div><div class="val-p">Многодневный выездной интенсив — полное погружение в творческую среду</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body2">
+  <div class="stat2-wrap">
+    <div class="kicker">Цифры</div>
+    <div class="sec-h" style="margin-bottom:32px">Движение в цифрах</div>
+    <div class="stats2">
+      <div class="stat2"><div class="stat2-n">3</div><div class="stat2-l">фестиваля уже проведено и запланировано</div></div>
+      <div class="stat2"><div class="stat2-n">450к</div><div class="stat2-l">рублей в грантовых призах фестивалей</div></div>
+      <div class="stat2"><div class="stat2-n">2</div><div class="stat2-l">города: Москва и Сочи</div></div>
+      <div class="stat2"><div class="stat2-n">∞</div><div class="stat2-l">творческих возможностей для участников</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 48px">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="kicker">Цели и задачи</div>
+    <div class="sec-h">Что мы делаем</div>
+    <div class="goals">
+      <div class="goal"><div class="goal-n">01</div><h3>Выявление талантов</h3><p>Выявляем и поддерживаем одарённых деятелей искусства из всех регионов России</p></div>
+      <div class="goal"><div class="goal-n">02</div><h3>Обмен опытом</h3><p>Создаём пространство для межрегионального общения и профессионального нетворкинга</p></div>
+      <div class="goal"><div class="goal-n">03</div><h3>Повышение мастерства</h3><p>Лаборатории и мастер-классы с ведущими педагогами театральных и киновузов России</p></div>
+      <div class="goal"><div class="goal-n">04</div><h3>Творческая среда</h3><p>Уникальная атмосфера для вдохновения и роста — в Москве и на берегу Чёрного моря</p></div>
+      <div class="goal"><div class="goal-n">05</div><h3>Грантовая поддержка</h3><p>Денежные призы от 50 000 до 200 000 ₽ победителям на развитие творческих проектов</p></div>
+      <div class="goal"><div class="goal-n">06</div><h3>Создание проектов</h3><p>Практическое создание спектаклей и фильмов непосредственно в рамках фестивалей</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 48px 100px">
+  <div style="max-width:1280px;margin:0 auto">
+    <div class="letter">
+      <div class="letter-avatar">👤</div>
+      <div class="letter-text">
+        <blockquote>Я благодарен за то, что у меня есть дело, которое стало смыслом и образом жизни. Я-Фест — это не просто работа, это история о вдохновении и мечте, в которой мы поддерживаем и открываем таланты нашей молодёжи. Верю, что каждый человек, который приезжает к нам, несёт в себе уникальный дар. Наша задача — помочь этому дару раскрыться, дать уверенность, силы и вдохновение двигаться вперёд.</blockquote>
+        <div class="letter-sig">Руководство Продюсерского центра «Я»
+          <span>Всероссийское фестивальное движение Я-фест</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-row">
+    <div class="foot-info"><div class="foot-logo">Я<em>-</em>ФЕСТ</div><p>Продюсерский центр «Я» · Всероссийское фестивальное движение Я-фест · При поддержке Департамента культуры Москвы</p></div>
+    <div class="foot-nav">
+      <div class="foot-col"><h4>Фестивали</h4><a href="theatre-sea.html">Театр у моря</a><a href="cinema-sea.html">Кино у моря</a><a href="winter-theatre.html">Зимний театр (архив)</a></div>
+      <div class="foot-col"><h4>Направления</h4><a href="laboratories.html">Лаборатории</a><a href="camp.html">Творческий лагерь</a></div>
+      <div class="foot-col"><h4>Контакты</h4><a href="tel:+79601343400">+7 (960) 134-34-00</a><a href="mailto:producer.ya@mail.ru">producer.ya@mail.ru</a><a href="https://vk.com/i_festgo" target="_blank">vk.com/i_festgo</a></div>
+    </div>
+  </div>
+  <div class="foot-bot"><p>© 2026 Я-Фест · Продюсерский центр «Я»</p><a href="#">Политика конфиденциальности</a></div>
+</footer>
+</body>
+</html>

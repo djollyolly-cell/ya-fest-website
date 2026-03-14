@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Зимний театр — Архив — Я-Фест</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root{--bg:#0c0c18;--bg2:#12121f;--bg3:#191928;--accent:#DD568E;--accent2:#45BCE5;--gold:#d4a843;--text:#f0eef8;--muted:rgba(240,238,248,0.52);--border:rgba(240,238,248,0.08);--border2:rgba(240,238,248,0.14)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Raleway",sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{color:inherit;text-decoration:none}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(12,12,24,0.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 48px;gap:32px}
+.hdr-logo{font-family:"Unbounded",sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:0.04em}
+.hdr-logo em{font-style:normal;color:var(--accent)}
+.hdr-nav{display:flex;gap:2px;flex:1}
+.hdr-nav a{padding:7px 15px;border-radius:40px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s}
+.hdr-nav a:hover,.hdr-nav a.on{color:var(--text);background:rgba(255,255,255,.08)}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-phone{font-size:.82rem;font-weight:700}
+.hdr-cta{padding:9px 20px;border-radius:40px;font-size:.8rem;font-weight:700;color:#fff;background:var(--accent)}
+.hdr-cta:hover{background:#C44A7E}
+.back{display:flex;align-items:center;gap:6px;padding:8px 18px;background:rgba(255,255,255,.08);border-radius:40px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s}
+.back:hover{color:var(--text);background:rgba(255,255,255,.14)}
+/* HERO */
+.fest-hero{min-height:480px;display:flex;align-items:flex-end;padding:80px 60px 70px;position:relative;overflow:hidden}
+.fest-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent)}
+.fh-inner{position:relative;z-index:2;max-width:680px}
+.fh-live{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;background:rgba(76,175,80,.18);border:1px solid rgba(76,175,80,.4);border-radius:40px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#81c784;margin-bottom:18px}
+.fh-live span{width:6px;height:6px;border-radius:50%;background:#4caf50;animation:bk 1.5s infinite}
+.fh-arch{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:40px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.2}}
+.fh-pre{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px}
+.fh-h1{font-family:"Unbounded",sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:.92;margin-bottom:16px}
+.fh-sub{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.78;font-weight:300;max-width:520px;margin-bottom:28px}
+.fh-chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:32px}
+.fchip{padding:7px 15px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);border-radius:40px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.75)}
+.fchip.w{background:rgba(255,152,0,.15);color:#ffcc80}
+.fh-btns{display:flex;gap:11px;flex-wrap:wrap}
+.btn-wh{padding:12px 28px;background:#fff;border-radius:50px;font-weight:700;font-size:.88rem;transition:all .2s}
+.btn-wh:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.35)}
+.btn-gl{padding:11px 26px;border:2px solid rgba(255,255,255,.25);border-radius:50px;font-weight:700;font-size:.88rem;color:#fff;transition:all .2s}
+.btn-gl:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.08)}
+.fest-logo-float{position:absolute;right:80px;bottom:50px;z-index:3;width:150px;height:150px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:2px solid rgba(255,255,255,.18);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.fest-logo-float .em{font-size:3.4rem}
+.fest-logo-float .nm{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+/* BODY */
+.fbody{max-width:1100px;margin:0 auto;padding:64px 48px 100px}
+.ki-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:56px}
+.ki{border-radius:16px;padding:20px;border:1px solid var(--border2)}
+.ki-ico{font-size:1.5rem;margin-bottom:9px}
+.ki-lbl{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;opacity:.6}
+.ki-val{font-size:.97rem;font-weight:700;line-height:1.4}
+.sec-t{font-family:"Unbounded",sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid}
+.prose{font-size:.98rem;color:rgba(240,238,248,.6);line-height:1.85;font-weight:300;max-width:760px;margin-bottom:40px}
+/* GRAND PRIX */
+.gp-box{border-radius:20px;padding:36px;text-align:center;margin-bottom:32px;border:2px solid}
+.gp-lbl{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
+.gp-amt{font-family:"Unbounded",sans-serif;font-size:3.4rem;font-weight:900;line-height:1;margin-bottom:5px}
+.gp-name{font-size:.95rem;color:var(--muted);font-weight:600}
+/* PILLS */
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.pill{padding:10px 16px;border-radius:12px;font-size:.84rem;font-weight:600;border:1px solid}
+.pill small{display:block;font-size:.74rem;font-weight:400;color:var(--muted);margin-top:2px}
+/* TWO COL */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.icard{background:var(--bg2);border-radius:16px;padding:24px;border:1px solid var(--border)}
+.icard h3{font-size:.95rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.icard ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.icard ul li{font-size:.87rem;color:var(--muted);padding-left:13px;position:relative;line-height:1.5}
+.icard ul li::before{content:"•";position:absolute;left:0;font-weight:700}
+.icard p{font-size:.88rem;color:var(--muted);line-height:1.7}
+/* AGES */
+.ages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.age{border-radius:12px;padding:14px;text-align:center;border:1px solid}
+.age-n{font-weight:700;font-size:.88rem;margin-bottom:3px}
+.age-r{font-size:.8rem;color:var(--muted)}
+/* PRICE */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.pcard{border-radius:14px;padding:20px;text-align:center;border:1px solid var(--border)}
+.pamt{font-family:"Unbounded",sans-serif;font-size:2.2rem;font-weight:900;line-height:1}
+.punit{font-size:.72rem;color:var(--muted);margin-top:2px}
+.pnote{font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.4}
+/* DEADLINE */
+.dl-box{border-radius:16px;padding:26px 32px;text-align:center;margin-bottom:20px;border:1px solid}
+.dl-lbl{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;opacity:.6;margin-bottom:7px}
+.dl-date{font-family:"Unbounded",sans-serif;font-size:1.9rem;font-weight:900}
+/* CTA */
+.cta-sect{border-radius:24px;padding:50px 44px;text-align:center;margin-top:60px}
+.cta-sect h2{font-family:"Unbounded",sans-serif;font-size:clamp(1.5rem,2.8vw,2.4rem);color:#fff;margin-bottom:12px}
+.cta-sect p{color:rgba(255,255,255,.65);font-size:.97rem;margin-bottom:28px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 30px}
+.foot-row{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:36px}
+.foot-logo{font-family:"Unbounded",sans-serif;font-size:1rem;font-weight:900;letter-spacing:.04em}
+.foot-logo em{font-style:normal;color:var(--accent)}
+.foot-info p{font-size:.78rem;color:var(--muted);margin-top:7px;max-width:250px;line-height:1.6}
+.foot-nav{display:flex;gap:44px;flex-wrap:wrap}
+.foot-col h4{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.foot-col a{display:block;font-size:.83rem;color:rgba(240,238,248,.5);margin-bottom:8px}
+.foot-col a:hover{color:var(--text)}
+.foot-bot{max-width:1280px;margin:22px auto 0;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bot p,.foot-bot a{font-size:.72rem;color:var(--muted)}
+@media(max-width:900px){.fest-hero{padding:80px 24px 50px}.fest-logo-float{display:none}.fbody{padding:44px 20px 70px}.two{grid-template-columns:1fr}.ages{grid-template-columns:repeat(2,1fr)}.pgrid{grid-template-columns:1fr}}
+@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}footer{padding:44px 20px 26px}}
+.fest-hero{background:linear-gradient(135deg,#16355a,#2d6090,#16355a);filter:grayscale(20%)}
+.arch-banner{background:#1a1a28;border-bottom:1px solid var(--border);padding:12px 48px;display:flex;align-items:center;gap:10px}
+.arch-banner p{font-size:.83rem;color:rgba(255,255,255,.5)}
+.arch-banner strong{color:rgba(255,255,255,.75)}
+.ki{background:rgba(45,96,144,.07)}
+.ki-lbl{color:rgba(45,96,144,.8)!important}
+.sec-t{color:#4a80b0;border-color:rgba(45,96,144,.18)}
+.gp-box{background:linear-gradient(135deg,rgba(45,96,144,.07),rgba(212,168,67,.08));border-color:rgba(45,96,144,.2);opacity:.85}
+.gp-amt{color:var(--gold)}.gp-lbl{color:#4a80b0}
+.pill{background:rgba(45,96,144,.08);border-color:rgba(45,96,144,.2);color:#4a80b0}
+.age{background:rgba(45,96,144,.05);border-color:rgba(45,96,144,.15)}.age-n{color:#4a80b0}
+.pcard{background:rgba(45,96,144,.07)}.pamt{color:#4a80b0}
+.dl-box{background:rgba(45,96,144,.07);border-color:rgba(45,96,144,.18)}.dl-date{color:#4a80b0}
+.icard ul li::before{color:#4a80b0}.icard h3{color:#4a80b0}
+.cta-sect{background:linear-gradient(135deg,#5e1650,#a83483)}
+.btn-wh{color:#5e1650}
+@media(max-width:768px){.arch-banner{padding:10px 16px}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <a href="index.html" class="hdr-logo">Я<em>-</em>ФЕСТ</a>
+  <nav class="hdr-nav">
+    <a href="festivals.html" class="on">фестивали</a>
+    <a href="laboratories.html">лаборатории</a>
+    <a href="camp.html">лагерь</a>
+    <a href="about.html">о нас</a>
+    <a href="index.html#contact">контакты</a>
+  </nav>
+  <div class="hdr-right">
+    <a href="festivals.html" class="back">← Все фестивали</a>
+    <a href="index.html#contact" class="hdr-cta" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.7)">Написать нам</a>
+  </div>
+</header>
+
+<div class="arch-banner">
+  <span>📁</span>
+  <p><strong>Архивная страница</strong> — фестиваль «Зимний театр» состоялся 12–14 января 2026 года в Москве. Следите за анонсами новых фестивалей.</p>
+</div>
+
+<section class="fest-hero">
+  <div class="fh-inner">
+    <div class="fh-arch">✅ Фестиваль завершён</div>
+    <div class="fh-pre">I Всероссийский · Москва · Январь 2026</div>
+    <div class="fh-h1" style="color:rgba(255,255,255,.72)">Зимний<br>театр</div>
+    <p class="fh-sub" style="color:rgba(255,255,255,.48)">Фестиваль-лаборатория театрального искусства. Состоялся в Концертном зале «Измайлово» 12–14 января 2026 года.</p>
+    <div class="fh-chips">
+      <span class="fchip" style="opacity:.7">✅ Завершён</span>
+      <span class="fchip" style="opacity:.7">📅 12–14 января 2026</span>
+      <span class="fchip" style="opacity:.7">📍 Москва · КЗ «Измайлово»</span>
+    </div>
+  </div>
+  <div class="fest-logo-float" style="opacity:.55"><span class="em">❄️</span><span class="nm">Зимний театр</span></div>
+</section>
+
+<main class="fbody">
+
+  <div class="ki-row">
+    <div class="ki"><div class="ki-ico">📅</div><div class="ki-lbl">Даты проведения</div><div class="ki-val">12–14 января 2026</div></div>
+    <div class="ki"><div class="ki-ico">📍</div><div class="ki-lbl">Место</div><div class="ki-val">Москва · КЗ «Измайлово»</div></div>
+    <div class="ki"><div class="ki-ico">🏛️</div><div class="ki-lbl">Организатор</div><div class="ki-val">Продюсерский центр «Я»</div></div>
+    <div class="ki"><div class="ki-ico">🎭</div><div class="ki-lbl">Тип</div><div class="ki-val">Театральный фестиваль-лаборатория</div></div>
+  </div>
+
+  <div class="sec-t">О фестивале</div>
+  <p class="prose">I Всероссийский фестиваль-лаборатория театрального искусства «Зимний театр» прошёл в Москве при поддержке Департамента культуры Москвы. Фестиваль объединил талантливых деятелей театрального искусства со всей России. «Зимний театр» — это не только конкурс, но и лаборатория для обмена опытом, повышения мастерства и создания неповторимой творческой атмосферы.</p>
+
+  <div class="gp-box">
+    <div class="gp-lbl">Главная награда фестиваля</div>
+    <div class="gp-amt">50 000 ₽</div>
+    <div class="gp-name">Гран-при Фестиваля</div>
+  </div>
+
+  <div class="sec-t">Фестивальные направления</div>
+  <div class="pills">
+    <div class="pill">Драматический спектакль<small>Малая форма, до 60 мин.</small></div>
+    <div class="pill">Заявка на будущий спектакль<small>Эскиз/фрагмент, до 20 мин.</small></div>
+    <div class="pill">Музыкально-литературная композиция<small>До 15 минут</small></div>
+    <div class="pill">Художественное слово<small>5–7 мин. на участника</small></div>
+  </div>
+
+  <div class="sec-t" style="margin-top:40px">Условия участия</div>
+  <div class="two">
+    <div class="icard">
+      <h3>👥 Участники</h3>
+      <ul>
+        <li>Любительские театры и театральные школы</li>
+        <li>Студенческие театры</li>
+        <li>Солисты и частные лица</li>
+      </ul>
+    </div>
+    <div class="icard">
+      <h3>🎂 Возрастные категории</h3>
+      <div class="ages">
+        <div class="age"><div class="age-n">Младшая</div><div class="age-r">до 11 лет</div></div>
+        <div class="age"><div class="age-n">Средняя</div><div class="age-r">12–16 лет</div></div>
+        <div class="age"><div class="age-n">Старшая</div><div class="age-r">от 17 лет</div></div>
+        <div class="age"><div class="age-n">Смешанная</div><div class="age-r">без ограничений</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-t" style="margin-top:40px">Призы и награды</div>
+  <div class="two">
+    <div class="icard">
+      <h3>🏆 Главные награды</h3>
+      <ul>
+        <li>Гран-при Фестиваля — <strong>50 000 руб.</strong></li>
+        <li>Лауреат I, II, III степеней</li>
+        <li>Дипломант I, II, III степеней</li>
+        <li>Денежные гранты победителям</li>
+      </ul>
+    </div>
+    <div class="icard">
+      <h3>🌟 Индивидуальные номинации</h3>
+      <ul>
+        <li>Лучшая мужская роль</li>
+        <li>Лучшая женская роль</li>
+        <li>Лучшая роль второго плана (муж./жен.)</li>
+        <li>Лучшая режиссёрская работа</li>
+        <li>Специальные дипломы от жюри</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-t" style="margin-top:40px">Финансовые условия</div>
+  <div class="pgrid">
+    <div class="pcard"><div class="pamt">20 000</div><div class="punit">₽ с человека</div><div class="pnote">Региональные коллективы<br>(каждая 21-я путёвка — бесплатно)</div></div>
+    <div class="pcard"><div class="pamt">9 000</div><div class="punit">₽ с человека</div><div class="pnote">Коллективы из Москвы<br>(без проживания и питания)</div></div>
+  </div>
+  <div class="icard" style="margin-bottom:40px">
+    <h3>✅ Что входило в оргвзнос</h3>
+    <ul>
+      <li>Проживание в гостинице «Измайлово» (2-местные номера «стандарт»)</li>
+      <li>Питание: шведский стол (завтрак, обед, ужин) на весь период</li>
+      <li>Участие во всех фестивальных мероприятиях и мастер-классах</li>
+      <li>Трансфер: вокзал/аэропорт Москвы ↔ отель</li>
+      <li>Работа профессионального жюри</li>
+      <li>Церемонии открытия и закрытия, гала-концерт</li>
+      <li>Наградная атрибутика (дипломы, кубки, призы)</li>
+    </ul>
+  </div>
+
+  <div class="cta-sect">
+    <h2>Следующие фестивали — уже в апреле!</h2>
+    <p>«Театр у моря» и «Кино у моря» в Сочи — регистрация открыта до 10 марта 2026 года</p>
+    <div class="cta-row">
+      <a href="theatre-sea.html" class="btn-wh" style="color:#5e1650">🎭 Театр у моря</a>
+      <a href="cinema-sea.html" class="btn-wh" style="color:#3d0f65">🎬 Кино у моря</a>
+      <a href="festivals.html" class="btn-gl">Все фестивали</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-row">
+    <div class="foot-info"><div class="foot-logo">Я<em>-</em>ФЕСТ</div><p>Продюсерский центр «Я» · Всероссийское фестивальное движение Я-фест · При поддержке Департамента культуры Москвы</p></div>
+    <div class="foot-nav">
+      <div class="foot-col"><h4>Фестивали</h4><a href="theatre-sea.html">Театр у моря</a><a href="cinema-sea.html">Кино у моря</a><a href="winter-theatre.html">Зимний театр (архив)</a></div>
+      <div class="foot-col"><h4>Направления</h4><a href="laboratories.html">Лаборатории</a><a href="camp.html">Творческий лагерь</a><a href="about.html">О нас</a></div>
+      <div class="foot-col"><h4>Контакты</h4><a href="tel:+79601343400">+7 (960) 134-34-00</a><a href="mailto:producer.ya@mail.ru">producer.ya@mail.ru</a><a href="https://vk.com/i_festgo" target="_blank">vk.com/i_festgo</a></div>
+    </div>
+  </div>
+  <div class="foot-bot"><p>© 2026 Я-Фест · Продюсерский центр «Я»</p><a href="#">Политика конфиденциальности</a></div>
+</footer>
+</body>
+</html>
