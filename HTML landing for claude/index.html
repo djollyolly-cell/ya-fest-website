@@ -288,7 +288,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
       </div>
       <div class="feat-btns">
         <a href="theatre-sea.html" class="btn-w">Подробнее</a>
-        <a href="mailto:producer.ya@mail.ru" class="btn-gh">Подать заявку</a>
+        <a href="#contact" class="btn-gh">Подать заявку</a>
       </div>
     </div>
     <div class="feat-vis">
@@ -438,7 +438,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
       <div>
         <div class="sec-kicker">Связаться с нами</div>
         <div class="sec-h" style="margin-bottom:14px">Напишите нам,<br>мы свяжемся с вами</div>
-        <p style="font-size:.97rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:440px">Наши менеджеры ответят на любые вопросы об участии в фестивалях, лабораториях и лагере как можно скорее</p>
+        <p style="font-size:.97rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:440px">Наши менеджеры ответят на любые вопросы об участии в фестивалях, лабораториях и кампусах как можно скорее</p>
         <div class="contact-links">
           <a href="tel:+79601343400" class="clink"><span class="ci">📞</span><div class="cd"><span class="cl">Телефон</span><span>+7 (960) 134-34-00</span></div></a>
           <a href="mailto:producer.ya@mail.ru" class="clink"><span class="ci">✉️</span><div class="cd"><span class="cl">E-mail</span><span>producer.ya@mail.ru</span></div></a>
@@ -446,33 +446,45 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
           <a href="https://vk.com/i_festgo" target="_blank" class="clink"><span class="ci">👥</span><div class="cd"><span class="cl">Группа фестивалей</span><span>vk.com/i_festgo</span></div></a>
         </div>
       </div>
-      <div class="cform">
+      <form class="cform" action="https://formsubmit.co/p.toshiba@yandex.ru" method="POST">
+        <input type="hidden" name="_subject" value="Новая заявка с сайта yafest.ru">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://yafest.ru/index.html?sent=1#contact">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
         <div class="cform-h">Оставить заявку</div>
         <div class="cform-s">Заполните форму — мы свяжемся в ближайшее время</div>
         <div class="frow2">
-          <div class="fg"><label>Ваше имя *</label><input type="text" placeholder="Имя и фамилия"></div>
-          <div class="fg"><label>Телефон *</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+          <div class="fg"><label>Ваше имя *</label><input type="text" name="Имя" placeholder="Имя и фамилия" required></div>
+          <div class="fg"><label>Телефон *</label><input type="tel" name="Телефон" placeholder="+7 (___) ___-__-__" required></div>
         </div>
+        <div class="fg"><label>E-mail</label><input type="email" name="Email" placeholder="email@example.com"></div>
         <div class="fg"><label>Вас интересует</label>
-          <select>
+          <select name="Направление">
             <option value="">Выберите направление</option>
-            <option>Театр у моря (апрель 2026, Сочи)</option>
-            <option>Кино у моря (апрель 2026, Сочи)</option>
+            <option>Театр у моря</option>
+            <option>Кино у моря</option>
             <option>Лаборатории и мастер-классы</option>
-            <option>Творческий лагерь Я-Фест</option>
+            <option>ТЕАТРО КАМПУС</option>
+            <option>DANCE КАМПУС</option>
             <option>Другой вопрос</option>
           </select>
         </div>
         <div class="fg"><label>Как с вами связаться?</label>
-          <select>
-            <option>Звонок по номеру телефона</option>
-            <option>Сообщение в Telegram или WhatsApp</option>
+          <select name="Способ связи">
+            <option>Звонок по телефону</option>
+            <option>Сообщение в Telegram / WhatsApp</option>
+            <option>Написать на e-mail</option>
           </select>
         </div>
-        <div class="fg"><label>Комментарий</label><textarea placeholder="Ваш вопрос..."></textarea></div>
-        <div class="fchk"><input type="checkbox" id="ag"><label for="ag">Я согласен(а) с условиями <a href="#">обработки персональных данных</a></label></div>
-        <button class="btn-sub" onclick="this.textContent='✓ Отправлено! Свяжемся скоро';this.style.background='#2e7d32'">Отправить</button>
-      </div>
+        <div class="fg"><label>Комментарий</label><textarea name="Комментарий" placeholder="Ваш вопрос..."></textarea></div>
+        <div class="fchk"><input type="checkbox" id="ag" required><label for="ag">Я согласен(а) с условиями <a href="#">обработки персональных данных</a></label></div>
+        <button type="submit" class="btn-sub">Отправить</button>
+        <div style="text-align:center;margin-top:12px">
+          <span style="font-size:.85rem;color:var(--muted)">или напишите нам напрямую:</span><br>
+          <a href="https://vk.me/producer_ya" target="_blank" style="display:inline-block;margin-top:8px;padding:10px 24px;background:#0077FF;border-radius:40px;font-size:.85rem;font-weight:700;color:#fff;transition:opacity .2s">Написать в ВКонтакте</a>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -522,6 +534,17 @@ function doF(t,b){
   document.querySelectorAll('.fcard').forEach(c=>{
     c.style.display=(t==='all'||c.dataset.s===t)?'':'none';
   });
+}
+// Показать уведомление после отправки формы
+if(window.location.search.includes('sent=1')){
+  setTimeout(()=>{
+    const f=document.querySelector('.cform');
+    if(f){
+      const msg=document.createElement('div');
+      msg.innerHTML='<div style="background:#2e7d32;color:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:20px;font-weight:600;font-size:1.1rem">✓ Заявка отправлена! Мы свяжемся с вами в ближайшее время.</div>';
+      f.insertBefore(msg.firstChild,f.firstChild);
+    }
+  },300);
 }
 </script>
 </body>
