@@ -27,11 +27,11 @@ a{color:inherit;text-decoration:none}
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 48px 80px;position:relative;overflow:hidden;background:radial-gradient(ellipse 130% 70% at 50% -10%,rgba(69,188,229,.18),transparent 60%),radial-gradient(ellipse 70% 50% at 85% 90%,rgba(221,86,142,.1),transparent 50%),var(--bg)}
 .hero-inner{display:flex;align-items:center;gap:60px;max-width:1280px;width:100%;margin:0 auto}
-.hero-content{flex:1;text-align:left}
-.hero-globe{flex:0 0 380px;display:flex;align-items:center;justify-content:center}
-.hero-globe img{width:400px;height:400px;object-fit:cover;filter:drop-shadow(0 0 40px rgba(221,86,142,.3)) drop-shadow(0 0 80px rgba(69,188,229,.2));animation:globe-float 4s ease-in-out infinite}
+.hero-content{flex:1;min-width:0;text-align:left}
+.hero-globe{flex:0 0 320px;display:flex;align-items:center;justify-content:center}
+.hero-globe video{width:320px;height:320px;object-fit:cover;mix-blend-mode:screen;filter:drop-shadow(0 0 40px rgba(221,86,142,.3)) drop-shadow(0 0 80px rgba(69,188,229,.2));animation:globe-float 4s ease-in-out infinite}
 @keyframes globe-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@media(max-width:900px){.hero-inner{flex-direction:column-reverse;text-align:center}.hero-content{text-align:center}.hero-globe{flex:none}.hero-globe img{width:260px;height:260px}}
+@media(max-width:900px){.hero-inner{flex-direction:column-reverse;text-align:center}.hero-content{text-align:center}.hero-globe{flex:none}.hero-globe video{width:260px;height:260px}}
 .hero-kicker{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
 .hero h1{font-family:'Unbounded',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:900;line-height:.92;margin-bottom:26px}
 .hero h1 .hi{display:block;color:var(--accent)}
@@ -96,12 +96,13 @@ a{color:inherit;text-decoration:none}
 .stat-l{font-size:.83rem;color:var(--muted);line-height:1.45}
 
 /* ── JURY ── */
-.jury-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:44px}
-.jcard{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:22px 18px;transition:all .25s}
+.jury-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:44px}
+.jcard{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:all .25s}
 .jcard:hover{border-color:rgba(221,86,142,.28);transform:translateY(-4px)}
-.javatar{width:60px;height:60px;border-radius:50%;margin-bottom:13px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,var(--accent),var(--accent2))}
-.jname{font-size:.9rem;font-weight:700;margin-bottom:4px;line-height:1.3}
-.jrole{font-size:.77rem;color:var(--muted);line-height:1.55}
+.javatar{width:90px;height:90px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.85);background:linear-gradient(135deg,var(--accent),var(--accent2));overflow:hidden}
+.javatar img{width:100%;height:100%;object-fit:cover}
+.jname{font-size:.88rem;font-weight:700;margin-bottom:4px;line-height:1.3}
+.jrole{font-size:.74rem;color:var(--muted);line-height:1.5}
 
 /* ── POSTER / FESTIVAL CARDS ── */
 .poster-hdr{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px}
@@ -193,7 +194,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
   <nav class="hdr-nav">
     <a href="festivals.html">фестивали</a>
     <a href="laboratories.html">лаборатории</a>
-    <a href="camp.html">лагерь</a>
+    <a href="camp.html">кампус</a>
     <a href="about.html">о нас</a>
     <a href="#contact">контакты</a>
   </nav>
@@ -216,7 +217,10 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
       </div>
     </div>
     <div class="hero-globe">
-      <img src="globe.webp" alt="Я-Фест — 3D глобус">
+      <video autoplay loop muted playsinline>
+        <source src="logo_video.webm" type="video/webm">
+        <source src="logo_video.MOV" type="video/mp4">
+      </video>
     </div>
   </div>
   <div class="hero-scroll">
@@ -299,14 +303,22 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
     <div class="sec-kicker">Профессиональное жюри</div>
     <div class="sec-h">Жюри наших фестивалей</div>
     <div class="jury-grid">
-      <div class="jcard"><div class="javatar">🎭</div><div class="jname">Артисты театра и кино</div><div class="jrole">Ведущие российские актёры и режиссёры театра и кино с многолетней практикой</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#2d6090,#1a3a5c)">🎬</div><div class="jname">Кинорежиссёры</div><div class="jrole">Режиссёры художественного и документального кино, члены союзов кинематографистов</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#c09020,#8a6515)">🏫</div><div class="jname">Педагоги ГИТИС</div><div class="jrole">Преподаватели Российского института театрального искусства (ГИТИС)</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#186040,#0e4028)">🎓</div><div class="jname">Педагоги РГИСИ</div><div class="jrole">Российский государственный институт сценических искусств, Санкт-Петербург</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#8020b0,#501070)">🎪</div><div class="jname">Щепкинское и Щукинское</div><div class="jrole">Педагоги Высшего театрального училища им. Щепкина и Театрального института им. Щукина</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#c04020,#8a2010)">🎞️</div><div class="jname">ВГИК</div><div class="jrole">Педагоги Всероссийского государственного института кинематографии им. Герасимова</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#1a6080,#0e3a50)">🎥</div><div class="jname">Продюсеры и агенты</div><div class="jrole">Кастинг-директоры, киноагенты и продюсеры — для фестиваля «Кино у моря»</div></div>
-      <div class="jcard"><div class="javatar" style="background:linear-gradient(135deg,#606020,#404010)">🌟</div><div class="jname">Театральные критики</div><div class="jrole">Театроведы, критики и руководители ведущих российских театров</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/zaslavsky.jpg" alt="Григорий Заславский"></div><div class="jname">Григорий Заславский</div><div class="jrole">Ректор ГИТИСа, театральный критик</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/galibin.jpg" alt="Александр Галибин"></div><div class="jname">Александр Галибин</div><div class="jrole">Народный артист РФ, актёр, режиссёр</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D1%8C%D0%B5%D0%B2%D0%B0.jpg" alt="Татьяна Васильева" style="object-position:center 15%"></div><div class="jname">Татьяна Васильева</div><div class="jrole">Народная артистка РФ, актриса театра и кино</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/agapov.jpg" alt="Иван Агапов"></div><div class="jname">Иван Агапов</div><div class="jrole">Народный артист РФ, актёр Ленкома</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/cherkassky.jpg" alt="Сергей Черкасский"></div><div class="jname">Сергей Черкасский</div><div class="jrole">Профессор РГИСИ, театровед</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D1%80%D0%B0%D0%B4%D0%B0%20%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0.jpg" alt="Рада Новикова"></div><div class="jname">Рада Новикова</div><div class="jrole">Член жюри</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B2%D0%B8%D1%82%D0%B0%D0%BB%D0%B8%D0%B9%20%D0%BB%D1%8E%D0%B1%D1%81%D0%BA%D0%B8%D0%B9.jpg" alt="Виталий Любский"></div><div class="jname">Виталий Любский</div><div class="jrole">Член жюри</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/filshtinsky.jpg" alt="Вениамин Фильштинский"></div><div class="jname">Вениамин Фильштинский</div><div class="jrole">Профессор РГИСИ, режиссёр-педагог</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B8%D1%80%D0%B8%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B2%D0%B8%D1%86%D0%BA%D0%B0%D1%8F-%D0%B3%D0%B0%D0%BB%D0%B8%D0%B1%D0%B8%D0%BD%D0%B0%20%D0%B3%D0%B8%D1%82%D0%B8%D1%81%2C%20%D0%B2%D0%B3%D0%B8%D0%BA%2C%20%D0%B0%D0%BA%D1%82%D1%80%D0%B8%D1%81%D0%B0.jpg" alt="Ирина Савицкова" style="object-position:center 15%"></div><div class="jname">Ирина Савицкова</div><div class="jrole">ГИТИС, ВГИК, актриса</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B8%D1%80%D0%B8%D0%BD%D0%B0%20%D0%B0%D0%BC%D0%B1%D1%80%D0%BE%D1%81%D0%B8%D0%B5%D0%B2%D0%B0.jpg" alt="Ирина Амбросимова"></div><div class="jname">Ирина Амбросимова</div><div class="jrole">Член жюри</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%98%D1%81%D0%B0%D0%B5%D0%B2%D0%B0.jpg" alt="Елена Исаева"></div><div class="jname">Елена Исаева</div><div class="jrole">Драматург</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/tolstaya.jpg" alt="Стася Толстая"></div><div class="jname">Стася Толстая</div><div class="jrole">Режиссёр</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B4%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9%20%D1%87%D0%B5%D0%B1%D0%BE%D1%82%D0%B0%D1%80%D0%B5%D0%B2.png" alt="Дмитрий Чеботарев"></div><div class="jname">Дмитрий Чеботарев</div><div class="jrole">Режиссёр</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B0%D0%BD%D1%82%D0%BE%D0%BD%D0%B8%D0%BD%D0%B0%20%D0%BA%D1%83%D0%B7%D0%BD%D0%B5%D1%86%D0%BE%D0%B2%D0%B0.png" alt="Антонина Кузнецова"></div><div class="jname">Антонина Кузнецова</div><div class="jrole">Народная артистка РФ</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B4%D0%B5%D0%BD%D0%B8%D1%81%20%D1%81%D1%82%D0%B5%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2.png" alt="Денис Степанов" style="object-position:center 20%"></div><div class="jname">Денис Степанов</div><div class="jrole">Актёр Ленкома</div></div>
+      <div class="jcard"><div class="javatar"><img src="jury/%D0%B0%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%20%D0%BA%D0%B0%D1%80%D0%BF%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9.png" alt="Александр Карпиловский"></div><div class="jname">Александр Карпиловский</div><div class="jrole">Кинорежиссёр</div></div>
     </div>
   </div>
 </section>
@@ -443,7 +455,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
     <div class="foot-col">
       <h4>Направления</h4>
       <a href="laboratories.html">Лаборатории</a>
-      <a href="camp.html">Творческий лагерь</a>
+      <a href="camp.html">Кампус</a>
       <a href="about.html">О нас</a>
     </div>
     <div class="foot-col">

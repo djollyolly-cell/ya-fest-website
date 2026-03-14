@@ -118,7 +118,28 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
 .icard ul li::before{color:#4a80b0}.icard h3{color:#4a80b0}
 .cta-sect{background:linear-gradient(135deg,#5e1650,#a83483)}
 .btn-wh{color:#5e1650}
-@media(max-width:768px){.arch-banner{padding:10px 16px}}
+/* GALLERY */
+.gallery-grid{columns:3;gap:14px;margin-bottom:48px}
+.gallery-grid img{width:100%;border-radius:14px;margin-bottom:14px;display:block;cursor:pointer;transition:transform .3s,filter .3s;filter:grayscale(15%)}
+.gallery-grid img:hover{transform:scale(1.03);filter:grayscale(0)}
+.gallery-more{text-align:center;margin-bottom:48px}
+.gallery-more button{padding:11px 28px;background:rgba(74,128,176,.12);border:1px solid rgba(74,128,176,.25);border-radius:40px;color:#4a80b0;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s}
+.gallery-more button:hover{background:rgba(74,128,176,.2)}
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:48px}
+.review-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px}
+.review-stars{color:#d4a843;font-size:.9rem;margin-bottom:12px;letter-spacing:2px}
+.review-text{font-size:.9rem;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:16px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:rgba(74,128,176,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.review-name{font-size:.85rem;font-weight:700}
+.review-role{font-size:.75rem;color:var(--muted)}
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain}
+@media(max-width:900px){.gallery-grid{columns:2}.reviews-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.arch-banner{padding:10px 16px}.gallery-grid{columns:1}}
 </style>
 </head>
 <body>
@@ -127,7 +148,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
   <nav class="hdr-nav">
     <a href="festivals.html" class="on">фестивали</a>
     <a href="laboratories.html">лаборатории</a>
-    <a href="camp.html">лагерь</a>
+    <a href="camp.html">кампус</a>
     <a href="about.html">о нас</a>
     <a href="index.html#contact">контакты</a>
   </nav>
@@ -245,6 +266,74 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
     </ul>
   </div>
 
+  <div class="sec-t" style="margin-top:40px">Фотографии с фестиваля</div>
+  <div class="gallery-grid" id="gallery">
+    <img src="photos/%D0%B3%D0%B0%D0%BB%D0%B8%D0%B1%D0%B8%D0%BD%20%D0%BD%D0%B0%20%D1%81%D1%86%D0%B5%D0%BD%D0%B5.JPG" alt="На сцене фестиваля" loading="lazy">
+    <img src="photos/IMG_0223.JPG" alt="Выступление участников" loading="lazy">
+    <img src="photos/%D1%8D%D0%BC%D0%BE%D1%86%D0%B8%D0%B8.JPG" alt="Эмоции на сцене" loading="lazy">
+    <img src="photos/IMG_0366.JPG" alt="Награждение победителей" loading="lazy">
+    <img src="photos/%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D1%8B.JPG" alt="Рождение звезды" loading="lazy">
+    <img src="photos/IMG_0374.JPG" alt="Фестивальные моменты" loading="lazy">
+    <img src="photos/IMG_8485.JPG" alt="Атмосфера фестиваля" loading="lazy">
+    <img src="photos/IMG_0406.JPG" alt="Мастер-класс" loading="lazy">
+    <img src="photos/%D1%81%D0%BB%D1%83%D1%88%D0%B0%D0%B9%D1%82%D0%B5!.JPG" alt="Слушайте!" loading="lazy">
+    <img src="photos/IMG_0442.JPG" alt="Творческий процесс" loading="lazy">
+    <img src="photos/IMG_8570.JPG" alt="Церемония" loading="lazy">
+    <img src="photos/IMG_0495.JPG" alt="Участники фестиваля" loading="lazy">
+  </div>
+  <div class="gallery-more"><button onclick="showAllPhotos()">Показать все фотографии</button></div>
+  <div class="gallery-grid" id="gallery-extra" style="display:none">
+    <img src="photos/IMG_0368.JPG" alt="Фестивальные моменты" loading="lazy">
+    <img src="photos/IMG_0389.JPG" alt="На сцене" loading="lazy">
+    <img src="photos/IMG_0412.JPG" alt="Выступление" loading="lazy">
+    <img src="photos/IMG_0421.JPG" alt="Участники" loading="lazy">
+    <img src="photos/IMG_0445.JPG" alt="Моменты фестиваля" loading="lazy">
+    <img src="photos/IMG_0492.JPG" alt="Творчество" loading="lazy">
+    <img src="photos/IMG_0499.JPG" alt="На сцене" loading="lazy">
+    <img src="photos/IMG_0503.JPG" alt="Выступление" loading="lazy">
+    <img src="photos/IMG_8541.JPG" alt="Фестиваль" loading="lazy">
+    <img src="photos/IMG_8542.JPG" alt="Участники" loading="lazy">
+    <img src="photos/IMG_8615.JPG" alt="Церемония" loading="lazy">
+    <img src="photos/IMG_8630.JPG" alt="Финал фестиваля" loading="lazy">
+    <img src="photos/%D0%BA%D0%BE%D0%B3%D0%BE-%D1%82%D0%BE%20%D0%B8%D0%B7%20%D0%BD%D0%B8%D1%85.JPG" alt="Участники" loading="lazy">
+  </div>
+
+  <div class="sec-t" style="margin-top:40px">Отзывы участников</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Невероятная атмосфера! Мастер-классы от педагогов ГИТИСа — это бесценный опыт. Мы увезли домой не только диплом, но и огромный заряд вдохновения.»</p>
+      <div class="review-author">
+        <div class="review-avatar">🎭</div>
+        <div><div class="review-name">Участник фестиваля</div><div class="review-role">Театральная студия, Самара</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Прекрасная организация от начала до конца. Трансфер, проживание, питание — всё на высоте. А конкурсная программа подарила массу эмоций.»</p>
+      <div class="review-author">
+        <div class="review-avatar">🎪</div>
+        <div><div class="review-name">Участник фестиваля</div><div class="review-role">Театральная школа, Казань</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Жюри дало невероятно ценную обратную связь. Каждое замечание — на вес золота. Обязательно поедем на "Театр у моря"!»</p>
+      <div class="review-author">
+        <div class="review-avatar">🌟</div>
+        <div><div class="review-name">Участник фестиваля</div><div class="review-role">Молодёжный театр, Екатеринбург</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Первый раз участвовали в подобном конкурсе и были приятно удивлены уровнем организации. Гала-концерт — это отдельное шоу!»</p>
+      <div class="review-author">
+        <div class="review-avatar">🎬</div>
+        <div><div class="review-name">Участник фестиваля</div><div class="review-role">Детская студия, Новосибирск</div></div>
+      </div>
+    </div>
+  </div>
+
   <div class="cta-sect">
     <h2>Следующие фестивали — уже в апреле!</h2>
     <p>«Театр у моря» и «Кино у моря» в Сочи — регистрация открыта до 10 марта 2026 года</p>
@@ -257,12 +346,35 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
 
 </main>
 
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lb-img" src="" alt="">
+</div>
+<script>
+document.querySelectorAll('.gallery-grid img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    document.getElementById('lb-img').src=img.src;
+    document.getElementById('lightbox').classList.add('active');
+  });
+});
+function showAllPhotos(){
+  const extra=document.getElementById('gallery-extra');
+  extra.style.display='block';
+  extra.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      document.getElementById('lb-img').src=img.src;
+      document.getElementById('lightbox').classList.add('active');
+    });
+  });
+  document.querySelector('.gallery-more').style.display='none';
+}
+</script>
+
 <footer>
   <div class="foot-row">
     <div class="foot-info"><div class="foot-logo">Я<em>-</em>ФЕСТ</div><p>Продюсерский центр «Я» · Всероссийское фестивальное движение Я-фест · При поддержке Департамента культуры Москвы</p></div>
     <div class="foot-nav">
       <div class="foot-col"><h4>Фестивали</h4><a href="theatre-sea.html">Театр у моря</a><a href="cinema-sea.html">Кино у моря</a><a href="winter-theatre.html">Зимний театр (архив)</a></div>
-      <div class="foot-col"><h4>Направления</h4><a href="laboratories.html">Лаборатории</a><a href="camp.html">Творческий лагерь</a><a href="about.html">О нас</a></div>
+      <div class="foot-col"><h4>Направления</h4><a href="laboratories.html">Лаборатории</a><a href="camp.html">Кампус</a><a href="about.html">О нас</a></div>
       <div class="foot-col"><h4>Контакты</h4><a href="tel:+79601343400">+7 (960) 134-34-00</a><a href="mailto:producer.ya@mail.ru">producer.ya@mail.ru</a><a href="https://vk.com/i_festgo" target="_blank">vk.com/i_festgo</a></div>
     </div>
   </div>
