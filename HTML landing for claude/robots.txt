@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow:
+
+Sitemap: https://yafest.ru/sitemap.xml
+
+Host: yafest.ru
