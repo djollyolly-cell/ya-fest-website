@@ -11,8 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$TOKEN = '8419160569:AAHGhFJZmDe87rUG3X4zmnLVBWtxv5eLTj4';
-$CHAT_ID = '-5101371398';
+// ── Антибот: проверка токена ──
+// Секретный ключ (такой же используется в JS на клиенте)
+$SECRET = 'yafest2026secure';
 
 $input = json_decode(file_get_contents('php://input'), true);
 if (!$input || empty($input['text'])) {
@@ -20,6 +21,59 @@ if (!$input || empty($input['text'])) {
     echo json_encode(['ok' => false, 'error' => 'No text']);
     exit;
 }
+
+// Проверка: токен = sha256(secret + дата в формате YYYY-MM-DD-HH)
+// Принимаем токен текущего часа и предыдущего (на стыке часов)
+$token = $input['_token'] ?? '';
+$now = time();
+$validTokens = [
+    hash('sha256', $SECRET . date('Y-m-d-H', $now)),
+    hash('sha256', $SECRET . date('Y-m-d-H', $now - 3600)),
+];
+if (!in_array($token, $validTokens, true)) {
+    http_response_code(403);
+    echo json_encode(['ok' => false, 'error' => 'Invalid token']);
+    exit;
+}
+
+// Проверка: honeypot-поле должно быть пустым
+if (!empty($input['_website'])) {
+    http_response_code(403);
+    echo json_encode(['ok' => false, 'error' => 'Bot detected']);
+    exit;
+}
+
+// Проверка: timestamp — форма должна быть заполнена минимум 3 секунды
+$ts = intval($input['_ts'] ?? 0);
+if ($ts > 0 && ($now - $ts) < 3) {
+    http_response_code(429);
+    echo json_encode(['ok' => false, 'error' => 'Too fast']);
+    exit;
+}
+
+// ── Rate-limit по IP: макс 5 заявок за 10 минут ──
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rlDir = sys_get_temp_dir() . '/yafest_rl';
+if (!is_dir($rlDir)) { @mkdir($rlDir, 0755, true); }
+$rlFile = $rlDir . '/' . md5($ip) . '.json';
+
+$rlData = [];
+if (file_exists($rlFile)) {
+    $rlData = json_decode(file_get_contents($rlFile), true) ?: [];
+    // Убираем записи старше 10 минут
+    $rlData = array_filter($rlData, function($t) use ($now) { return ($now - $t) < 600; });
+}
+if (count($rlData) >= 5) {
+    http_response_code(429);
+    echo json_encode(['ok' => false, 'error' => 'Rate limit']);
+    exit;
+}
+$rlData[] = $now;
+file_put_contents($rlFile, json_encode(array_values($rlData)));
+
+// ── Отправка в Telegram ──
+$TOKEN = '8419160569:AAHGhFJZmDe87rUG3X4zmnLVBWtxv5eLTj4';
+$CHAT_ID = '-5101371398';
 
 $text = substr($input['text'], 0, 4000);
 

@@ -490,6 +490,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
         <input type="hidden" name="_next" value="https://yafest.ru/index.html?sent=1#contact">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" style="display:none">
+        <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="_website" tabindex="-1" autocomplete="off"></div>
         <div class="cform-h">Оставить заявку</div>
         <div class="cform-s">Заполните форму — мы свяжемся в ближайшее время</div>
         <div class="frow2">
@@ -612,14 +613,33 @@ function doF(t,b){
     return obj;
   }
 
+  // Антибот: генерация токена (sha256 от секрета + текущий час)
+  var ANTI_SECRET='yafest2026secure';
+  var formLoadTime=Math.floor(Date.now()/1000);
+
+  function sha256(str){
+    var buf=new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256',buf).then(function(h){
+      return Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    });
+  }
+
+  function getAntiToken(){
+    var d=new Date();
+    var key=ANTI_SECRET+d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+'-'+String(d.getHours()).padStart(2,'0');
+    return sha256(key);
+  }
+
   // Отправить в Telegram через серверный прокси
   function sendToTelegram(data){
     var lines=['Новая заявка с сайта yafest.ru',''];
-    for(var k in data){ if(data[k]) lines.push(k+': '+data[k]); }
-    return fetch(TG_PROXY_URL,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({text:lines.join('\n')})
+    for(var k in data){ if(data[k] && k[0]!=='_') lines.push(k+': '+data[k]); }
+    return getAntiToken().then(function(token){
+      return fetch(TG_PROXY_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({text:lines.join('\n'),_token:token,_website:'',_ts:formLoadTime})
+      });
     }).then(function(r){return r.ok;}).catch(function(){return false;});
   }
 
