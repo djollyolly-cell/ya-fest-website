@@ -586,9 +586,7 @@ function doF(t,b){
 /* ── Форма: AJAX + localStorage fallback ── */
 (function(){
   var FORMSUBMIT_URL='https://formsubmit.co/ajax/p.toshiba@yandex.ru';
-  // Telegram-бот (заполнить после создания бота):
-  var TG_BOT_TOKEN='8419160569:AAHGhFJZmDe87rUG3X4zmnLVBWtxv5eLTj4';
-  var TG_CHAT_ID='-5101371398';
+  var TG_PROXY_URL='/tg-notify.php';
 
   var form=document.querySelector('.cform');
   if(!form) return;
@@ -614,16 +612,14 @@ function doF(t,b){
     return obj;
   }
 
-  // Отправить в Telegram
+  // Отправить в Telegram через серверный прокси
   function sendToTelegram(data){
-    if(!TG_BOT_TOKEN||!TG_CHAT_ID) return Promise.resolve(false);
     var lines=['Новая заявка с сайта yafest.ru',''];
     for(var k in data){ if(data[k]) lines.push(k+': '+data[k]); }
-    var url='https://api.telegram.org/bot'+TG_BOT_TOKEN+'/sendMessage';
-    return fetch(url,{
+    return fetch(TG_PROXY_URL,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:TG_CHAT_ID,text:lines.join('\n'),parse_mode:'HTML'})
+      body:JSON.stringify({text:lines.join('\n')})
     }).then(function(r){return r.ok;}).catch(function(){return false;});
   }
 
