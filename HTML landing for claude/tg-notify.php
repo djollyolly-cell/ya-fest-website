@@ -43,12 +43,40 @@ if (!empty($input['_website'])) {
     exit;
 }
 
-// Проверка: timestamp — форма должна быть заполнена минимум 3 секунды
+// Проверка: timestamp — форма должна быть заполнена минимум 5 секунд
 $ts = intval($input['_ts'] ?? 0);
-if ($ts > 0 && ($now - $ts) < 3) {
+if ($ts > 0 && ($now - $ts) < 5) {
     http_response_code(429);
     echo json_encode(['ok' => false, 'error' => 'Too fast']);
     exit;
+}
+
+// Проверка: текст не должен содержать мусорные данные (случайные строки)
+// Простая эвристика: если в имени/телефоне слишком много согласных подряд — спам
+$text = $input['text'] ?? '';
+if (preg_match('/Имя:\s*([^\n]+)/', $text, $m)) {
+    $name = trim($m[1]);
+    // Имя должно содержать только буквы, пробелы и дефисы
+    if (!preg_match('/^[A-Za-zА-Яа-яЁё\s\-]{2,60}$/u', $name)) {
+        http_response_code(403);
+        echo json_encode(['ok' => false, 'error' => 'Invalid name']);
+        exit;
+    }
+    // Эвристика: 5+ согласных подряд в латинице = мусор
+    if (preg_match('/[bcdfghjklmnpqrstvwxyz]{5}/i', $name)) {
+        http_response_code(403);
+        echo json_encode(['ok' => false, 'error' => 'Suspicious name']);
+        exit;
+    }
+}
+if (preg_match('/Телефон:\s*([^\n]+)/', $text, $m)) {
+    $phone = trim($m[1]);
+    // Телефон должен содержать только цифры, пробелы, +, -, (, )
+    if (!preg_match('/^[\d\s\+\-\(\)]{7,20}$/', $phone)) {
+        http_response_code(403);
+        echo json_encode(['ok' => false, 'error' => 'Invalid phone']);
+        exit;
+    }
 }
 
 // ── Rate-limit по IP: макс 5 заявок за 10 минут ──
@@ -63,7 +91,7 @@ if (file_exists($rlFile)) {
     // Убираем записи старше 10 минут
     $rlData = array_filter($rlData, function($t) use ($now) { return ($now - $t) < 600; });
 }
-if (count($rlData) >= 5) {
+if (count($rlData) >= 3) {
     http_response_code(429);
     echo json_encode(['ok' => false, 'error' => 'Rate limit']);
     exit;

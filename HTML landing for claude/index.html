@@ -484,18 +484,20 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
           <a href="https://vk.com/i_festgo" target="_blank" class="clink"><span class="ci">👥</span><div class="cd"><span class="cl">Группа фестивалей</span><span>vk.com/i_festgo</span></div></a>
         </div>
       </div>
-      <form class="cform" action="https://formsubmit.co/p.toshiba@yandex.ru" method="POST">
+      <form class="cform" action="#" method="POST">
         <input type="hidden" name="_subject" value="Новая заявка с сайта yafest.ru">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_next" value="https://yafest.ru/index.html?sent=1#contact">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" style="display:none">
         <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="_website" tabindex="-1" autocomplete="off"></div>
+        <!-- JS-challenge: бот не заполнит это поле -->
+        <input type="hidden" name="_jschallenge" id="jsc" value="">
         <div class="cform-h">Оставить заявку</div>
         <div class="cform-s">Заполните форму — мы свяжемся в ближайшее время</div>
         <div class="frow2">
-          <div class="fg"><label>Ваше имя *</label><input type="text" name="Имя" placeholder="Имя и фамилия" required></div>
-          <div class="fg"><label>Телефон *</label><input type="tel" name="Телефон" placeholder="+7 (___) ___-__-__" required></div>
+          <div class="fg"><label>Ваше имя *</label><input type="text" name="Имя" placeholder="Имя и фамилия" required pattern="[A-Za-zА-Яа-яЁё\s\-]{2,60}" title="Только буквы, пробелы и дефис (2–60 символов)"></div>
+          <div class="fg"><label>Телефон *</label><input type="tel" name="Телефон" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\-\(\)]{7,20}" title="Введите корректный номер телефона"></div>
         </div>
         <div class="fg"><label>E-mail</label><input type="email" name="Email" placeholder="email@example.com"></div>
         <div class="fg"><label>Вас интересует</label>
@@ -586,11 +588,24 @@ function doF(t,b){
 
 /* ── Форма: AJAX + localStorage fallback ── */
 (function(){
-  var FORMSUBMIT_URL='https://formsubmit.co/ajax/p.toshiba@yandex.ru';
+  // URL собирается из частей в JS — боты не найдут при парсинге HTML
+  var _a='formsubmit.co/ajax/';var _b='p.toshiba';var _c='@yandex.ru';
+  var FORMSUBMIT_URL='https://'+_a+_b+_c;
   var TG_PROXY_URL='/tg-notify.php';
 
   var form=document.querySelector('.cform');
   if(!form) return;
+
+  // JS-challenge: заполняем скрытое поле при загрузке (боты без JS не смогут)
+  var jscField=document.getElementById('jsc');
+  var challengeValue=String(Date.now())+'_'+String(Math.random()).slice(2,10);
+  if(jscField) jscField.value=challengeValue;
+
+  // Кнопка неактивна первые 4 сек после загрузки
+  var btn=form.querySelector('.btn-sub');
+  btn.disabled=true;
+  btn.style.opacity='0.5';
+  setTimeout(function(){btn.disabled=false;btn.style.opacity='';},4000);
 
   // Показать сообщение в форме
   function showMsg(text,ok){
@@ -602,6 +617,26 @@ function doF(t,b){
     d.textContent=text;
     form.insertBefore(d,form.firstChild);
     form.querySelector('.cform-h').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  // Валидация: имя — только буквы, телефон — цифры/+/скобки
+  function validateFields(){
+    var name=form.querySelector('[name="Имя"]').value.trim();
+    var phone=form.querySelector('[name="Телефон"]').value.trim();
+    if(!/^[A-Za-zА-Яа-яЁё\s\-]{2,60}$/.test(name)){
+      showMsg('Пожалуйста, введите корректное имя (только буквы)',false);
+      return false;
+    }
+    if(!/^[\d\s\+\-\(\)]{7,20}$/.test(phone)){
+      showMsg('Пожалуйста, введите корректный номер телефона',false);
+      return false;
+    }
+    // JS-challenge: должно быть заполнено (бот без JS не заполнит)
+    if(!jscField||!jscField.value){
+      showMsg('Ошибка безопасности. Обновите страницу и попробуйте снова.',false);
+      return false;
+    }
+    return true;
   }
 
   // Собрать данные формы в объект
@@ -669,7 +704,6 @@ function doF(t,b){
           .catch(function(){ remaining.push(data); });
         sendToTelegram(data);
       });
-      // Очищаем сразу, неотправленные добавятся обратно через catch
       setTimeout(function(){
         localStorage.setItem('yafest_pending',JSON.stringify(remaining));
       },5000);
@@ -679,7 +713,10 @@ function doF(t,b){
   // Обработка отправки формы
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var btn=form.querySelector('.btn-sub');
+
+    // Клиентская валидация
+    if(!validateFields()) return;
+
     var origText=btn.textContent;
     btn.disabled=true;
     btn.textContent='Отправляем...';
@@ -696,7 +733,6 @@ function doF(t,b){
         }else{ throw new Error('FormSubmit error'); }
       })
       .catch(function(){
-        // FormSubmit недоступен — сохраняем и шлём в Telegram
         saveToLocal(data);
         sendToTelegram(data);
         showMsg('Заявка принята! Мы свяжемся с вами в ближайшее время.',true);
@@ -705,10 +741,12 @@ function doF(t,b){
       .finally(function(){
         btn.disabled=false;
         btn.textContent=origText;
+        // Обновить challenge для следующей отправки
+        challengeValue=String(Date.now())+'_'+String(Math.random()).slice(2,10);
+        if(jscField) jscField.value=challengeValue;
       });
   });
 
-  // При загрузке страницы — пытаемся дослать сохранённые заявки
   retrySaved();
 })();
 </script>
