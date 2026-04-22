@@ -27,8 +27,8 @@ if (!$input || empty($input['text'])) {
 $token = $input['_token'] ?? '';
 $now = time();
 $validTokens = [
-    hash('sha256', $SECRET . date('Y-m-d-H', $now)),
-    hash('sha256', $SECRET . date('Y-m-d-H', $now - 3600)),
+    hash('sha256', $SECRET . gmdate('Y-m-d-H', $now)),
+    hash('sha256', $SECRET . gmdate('Y-m-d-H', $now - 3600)),
 ];
 if (!in_array($token, $validTokens, true)) {
     http_response_code(403);
