@@ -67,6 +67,18 @@ a{color:inherit;text-decoration:none}
 .hdr-cta{padding:9px 20px;background:var(--accent);border-radius:40px;font-size:0.8rem;font-weight:700;color:#fff;white-space:nowrap;transition:background .2s}
 .hdr-cta:hover{background:#C44A7E}
 
+/* ── BURGER ── */
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{display:block;width:100%;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(12,12,24,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:20px;z-index:299;flex-direction:column;gap:4px}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:12px 16px;border-radius:12px;font-size:.92rem;font-weight:600;color:var(--muted);transition:all .2s}
+.mob-menu a:hover{color:var(--text);background:rgba(255,255,255,0.06)}
+.mob-menu .mob-phone{margin-top:8px;padding:12px 16px;font-weight:700;color:var(--text);font-size:.9rem}
+
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 48px 80px;position:relative;overflow:hidden;background:radial-gradient(ellipse 130% 70% at 50% -10%,rgba(69,188,229,.18),transparent 60%),radial-gradient(ellipse 70% 50% at 85% 90%,rgba(221,86,142,.1),transparent 50%),var(--bg)}
 .hero-inner{display:flex;align-items:center;gap:60px;max-width:1280px;width:100%;margin:0 auto}
@@ -226,7 +238,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.feat-box{grid-template-columns:1fr}.feat-vis{display:none}.about-grid{grid-template-columns:1fr;gap:48px}.contact-grid{grid-template-columns:1fr;gap:48px}.foot-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}.featured{padding:0 20px 60px}.feat-body{padding:36px 28px}.section{padding:70px 20px}.hero{padding:100px 20px 70px}footer{padding:50px 20px 30px}.foot-grid{grid-template-columns:1fr;gap:28px}.frow2{grid-template-columns:1fr}.campus-grid{grid-template-columns:1fr!important}}
+@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}.hdr-phone{display:none}.burger{display:flex}.featured{padding:0 20px 60px}.feat-body{padding:36px 28px}.section{padding:70px 20px}.hero{padding:100px 20px 70px}.hero-btns{justify-content:center}footer{padding:50px 20px 30px}.foot-grid{grid-template-columns:1fr;gap:28px}.frow2{grid-template-columns:1fr}.campus-grid{grid-template-columns:1fr!important}}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -257,8 +269,19 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
   <div class="hdr-right">
     <a href="tel:+79601343400" class="hdr-phone">8 (960) 134-34-00</a>
     <a href="#contact" class="hdr-cta">Напишите нам</a>
+    <button class="burger" onclick="document.querySelector('.mob-menu').classList.toggle('open');this.classList.toggle('open')" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+<nav class="mob-menu">
+  <a href="festivals.html">Фестивали</a>
+  <a href="laboratories.html">Мастерские</a>
+  <a href="camp.html">Кампус</a>
+  <a href="about.html">О нас</a>
+  <a href="#contact" onclick="document.querySelector('.mob-menu').classList.remove('open');document.querySelector('.burger').classList.remove('open')">Контакты</a>
+  <a href="tel:+79601343400" class="mob-phone">8 (960) 134-34-00</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
