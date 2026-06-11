@@ -253,6 +253,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108186919" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<script src="analytics.js" defer></script>
 </head>
 <body>
 
@@ -762,6 +763,7 @@ function doF(t,b){
           showMsg('Заявка отправлена! Мы свяжемся с вами в ближайшее время.',true);
           sendToTelegram(data);
           form.reset();
+          try{ if(typeof ym==='function') ym(108186919,'reachGoal','form_submit',{channel:'formsubmit'}); }catch(e){}
         }else{ throw new Error('FormSubmit error'); }
       })
       .catch(function(){
@@ -769,6 +771,7 @@ function doF(t,b){
         sendToTelegram(data);
         showMsg('Заявка принята! Мы свяжемся с вами в ближайшее время.',true);
         form.reset();
+        try{ if(typeof ym==='function') ym(108186919,'reachGoal','form_submit',{channel:'fallback'}); }catch(e){}
       })
       .finally(function(){
         btn.disabled=false;
