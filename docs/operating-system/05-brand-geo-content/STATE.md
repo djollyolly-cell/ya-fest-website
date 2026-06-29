@@ -2,9 +2,10 @@
 
 ## Implemented
 
-A GEO strategy design exists. The first local implementation pass now exists on the production-oriented static HTML surface, but live production availability still requires external verification after deployment.
+A GEO strategy design exists. The first implementation pass now exists on the production-oriented static HTML surface and was verified live on `https://yafest.ru` after production deploy on 2026-06-29.
 
 - First static GEO pass implemented locally on the production-oriented static HTML surface: `facts.html`, `llms.txt`, home-page facts block, campus FAQ/search-intent block, adult campus quick facts, and expanded static GEO smoke checks.
+- Production verification confirmed `facts.html`, `llms.txt`, sitemap, robots, and sitemap-listed routes are available on `https://yafest.ru`.
 
 ## Skeleton or foundation
 
@@ -13,7 +14,7 @@ A GEO strategy design exists. The first local implementation pass now exists on 
 
 ## Not implemented or not verified
 
-- External production state has not been verified in this documentation pass unless explicitly stated in source files.
+- Webmaster/indexation submission is not verified yet.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Risks and compatibility notes

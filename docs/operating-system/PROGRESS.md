@@ -9,7 +9,7 @@ Last updated: 2026-06-29
 - GEO phase status and exit criteria are tracked in [goals/2026-06-29-yafest-geo-phase-goals.md](goals/2026-06-29-yafest-geo-phase-goals.md).
 - Repository evidence points to `HTML landing for claude/` and canonical `https://yafest.ru` as the current production-oriented site surface.
 - The React/Vite site under `website/` uses `https://ya-fest.ru` references, but that domain is not a purchased/public Ya-Fest domain; treat React/Vite as a local prototype/experimental track.
-- Public `https://yafest.ru` availability was not verified in this documentation pass and must be checked before production GEO claims.
+- Public `https://yafest.ru` availability for the first static GEO pass was verified after production deploy on 2026-06-29; see [handoffs/2026-06-29-production-static-geo-deploy.md](handoffs/2026-06-29-production-static-geo-deploy.md).
 
 ## Done
 
@@ -19,15 +19,15 @@ Last updated: 2026-06-29
 - First static GEO implementation pass completed locally on `HTML landing for claude/` and verified with `node "HTML landing for claude/test-geo-static.mjs"` and `node "HTML landing for claude/test-camp-booking-form.mjs"`.
 - Review follow-up added `facts.html` structured data and an explicit `website/` prototype/do-not-deploy guard.
 - Phase goals for the remaining GEO work are documented in [goals/2026-06-29-yafest-geo-phase-goals.md](goals/2026-06-29-yafest-geo-phase-goals.md).
+- Production static GEO deploy completed for `https://yafest.ru` and Phase 2 live verification passed.
 
 ## In progress
 
-- Documentation canonicalization.
-- GEO implementation review and live-domain verification preparation.
+- Phase 3 indexation and webmaster signal preparation.
 
 ## Open
 
-- Verify DNS, HTTPS, redirects, robots, sitemap, and public route availability for `https://yafest.ru`.
+- Submit or resubmit `https://yafest.ru/sitemap.xml` in Yandex.Webmaster and Google Search Console.
 - Decide whether React/Vite under `website/` remains as a prototype or is retired; until then, do not deploy it.
 - Normalize product map across festivals, campuses, teachers, prices, dates, and application rules.
 - Decide prerender/static-generation strategy.

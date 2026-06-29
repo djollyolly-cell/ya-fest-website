@@ -62,7 +62,7 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 **Goal:** Prove that the pushed static GEO layer is actually available on the public `https://yafest.ru/` surface.
 
-**Status:** Open.
+**Status:** Done after production deploy from `origin/main` commit `bb97322`.
 
 **Done means:**
 
@@ -82,6 +82,13 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 - `curl -I https://yafest.ru/llms.txt`
 - `curl -s https://yafest.ru/facts.html | rg "Я-Фест — творческая платформа|DefinedTermSet|https://yafest.ru/facts.html"`
 - `curl -s https://yafest.ru/sitemap.xml | rg "https://yafest.ru/facts.html"`
+
+**Evidence:**
+
+- `docs/operating-system/handoffs/2026-06-29-production-static-geo-deploy.md`
+- Server evidence from ISPmanager Shell: `git rev-parse --short HEAD` returned `bb97322`, `facts.html OK`, and `llms.txt OK`.
+- External checks confirmed `https://yafest.ru/facts.html`, `https://yafest.ru/llms.txt`, `https://yafest.ru/sitemap.xml`, and `https://yafest.ru/robots.txt` return HTTP 200.
+- Sitemap route check confirmed all sitemap-listed URLs return HTTP 200 and no checked canonical uses `https://ya-fest.ru`.
 
 ## Phase 3 - Indexation and Webmaster Signals
 
@@ -225,6 +232,6 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 ## Current Count
 
-- Completed phases: 2 (`Phase 0`, `Phase 1`)
-- Remaining phases for strong GEO completion: 6 (`Phase 2` through `Phase 7`)
-- Minimum next phase to close: `Phase 2 - Live Production Verification`
+- Completed phases: 3 (`Phase 0`, `Phase 1`, `Phase 2`)
+- Remaining phases for strong GEO completion: 5 (`Phase 3` through `Phase 7`)
+- Minimum next phase to close: `Phase 3 - Indexation and Webmaster Signals`
