@@ -94,7 +94,7 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 **Goal:** Give search engines clear crawl/indexation signals for the new GEO surface.
 
-**Status:** In progress. Robots-based sitemap discovery is live; authenticated console submission is pending account access.
+**Status:** Done. Yandex.Webmaster discovered the sitemap from `robots.txt` with status `ok`; Google Search Console verified ownership and accepted `sitemap.xml` with 10 discovered pages.
 
 **Done means:**
 
@@ -120,7 +120,9 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 - `https://yafest.ru/robots.txt` includes `Sitemap: https://yafest.ru/sitemap.xml`.
 - `https://yafest.ru/sitemap.xml` returns HTTP 200 and lists 10 canonical URLs.
 - All 10 sitemap URLs returned HTTP 200 in the 2026-06-29 Phase 3 preflight.
-- Local environment has no Google Search Console or Yandex.Webmaster API token; browser automation was unavailable, so authenticated console submission remains manual or requires user login in an available browser.
+- Yandex.Webmaster screenshot showed `https://yafest.ru/sitemap.xml` found in `robots.txt`, status `ok`, last loaded `27.06.2026 20:28`, with 9 links at that time.
+- Google Search Console ownership was verified by HTML file `googlec5257f56ceb7704e.html`.
+- Google Search Console screenshot showed `sitemap.xml` submitted successfully with 10 discovered pages.
 - Handoff: `docs/operating-system/handoffs/2026-06-29-phase-3-indexation-preflight.md`
 
 ## Phase 4 - Product and Entity Map
@@ -240,6 +242,6 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 ## Current Count
 
-- Completed phases: 3 (`Phase 0`, `Phase 1`, `Phase 2`)
-- Remaining phases for strong GEO completion: 5 (`Phase 3` through `Phase 7`)
-- Minimum next phase to close: `Phase 3 - Indexation and Webmaster Signals`
+- Completed phases: 4 (`Phase 0`, `Phase 1`, `Phase 2`, `Phase 3`)
+- Remaining phases for strong GEO completion: 4 (`Phase 4` through `Phase 7`)
+- Minimum next phase to close: `Phase 4 - Product and Entity Map`

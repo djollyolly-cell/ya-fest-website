@@ -20,14 +20,15 @@ Last updated: 2026-06-29
 - Review follow-up added `facts.html` structured data and an explicit `website/` prototype/do-not-deploy guard.
 - Phase goals for the remaining GEO work are documented in [goals/2026-06-29-yafest-geo-phase-goals.md](goals/2026-06-29-yafest-geo-phase-goals.md).
 - Production static GEO deploy completed for `https://yafest.ru` and Phase 2 live verification passed.
+- Phase 3 sitemap signals completed: Yandex.Webmaster shows sitemap from `robots.txt` with status `ok`, and Google Search Console accepted `sitemap.xml` with 10 discovered pages.
 
 ## In progress
 
-- Phase 3 indexation and webmaster signals: robots-based sitemap discovery is live; authenticated Yandex.Webmaster and Google Search Console submission is pending account access.
+- Phase 4 product and entity map preparation.
 
 ## Open
 
-- Submit or resubmit `https://yafest.ru/sitemap.xml` in Yandex.Webmaster and Google Search Console.
+- Request recrawl for priority URLs in Google Search Console and Yandex.Webmaster where useful.
 - Decide whether React/Vite under `website/` remains as a prototype or is retired; until then, do not deploy it.
 - Normalize product map across festivals, campuses, teachers, prices, dates, and application rules.
 - Decide prerender/static-generation strategy.

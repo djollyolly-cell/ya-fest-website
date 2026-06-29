@@ -62,41 +62,29 @@ Sources:
 
 ## Authenticated Submission Status
 
-Not completed in this pass.
+Completed with user-assisted console access.
 
-Reason:
+Yandex.Webmaster:
+
+- Property: `https://yafest.ru`
+- Sitemap source: `https://yafest.ru/sitemap.xml`, found in `robots.txt`
+- Status: `ok`
+- Screenshot showed last loaded `27.06.2026 20:28` and 9 links at that time.
+
+Google Search Console:
+
+- Property type: URL prefix, `https://yafest.ru/`
+- Ownership verification method: HTML file
+- Verification file deployed and publicly verified: `https://yafest.ru/googlec5257f56ceb7704e.html`
+- Sitemap submitted: `sitemap.xml`
+- Submission result: `Sitemap submitted successfully`
+- Screenshot showed 10 discovered pages.
+
+Local automation note:
 
 - No local Google Search Console or Yandex.Webmaster API token was available.
 - In-app browser automation was unavailable in this environment.
-- Console submission requires an authenticated account with access to `https://yafest.ru/`.
-
-## Manual Submission Steps
-
-### Yandex.Webmaster
-
-1. Open Yandex.Webmaster.
-2. Select `https://yafest.ru/`.
-3. Go to Indexing -> Sitemap files.
-4. Add or update:
-
-```text
-https://yafest.ru/sitemap.xml
-```
-
-5. Record status or screenshot.
-
-### Google Search Console
-
-1. Open Google Search Console.
-2. Select the `https://yafest.ru/` property.
-3. Go to Sitemaps.
-4. Submit:
-
-```text
-https://yafest.ru/sitemap.xml
-```
-
-5. Record status or screenshot.
+- Console submission was completed by the user in authenticated browser sessions.
 
 ## Recrawl URL List
 
@@ -116,4 +104,4 @@ No deploy was performed in this Phase 3 pass. Public files were already live fro
 
 ## Next Gate
 
-Phase 3 can be marked done only after Yandex.Webmaster and Google Search Console submission evidence is recorded, or after an explicit decision accepts robots-based discovery as sufficient for this phase.
+Phase 3 is done for sitemap discovery/submission. Optional next step: request recrawl for the priority URL list above where each console allows it.
