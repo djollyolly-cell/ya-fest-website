@@ -14,6 +14,7 @@ near-term roadmap, stage ordering, implementation ledger references, blocked wor
 ## Source docs and files
 
 - [docs/superpowers/specs/2026-06-29-yafest-geo-design.md](../../superpowers/specs/2026-06-29-yafest-geo-design.md)
+- Active phase plan: [../goals/2026-06-29-yafest-geo-phase-goals.md](../goals/2026-06-29-yafest-geo-phase-goals.md)
 
 ## Out of scope
 

@@ -6,6 +6,7 @@ Last updated: 2026-06-29
 
 - Operating documentation structure has been created as a draft canonical layer.
 - GEO strategy design exists at [../superpowers/specs/2026-06-29-yafest-geo-design.md](../superpowers/specs/2026-06-29-yafest-geo-design.md).
+- GEO phase status and exit criteria are tracked in [goals/2026-06-29-yafest-geo-phase-goals.md](goals/2026-06-29-yafest-geo-phase-goals.md).
 - Repository evidence points to `HTML landing for claude/` and canonical `https://yafest.ru` as the current production-oriented site surface.
 - The React/Vite site under `website/` uses `https://ya-fest.ru` references, but that domain is not a purchased/public Ya-Fest domain; treat React/Vite as a local prototype/experimental track.
 - Public `https://yafest.ru` availability was not verified in this documentation pass and must be checked before production GEO claims.
@@ -17,6 +18,7 @@ Last updated: 2026-06-29
 - Old docs are connected as source/evidence through DOCUMENT_POOL.md.
 - First static GEO implementation pass completed locally on `HTML landing for claude/` and verified with `node "HTML landing for claude/test-geo-static.mjs"` and `node "HTML landing for claude/test-camp-booking-form.mjs"`.
 - Review follow-up added `facts.html` structured data and an explicit `website/` prototype/do-not-deploy guard.
+- Phase goals for the remaining GEO work are documented in [goals/2026-06-29-yafest-geo-phase-goals.md](goals/2026-06-29-yafest-geo-phase-goals.md).
 
 ## In progress
 
