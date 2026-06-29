@@ -4,6 +4,8 @@
 
 Entity source materials exist as markdown documents. A normalized entity registry is not yet implemented.
 
+For Phase 4 and Phase 5, the accepted source rule is now explicit: production-site prices, dates, and conditions are current; site photos and project photo folders are official visual materials; accessible reviews and topical VK posts/albums may be analyzed as proof material with source references.
+
 ## Skeleton or foundation
 
 - Operating documentation files for this area now exist.
@@ -11,7 +13,7 @@ Entity source materials exist as markdown documents. A normalized entity registr
 
 ## Not implemented or not verified
 
-- External production state has not been verified in this documentation pass unless explicitly stated in source files.
+- The normalized `yafest-entity-registry.md` has not been created yet.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Risks and compatibility notes

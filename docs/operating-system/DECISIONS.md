@@ -22,6 +22,7 @@ Use this format inline or link to a dedicated decision record when the decision 
 | 2026-06-29 | Adapt product areas to Ya-Fest rather than copying AIExpert Marketing OS names. | Accepted | 05, 06, 07, 08 |
 | 2026-06-29 | Use `STAGES.md` for area-level phases and do not create `PHASES.md`. | Accepted | All numbered areas |
 | 2026-06-29 | Treat `HTML landing for claude/` with canonical `https://yafest.ru` as the current production-oriented site surface. `https://ya-fest.ru` is not a purchased/public Ya-Fest domain and must not be planned as a redirect or migration target unless it is acquired later by an explicit decision. Treat `website/` React/Vite as a local prototype/experimental track, not production. | Accepted, pending external live-domain verification for `https://yafest.ru` | 01, 02, 09, 11 |
+| 2026-06-29 | For Phase 4 and Phase 5 GEO work, treat all photos already used on the site and all photos in project photo folders as official Ya-Fest visual materials. Treat accessible reviews on the site, in project folders, and in topical VK posts/albums as usable proof material after text analysis. Treat prices, dates, and participation conditions on the current production site as current unless a newer explicit source overrides them. | Accepted | 05, 06, 15, 16 |
 
 ## Pending decisions
 

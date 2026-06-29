@@ -159,6 +159,13 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 - `docs/operating-system/15-entity-memory/yafest-entity-registry.md`
 
+**Accepted source rule:**
+
+- Production-site prices, dates, and participation conditions are current unless a newer explicit source overrides them.
+- Photos already used on the site and photos in project photo folders are official Ya-Fest visual materials.
+- Accessible reviews on the site, in project folders, and in topical VK posts/albums may be analyzed and used as proof material with source references.
+- VK posts and albums should be read for topical relevance before they are used as proof.
+
 ## Phase 5 - Ecosystem Pages and Proof Base
 
 **Goal:** Turn the product/entity map into crawlable pages with enough proof for people, search engines, and AI systems to trust the content.

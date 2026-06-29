@@ -24,7 +24,7 @@ Last updated: 2026-06-29
 
 ## In progress
 
-- Phase 4 product and entity map preparation.
+- Phase 4 product and entity map preparation; Phase 4/5 source rules are accepted in [DECISIONS.md](DECISIONS.md) and [15-entity-memory/CONTRACTS.md](15-entity-memory/CONTRACTS.md).
 
 ## Open
 
