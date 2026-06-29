@@ -6,7 +6,13 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 
 - First static GEO pass implemented locally on the production-oriented static HTML surface: `facts.html`, `llms.txt`, home-page facts block, campus FAQ/search-intent block, adult campus quick facts, and expanded static GEO smoke checks.
 - Production verification confirmed `facts.html`, `llms.txt`, sitemap, robots, and sitemap-listed routes are available on `https://yafest.ru`.
-- Phase 5 proof/content pass implemented locally on the static surface: stable anchors for `ТЕАТРО КАМПУС` and `DANCE КАМПУС`, linked facts-page product entries, named jury proof on `festivals.html`, named archive jury proof on `theatre-sea.html` and `cinema-sea.html`, clean official email on `laboratories.html`, refreshed sitemap `lastmod`, and expanded static smoke checks.
+- Phase 5 proof/content pass implemented on the static surface and deployed to
+  `https://yafest.ru` from commit `7526bfe`: stable anchors for
+  `ТЕАТРО КАМПУС` and `DANCE КАМПУС`, linked facts-page product entries, named
+  jury proof on `festivals.html`, named archive jury proof on
+  `theatre-sea.html` and `cinema-sea.html`, clean official email on
+  `laboratories.html`, refreshed sitemap `lastmod`, and expanded static smoke
+  checks.
 - Phase 5 gap analysis exists at `phase-5-proof-gap-analysis.md`.
 
 ## Skeleton or foundation
@@ -18,8 +24,17 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 
 - Event-specific VK album/post URLs are not inventoried yet.
 - Winner/result summaries for the archive festivals are not in the repository yet.
-- Phase 5 local changes require production deployment before live verification can be recorded.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
+
+## Verified live
+
+- `https://yafest.ru/camp.html` exposes `#teatro` and `#dance` anchors.
+- `https://yafest.ru/festivals.html` exposes named jury proof.
+- `https://yafest.ru/theatre-sea.html` and `https://yafest.ru/cinema-sea.html`
+  expose named archive jury proof.
+- `https://yafest.ru/laboratories.html` exposes `mailto:producer.ya@mail.ru`.
+- `https://yafest.ru/sitemap.xml` has refreshed `lastmod` values and all 10
+  sitemap URLs returned HTTP 200 after deployment.
 
 ## Risks and compatibility notes
 

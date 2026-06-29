@@ -3,6 +3,7 @@
 Date: 2026-06-29
 Surface: `HTML landing for claude/`
 Canonical domain: `https://yafest.ru/`
+Deployed static commit: `7526bfe`
 
 ## Summary
 
@@ -38,6 +39,11 @@ static checks.
 - `node "HTML landing for claude/test-geo-static.mjs"`: pass.
 - `node "HTML landing for claude/test-camp-booking-form.mjs"`: pass.
 - `git diff --check`: clean.
+- Live deploy verification: `camp.html`, `festivals.html`, `theatre-sea.html`,
+  `cinema-sea.html`, `laboratories.html`, and `sitemap.xml` exposed the expected
+  strings on `https://yafest.ru`.
+- Live sitemap verification: all 10 URLs in `https://yafest.ru/sitemap.xml`
+  returned HTTP 200.
 
 ## Deliberate Non-Goals
 
@@ -50,7 +56,6 @@ static checks.
 
 ## Next Recommended Work
 
-- Deploy the static changes to `https://yafest.ru` and verify live URLs.
 - Request recrawl for updated priority pages where useful.
 - Inventory topical VK posts/albums for festival archive proof.
 - Move Phase 6 next: structured data, FAQ, and source-backed answer blocks.

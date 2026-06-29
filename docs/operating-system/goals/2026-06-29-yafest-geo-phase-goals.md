@@ -129,8 +129,8 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 **Goal:** Convert scattered Ya-Fest facts into a normalized product/entity registry that can feed pages, schema, FAQ, ads, and future AI summaries.
 
-**Status:** Done locally. Production deployment is tracked with Phase 5 because
-the public HTML proof pass ships in the same static-surface change.
+**Status:** Done. Public proof-surface deployment is tracked with Phase 5
+because the HTML pass ships in the same static-surface change.
 
 **Done means:**
 
@@ -182,8 +182,7 @@ the public HTML proof pass ships in the same static-surface change.
 
 **Goal:** Turn the product/entity map into crawlable pages with enough proof for people, search engines, and AI systems to trust the content.
 
-**Status:** Done locally. Production deployment and live verification are the
-next operational step.
+**Status:** Done and deployed to `https://yafest.ru` from commit `7526bfe`.
 
 **Done means:**
 
@@ -222,6 +221,8 @@ next operational step.
 - Verification: `node "HTML landing for claude/test-geo-static.mjs"`,
   `node "HTML landing for claude/test-camp-booking-form.mjs"`, and
   `git diff --check`
+- Live verification after deploy: key changed pages returned the expected proof
+  strings, and all 10 URLs in `https://yafest.ru/sitemap.xml` returned HTTP 200.
 
 ## Phase 6 - Structured Data, FAQ, and Answer Blocks
 
