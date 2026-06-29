@@ -102,8 +102,22 @@ file_put_contents($rlFile, json_encode(array_values($rlData)));
 // ── Отправка в Telegram ──
 $TOKEN = '8419160569:AAHGhFJZmDe87rUG3X4zmnLVBWtxv5eLTj4';
 $CHAT_ID = '-5101371398';
+$MAIL_TO = 'p.toshiba@yandex.ru';
+$MAIL_SUBJECT = 'Новая заявка с сайта yafest.ru';
 
 $text = substr($input['text'], 0, 4000);
+$mailOk = null;
+
+if (!empty($input['_email'])) {
+    $headers = implode("\r\n", [
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Yafest <no-reply@yafest.ru>',
+        'Reply-To: no-reply@yafest.ru',
+    ]);
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($MAIL_SUBJECT) . '?=';
+    $mailOk = mail($MAIL_TO, $encodedSubject, $text, $headers);
+}
 
 $ch = curl_init("https://api.telegram.org/bot{$TOKEN}/sendMessage");
 curl_setopt_array($ch, [
@@ -120,5 +134,13 @@ $result = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-http_response_code($code >= 200 && $code < 300 ? 200 : 502);
-echo $result;
+$telegramOk = ($code >= 200 && $code < 300);
+$ok = ($mailOk === null) ? $telegramOk : ($mailOk || $telegramOk);
+
+http_response_code($ok ? 200 : 502);
+echo json_encode([
+    'ok' => $ok,
+    'mail' => $mailOk,
+    'telegram' => $telegramOk,
+    'telegram_response' => json_decode($result ?: '', true),
+]);

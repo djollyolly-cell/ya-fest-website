@@ -131,6 +131,11 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1280px;margin:0 auto}
 .sec-kicker{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .sec-h{font-family:'Unbounded',sans-serif;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;line-height:1.15}
+.answer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
+.answer{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:24px}
+.answer h3{font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+.answer p{font-size:.92rem;color:var(--muted);line-height:1.72;font-weight:300}
+@media(max-width:900px){.answer-grid{grid-template-columns:1fr}}
 
 /* ── TELEGRAM ── */
 .tg-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
@@ -265,6 +270,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
     <a href="laboratories.html">мастерские</a>
     <a href="camp.html">кампус</a>
     <a href="about.html">о нас</a>
+    <a href="facts.html">факты</a>
     <a href="#contact">контакты</a>
   </nav>
   <div class="hdr-right">
@@ -280,6 +286,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
   <a href="laboratories.html">Мастерские</a>
   <a href="camp.html">Кампус</a>
   <a href="about.html">О нас</a>
+  <a href="facts.html">Факты</a>
   <a href="#contact" onclick="document.querySelector('.mob-menu').classList.remove('open');document.querySelector('.burger').classList.remove('open')">Контакты</a>
   <a href="tel:+79601343400" class="mob-phone">8 (960) 134-34-00</a>
 </nav>
@@ -321,7 +328,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
         <span class="chip">📅 5–15 августа 2026</span>
         <span class="chip">📍 Сириус, Сочи</span>
         <span class="chip">🏨 Сочи Парк Отель</span>
-        <span class="chip">💰 79 000 ₽</span>
+        <span class="chip">💰 от 79 000 ₽</span>
       </div>
       <div class="feat-btns">
         <a href="theatre-cinema-sochi.html" class="btn-w">Подробнее</a>
@@ -349,7 +356,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
           <div class="ftags"><span class="ftag ot">Дети · 6–17</span></div>
           <div class="ftitle">ТЕАТРО КАМПУС</div>
           <div class="fdesc">Актёрское мастерство с Олесей Железняк, кино-лаборатория Радды Новиковой, «Игра в поступление» и встречи с Александром Галибиным</div>
-          <div class="ffoot"><span class="fgp">85 000 ₽</span><span class="farr">→</span></div>
+          <div class="ffoot"><span class="fgp">от 79 000 ₽</span><span class="farr">→</span></div>
         </div>
       </a>
       <a href="camp.html" class="fcard" style="border-radius:20px">
@@ -358,7 +365,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
           <div class="ftags"><span class="ftag ct">Дети · 6–17</span></div>
           <div class="ftitle">DANCE КАМПУС</div>
           <div class="fdesc">Хореографический интенсив: Afro Choreo (Фереде), Jazz Funk (Влад Пургаз Коченов) и современная хореография (Семён Шалаев)</div>
-          <div class="ffoot"><span class="fgp">85 000 ₽</span><span class="farr">→</span></div>
+          <div class="ffoot"><span class="fgp">от 79 000 ₽</span><span class="farr">→</span></div>
         </div>
       </a>
       <a href="theatre-cinema-sochi.html" class="fcard" style="border-radius:20px">
@@ -367,7 +374,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
           <div class="ftags"><span class="ftag" style="background:rgba(212,168,67,.18);color:#f0d68a;border:1px solid rgba(212,168,67,.3)">Взрослые · 18+</span></div>
           <div class="ftitle">ТЕАТР.КИНО.СОЧИ.</div>
           <div class="fdesc">Творческий кампус для взрослых: режиссура от Вениамина Фильштинского, актёрское от Олеси Железняк, кино-лаборатория и кастинг-директора</div>
-          <div class="ffoot"><span class="fgp">79 000 ₽</span><span class="farr">→</span></div>
+          <div class="ffoot"><span class="fgp">от 79 000 ₽</span><span class="farr">→</span></div>
         </div>
       </a>
     </div>
@@ -411,6 +418,29 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:60px 48px 3
         <div class="stat"><div class="stat-n">∞</div><div class="stat-l">творческих возможностей</div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ФАКТЫ -->
+<section class="section alt" id="facts">
+  <div class="wrap">
+    <div class="sec-kicker">Коротко о Я-Фест</div>
+    <h2 class="sec-h">Творческая платформа фестивалей, кампусов и мастерских</h2>
+    <div class="answer-grid">
+      <article class="answer">
+        <h3>Что такое Я-Фест?</h3>
+        <p>Я-Фест — творческая платформа Продюсерского центра «Я»: фестивали, кампусы, мастерские, лаборатории и образовательные программы по театру, кино и хореографии.</p>
+      </article>
+      <article class="answer">
+        <h3>Кому подходят программы?</h3>
+        <p>Программы подходят детям, подросткам, взрослым участникам, руководителям коллективов, актёрам, режиссёрам, хореографам и тем, кто готовит поступление в творческие вузы.</p>
+      </article>
+      <article class="answer">
+        <h3>Что важно для выбора?</h3>
+        <p>По каждому направлению Я-Фест должен показывать аудиторию, даты, место, педагогов, стоимость, условия участия, результат и доказательства.</p>
+      </article>
+    </div>
+    <a href="facts.html" class="btn-o">Смотреть факты о Я-Фест</a>
   </div>
 </section>
 

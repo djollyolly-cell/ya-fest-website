@@ -1,3 +1,15 @@
+# Ya-Fest React/Vite Prototype
+
+This directory is a local prototype and experimental track. It is not the production Ya-Fest site and must not be deployed as the public surface.
+
+Production-oriented surface: `../HTML landing for claude/`
+
+Canonical public domain: `https://yafest.ru/`
+
+Some files in this prototype still contain `https://ya-fest.ru` references from an earlier draft. That domain is not a purchased or public Ya-Fest domain. See `DO_NOT_DEPLOY.md` before any migration work.
+
+## Original Vite Notes
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

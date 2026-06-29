@@ -1,7 +1,7 @@
 # GEO strategy for Ya-Fest
 
 Date: 2026-06-29
-Domain: `ya-fest.ru`
+Domain: `yafest.ru`
 
 ## Goal
 
@@ -53,7 +53,7 @@ The React site already has useful foundations:
 
 Observed issue during discovery:
 
-- `https://ya-fest.ru` did not resolve from the local environment at discovery time. External accessibility must be verified before relying on GEO work.
+- The earlier draft used `https://ya-fest.ru`, but the confirmed public Ya-Fest domain is `https://yafest.ru`. `https://ya-fest.ru` is not a purchased/public Ya-Fest domain and should not be used as canonical.
 
 ## Product Map
 
@@ -155,7 +155,7 @@ Proof should be linked from relevant pages, not buried in a gallery only.
 
 Required checks:
 
-- `ya-fest.ru` resolves publicly
+- `yafest.ru` resolves publicly
 - HTTPS works
 - one canonical domain is selected
 - redirects normalize `http`, `https`, `www`, and non-`www`

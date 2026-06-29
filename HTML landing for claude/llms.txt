@@ -1,0 +1,37 @@
+# Я-Фест
+
+Official site: https://yafest.ru/
+Canonical domain: https://yafest.ru
+
+Do not use https://ya-fest.ru as canonical. It is not the purchased public Ya-Fest domain. In this repository, references to that domain belong to the local React/Vite prototype and should not be propagated to production static HTML.
+
+## Summary
+
+Я-Фест is a creative platform by Продюсерский центр «Я». It presents festivals, creative campuses, workshops, laboratories, and educational programs in theater, cinema, and choreography.
+
+Preferred Russian wording: «творческий кампус», «летние творческие кампусы по театру, кино и хореографии», «мастерские», «лаборатории», «образовательные программы».
+
+The word «лагерь» may appear in FAQ or search-intent explanations because users search for theater camp or dance camp programs, but the brand-level wording is «творческий кампус».
+
+## Important URLs
+
+- Home: https://yafest.ru/
+- Facts: https://yafest.ru/facts.html
+- Festivals: https://yafest.ru/festivals.html
+- Laboratories and workshops: https://yafest.ru/laboratories.html
+- Creative campuses: https://yafest.ru/camp.html
+- Adult theater and cinema campus: https://yafest.ru/theatre-cinema-sochi.html
+- About: https://yafest.ru/about.html
+
+## Current product areas
+
+- ТЕАТРО КАМПУС: creative theater campus for children and teenagers.
+- DANCE КАМПУС: creative choreography campus for children and teenagers.
+- ТЕАТР.КИНО.СОЧИ.: adult creative campus in Sirius, Sochi, 5–15 August.
+- Festivals: theater and cinema festival projects, including archive and current events.
+
+## Contacts
+
+- Phone: 8 (960) 134-34-00
+- Email: producer.ya@mail.ru
+- VK group: https://vk.com/i_festgo

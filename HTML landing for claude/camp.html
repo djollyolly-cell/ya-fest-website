@@ -13,19 +13,35 @@
 <meta property="og:url" content="https://yafest.ru/camp.html">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Я-Фест">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это лагерь или творческий кампус?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Такие программы часто ищут как театральный лагерь в Сочи или танцевальный лагерь у моря. В позиционировании Я-Фест это летние творческие кампусы по театру, кино и хореографии: с педагогами, программой, практикой и итоговым результатом."
+      }
+    }
+  ]
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0c0c18;--bg2:#12121f;--bg3:#191928;--accent:#DD568E;--accent2:#45BCE5;--gold:#d4a843;--text:#f0eef8;--muted:rgba(240,238,248,0.52);--border:rgba(240,238,248,0.08);--border2:rgba(240,238,248,0.14)}
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{color:inherit;text-decoration:none}
 .hdr{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;background:rgba(12,12,24,0.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 48px;gap:32px}
-.hdr-logo{font-family:'Unbounded',sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:0.04em}
+.hdr-logo{font-family:'Unbounded',sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:0.04em;white-space:nowrap}
 .hdr-logo em{font-style:normal;color:var(--accent)}
 .hdr-nav{display:flex;gap:2px;flex:1}
-.hdr-nav a{padding:7px 15px;border-radius:40px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s}
+.hdr-nav a{padding:7px 15px;border-radius:40px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .2s;white-space:nowrap}
 .hdr-nav a:hover,.hdr-nav a.on{color:var(--text);background:rgba(255,255,255,.08)}
 .hdr-right{display:flex;align-items:center;gap:14px}
-.hdr-phone{font-size:.82rem;font-weight:700}
-.hdr-cta{padding:9px 20px;background:var(--accent);border-radius:40px;font-size:.8rem;font-weight:700;color:#fff}
+.hdr-phone{font-size:.82rem;font-weight:700;white-space:nowrap}
+.hdr-cta{padding:9px 20px;background:var(--accent);border-radius:40px;font-size:.8rem;font-weight:700;color:#fff;white-space:nowrap}
 .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:6px}
 .burger span{display:block;width:100%;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
 .burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -59,7 +75,7 @@
 /* INFO STRIP */
 .info-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:80px}
 .info-strip .ibox{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:26px;text-align:center}
-.info-strip .inum{font-family:'Unbounded',sans-serif;font-size:2.4rem;font-weight:900;color:#81c784;line-height:1;margin-bottom:6px}
+.info-strip .inum{font-family:'Unbounded',sans-serif;font-size:2.4rem;font-weight:900;color:#81c784;line-height:1;margin-bottom:6px;white-space:nowrap}
 .info-strip .ilbl{font-size:.83rem;color:var(--muted)}
 
 /* CAMPUS CARDS */
@@ -142,9 +158,32 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
 .foot-col a:hover{color:var(--text)}
 .foot-bot{max-width:1280px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .foot-bot p,.foot-bot a{font-size:.74rem;color:var(--muted)}
-@media(max-width:1100px){.campus-grid{grid-template-columns:1fr}.teacher-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+.booking-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(3,3,10,.72);backdrop-filter:blur(18px)}
+.booking-modal.open{display:flex}
+.booking-dialog{width:min(560px,100%);max-height:calc(100vh - 44px);overflow:auto;background:var(--bg2);border:1px solid var(--border2);border-radius:20px;box-shadow:0 26px 80px rgba(0,0,0,.55);padding:30px;position:relative}
+.booking-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:1px solid var(--border);border-radius:50%;background:rgba(255,255,255,.06);color:var(--text);font-size:1.35rem;line-height:1;cursor:pointer}
+.booking-k{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.booking-title{font-family:'Unbounded',sans-serif;font-size:1.45rem;line-height:1.15;margin-bottom:8px;padding-right:42px}
+.booking-sub{font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:22px}
+.booking-form{display:flex;flex-direction:column;gap:12px}
+.booking-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.booking-field{display:flex;flex-direction:column;gap:6px}
+.booking-field label{font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--muted)}
+.booking-field input,.booking-field select,.booking-field textarea{width:100%;background:rgba(255,255,255,.055);border:1px solid var(--border);border-radius:12px;padding:12px 14px;font-family:'Raleway',sans-serif;font-size:.9rem;color:var(--text);outline:none}
+.booking-field input:focus,.booking-field select:focus,.booking-field textarea:focus{border-color:rgba(221,86,142,.55)}
+.booking-field select option{background:#191928}
+.booking-field textarea{min-height:78px;resize:vertical}
+.booking-check{display:flex;align-items:flex-start;gap:9px;margin-top:2px}
+.booking-check input{width:16px;height:16px;margin-top:2px;accent-color:var(--accent)}
+.booking-check label{font-size:.78rem;color:var(--muted);line-height:1.45}
+.booking-submit{width:100%;border:0;border-radius:13px;background:var(--accent);color:#fff;font-family:'Unbounded',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.04em;padding:14px 18px;cursor:pointer;transition:all .2s}
+.booking-submit:hover{background:#C44A7E;transform:translateY(-1px)}
+.booking-msg{padding:14px 16px;border-radius:12px;font-weight:700;font-size:.9rem;line-height:1.45}
+.booking-msg.ok{background:rgba(76,175,80,.18);color:#9ee7a2;border:1px solid rgba(76,175,80,.35)}
+.booking-msg.err{background:rgba(198,40,40,.18);color:#ffb0b0;border:1px solid rgba(198,40,40,.35)}
+@media(max-width:1100px){.hdr{padding:0 24px}.hdr-nav{display:none}.hdr-phone{display:none}.burger{display:flex}.campus-grid{grid-template-columns:1fr}.teacher-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
 @media(max-width:900px){.incl-grid{grid-template-columns:1fr}.info-strip{grid-template-columns:1fr 1fr}.bonus{flex-direction:column;text-align:center}}
-@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}.hdr-phone{display:none}.burger{display:flex}.page-hero,.body{padding-left:20px;padding-right:20px}.page-hero{padding-top:100px;padding-bottom:50px}.body{padding-top:50px;padding-bottom:80px}footer{padding:44px 20px 26px}.info-strip{grid-template-columns:1fr 1fr}.teacher-grid{grid-template-columns:1fr 1fr;gap:12px}.teacher h4{font-size:.92rem}}
+@media(max-width:768px){.hdr{padding:0 20px}.hdr-nav{display:none}.hdr-phone{display:none}.burger{display:flex}.page-hero,.body{padding-left:20px;padding-right:20px}.page-hero{padding-top:100px;padding-bottom:50px}.body{padding-top:50px;padding-bottom:80px}footer{padding:44px 20px 26px}.info-strip{grid-template-columns:1fr 1fr}.info-strip .ibox{padding:24px 12px}.info-strip .inum{font-size:clamp(1.55rem,6.6vw,2.4rem)}.teacher-grid{grid-template-columns:1fr 1fr;gap:12px}.teacher h4{font-size:.92rem}.booking-dialog{padding:24px 18px;border-radius:16px}.booking-row{grid-template-columns:1fr}.booking-title{font-size:1.2rem}}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -169,11 +208,11 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
     <a href="laboratories.html">мастерские</a>
     <a href="camp.html" class="on">кампус</a>
     <a href="about.html">о нас</a>
-    <a href="index.html#contact">контакты</a>
+    <a href="#booking-modal" data-booking-open data-direction="Кампус Я-Фест">контакты</a>
   </nav>
   <div class="hdr-right">
     <a href="tel:+79601343400" class="hdr-phone">8 (960) 134-34-00</a>
-    <a href="index.html#contact" class="hdr-cta">Напишите нам</a>
+    <a href="#booking-modal" class="hdr-cta" data-booking-open data-direction="Кампус Я-Фест">Напишите нам</a>
     <button class="burger" onclick="document.querySelector('.mob-menu').classList.toggle('open');this.classList.toggle('open')" aria-label="Меню">
       <span></span><span></span><span></span>
     </button>
@@ -184,7 +223,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
   <a href="laboratories.html">Мастерские</a>
   <a href="camp.html">Кампус</a>
   <a href="about.html">О нас</a>
-  <a href="index.html#contact">Контакты</a>
+  <a href="#booking-modal" data-booking-open data-direction="Кампус Я-Фест">Контакты</a>
   <a href="tel:+79601343400" class="mob-phone">8 (960) 134-34-00</a>
 </nav>
 
@@ -194,7 +233,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
     <div class="ph-h1">Путёвка в<br>творческое<br><em>лето</em></div>
     <p class="ph-sub">Три кампуса в одной смене — ТЕАТРО и DANCE для детей, ТЕАТР.КИНО.СОЧИ. для взрослых. 10 дней в Сочи: интенсивная программа, море, звёздные педагоги и незабываемые впечатления</p>
     <div class="ph-btns">
-      <a href="index.html#contact" class="btn-g">Забронировать место</a>
+      <a href="#booking-modal" class="btn-g" data-booking-open data-direction="Кампус Я-Фест">Забронировать место</a>
       <a href="#campuses" class="btn-og">Подробнее</a>
     </div>
   </div>
@@ -211,8 +250,8 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
       <div class="ilbl">кампуса в одной смене</div>
     </div>
     <div class="ibox">
-      <div class="inum">от 79 000</div>
-      <div class="ilbl">руб. за путёвку</div>
+      <div class="inum">от&nbsp;79&nbsp;000&nbsp;₽</div>
+      <div class="ilbl">за путёвку</div>
     </div>
     <div class="ibox">
       <div class="inum">5–15</div>
@@ -239,8 +278,8 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
         <strong>5 — 15 августа 2026</strong><br>
         Сочи Парк Отель · от 6 до 17 лет
       </p>
-      <span class="campus-price">85 000 ₽</span>
-      <a href="index.html#contact" class="campus-btn">Забронировать</a>
+      <span class="campus-price">от 79 000 ₽</span>
+      <a href="#booking-modal" class="campus-btn" data-booking-open data-direction="ТЕАТРО КАМПУС (дети)">Забронировать</a>
     </div>
     <div class="campus campus-dance">
       <span class="campus-badge">Танцы · дети</span>
@@ -258,8 +297,8 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
         <strong>5 — 15 августа 2026</strong><br>
         Сочи Парк Отель · от 6 до 17 лет
       </p>
-      <span class="campus-price">85 000 ₽</span>
-      <a href="index.html#contact" class="campus-btn">Забронировать</a>
+      <span class="campus-price">от 79 000 ₽</span>
+      <a href="#booking-modal" class="campus-btn" data-booking-open data-direction="DANCE КАМПУС (дети)">Забронировать</a>
     </div>
     <div class="campus campus-adult">
       <span class="campus-badge">Театр + кино · 18+</span>
@@ -277,7 +316,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
         <strong>5 — 15 августа 2026</strong><br>
         Сочи Парк Отель · 18+
       </p>
-      <span class="campus-price">79 000 ₽</span>
+      <span class="campus-price">от 79 000 ₽</span>
       <a href="theatre-cinema-sochi.html" class="campus-btn">Подробнее →</a>
     </div>
   </div>
@@ -377,8 +416,8 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
     <div class="incl">
       <h3>📋 Для участия нужно</h3>
       <ul>
-        <li>ТЕАТРО и DANCE: возраст от 6 до 17 лет (с педагогом / сопровождением), путёвка — 85 000 ₽</li>
-        <li>ТЕАТР.КИНО.СОЧИ. (взрослый): от 18 лет, путёвка — 79 000 ₽</li>
+        <li>ТЕАТРО и DANCE: возраст от 6 до 17 лет (с педагогом / сопровождением), путёвка — от 79 000 ₽</li>
+        <li>ТЕАТР.КИНО.СОЧИ. (взрослый): от 18 лет, путёвка — от 79 000 ₽</li>
         <li>Театральные студии, танцевальные коллективы, школы</li>
         <li>Индивидуальные участники с педагогами</li>
         <li>Желание учиться, тренироваться и работать в команде</li>
@@ -394,15 +433,72 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
     </div>
   </div>
 
+  <section class="bonus" id="campus-faq">
+    <div class="bonus-icon">?</div>
+    <div>
+      <h3>Это лагерь или творческий кампус?</h3>
+      <p>Такие программы часто ищут как театральный лагерь в Сочи или танцевальный лагерь у моря. В позиционировании Я-Фест это летние творческие кампусы по театру, кино и хореографии: с педагогами, программой, практикой и итоговым результатом.</p>
+    </div>
+  </section>
+
   <div class="cta-block">
     <h2>Ваша путёвка<br>в творческое лето!</h2>
     <p>Места ограничены. Успейте забронировать ТЕАТРО, DANCE или ТЕАТР.КИНО.СОЧИ. на 5–15 августа.</p>
     <div class="cta-btns">
-      <a href="index.html#contact" class="btn-w">Забронировать место</a>
+      <a href="#booking-modal" class="btn-w" data-booking-open data-direction="Кампус Я-Фест">Забронировать место</a>
       <a href="tel:+79601343400" class="btn-gh">+7 (960) 134-34-00</a>
     </div>
   </div>
 </main>
+
+<div class="booking-modal" id="booking-modal" aria-hidden="true">
+  <div class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <button class="booking-close" type="button" data-booking-close aria-label="Закрыть">×</button>
+    <div class="booking-k">Бронирование открыто</div>
+    <div class="booking-title" id="booking-title">Оставить заявку на кампус</div>
+    <p class="booking-sub">Заполните короткую форму — менеджер свяжется с вами и поможет выбрать направление.</p>
+    <form class="booking-form" action="#" method="POST">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_jschallenge" id="camp-booking-jsc" value="">
+      <div class="booking-row">
+        <div class="booking-field">
+          <label for="booking-name">Ваше имя *</label>
+          <input id="booking-name" type="text" name="Имя" placeholder="Имя и фамилия" required pattern="[A-Za-zА-Яа-яЁё\s\-]{2,60}">
+        </div>
+        <div class="booking-field">
+          <label for="booking-phone">Телефон *</label>
+          <input id="booking-phone" type="tel" name="Телефон" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\-\(\)]{7,20}">
+        </div>
+      </div>
+      <div class="booking-field">
+        <label for="booking-direction">Направление</label>
+        <select id="booking-direction" name="Направление">
+          <option>Кампус Я-Фест</option>
+          <option>ТЕАТРО КАМПУС (дети)</option>
+          <option>DANCE КАМПУС (дети)</option>
+          <option>ТЕАТР.КИНО.СОЧИ. (взрослый)</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label for="booking-contact">Как с вами связаться?</label>
+        <select id="booking-contact" name="Способ связи">
+          <option>Звонок по телефону</option>
+          <option>Сообщение в Telegram / WhatsApp</option>
+          <option>Написать на e-mail</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label for="booking-comment">Комментарий</label>
+        <textarea id="booking-comment" name="Комментарий" placeholder="Возраст участника, город, вопросы по программе..."></textarea>
+      </div>
+      <div class="booking-check">
+        <input type="checkbox" id="booking-agree" required>
+        <label for="booking-agree">Я согласен(а) с обработкой персональных данных</label>
+      </div>
+      <button type="submit" class="booking-submit">Отправить заявку</button>
+    </form>
+  </div>
+</div>
 
 <footer>
   <div class="foot-row">
@@ -415,5 +511,153 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
   </div>
   <div class="foot-bot"><p>© 2026 Я-Фест · Продюсерский центр «Я»</p><a href="#">Политика конфиденциальности</a></div>
 </footer>
+<script>
+(function(){
+  var modal=document.getElementById('booking-modal');
+  var form=document.querySelector('.booking-form');
+  if(!modal||!form) return;
+
+  var COUNTER=108186919;
+  var TG_PROXY_URL='/tg-notify.php';
+  var submit=form.querySelector('.booking-submit');
+  var direction=form.querySelector('[name="Направление"]');
+  var challenge=form.querySelector('#camp-booking-jsc');
+  var openedBy=null;
+  var ANTI_SECRET='yafest2026secure';
+  var formLoadTime=Math.floor(Date.now()/1000);
+
+  function reach(goal,params){
+    try{ if(typeof ym==='function') ym(COUNTER,'reachGoal',goal,params||{}); }catch(e){}
+  }
+
+  function refreshChallenge(){
+    if(challenge) challenge.value=String(Date.now())+'_'+String(Math.random()).slice(2,10);
+  }
+
+  function sha256(str){
+    var buf=new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256',buf).then(function(hash){
+      return Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    });
+  }
+
+  function getAntiToken(){
+    var d=new Date();
+    var key=ANTI_SECRET+d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0')+'-'+String(d.getUTCHours()).padStart(2,'0');
+    return sha256(key);
+  }
+
+  function setMessage(text,ok){
+    var old=form.querySelector('.booking-msg');
+    if(old) old.remove();
+    var msg=document.createElement('div');
+    msg.className='booking-msg '+(ok?'ok':'err');
+    msg.textContent=text;
+    form.insertBefore(msg,form.firstChild);
+  }
+
+  function openModal(source){
+    openedBy=source||null;
+    if(direction&&source&&source.dataset.direction) direction.value=source.dataset.direction;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    refreshChallenge();
+    var name=form.querySelector('[name="Имя"]');
+    setTimeout(function(){ if(name) name.focus(); },60);
+    try{ if(typeof ym==='function') ym(COUNTER,'reachGoal','book_click',{
+      from:location.pathname.replace(/^\//,'')||'camp.html',
+      text:source?(source.textContent||'').trim().slice(0,60):'',
+      direction:direction?direction.value:''
+    }); }catch(e){}
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  function collectData(){
+    var fd=new FormData(form);
+    var data={};
+    fd.forEach(function(value,key){ if(key.charAt(0)!=='_') data[key]=value; });
+    data.Страница='camp.html';
+    data._time=new Date().toLocaleString('ru-RU');
+    return data;
+  }
+
+  function sendToTelegram(data){
+    var lines=['Новая заявка на кампус с yafest.ru',''];
+    Object.keys(data).forEach(function(key){
+      if(data[key]&&key.charAt(0)!=='_') lines.push(key+': '+data[key]);
+    });
+    return getAntiToken().then(function(token){
+      return fetch(TG_PROXY_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({text:lines.join('\n'),_token:token,_website:'',_ts:formLoadTime,_email:true})
+      });
+    }).then(function(response){ return response.ok; }).catch(function(){ return false; });
+  }
+
+  document.addEventListener('click',function(event){
+    var opener=event.target.closest&&event.target.closest('[data-booking-open]');
+    if(opener){
+      event.preventDefault();
+      openModal(opener);
+      return;
+    }
+    if(event.target.closest&&event.target.closest('[data-booking-close]')){
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+    if(event.target===modal) closeModal();
+  });
+
+  document.addEventListener('keydown',function(event){
+    if(event.key==='Escape'&&modal.classList.contains('open')) closeModal();
+  });
+
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    var name=form.querySelector('[name="Имя"]').value.trim();
+    var phone=form.querySelector('[name="Телефон"]').value.trim();
+    if(!/^[A-Za-zА-Яа-яЁё\s\-]{2,60}$/.test(name)){
+      setMessage('Введите имя буквами.',false);
+      return;
+    }
+    if(!/^[\d\s\+\-\(\)]{7,20}$/.test(phone)){
+      setMessage('Введите корректный телефон.',false);
+      return;
+    }
+    if(!challenge||!challenge.value){
+      setMessage('Обновите страницу и попробуйте снова.',false);
+      return;
+    }
+
+    var original=submit.textContent;
+    submit.disabled=true;
+    submit.textContent='Отправляем...';
+    var data=collectData();
+    sendToTelegram(data).then(function(ok){
+      if(!ok) throw new Error('Notifier error');
+      setMessage('Заявка отправлена. Мы свяжемся с вами в ближайшее время.',true);
+      try{ if(typeof ym==='function') ym(COUNTER,'reachGoal','form_submit',{from:'camp.html',direction:data.Направление||'',source:openedBy?(openedBy.textContent||'').trim().slice(0,60):''}); }catch(e){}
+      form.reset();
+      refreshChallenge();
+      if(direction&&openedBy&&openedBy.dataset.direction) direction.value=openedBy.dataset.direction;
+    }).catch(function(){
+      setMessage('Не удалось отправить заявку. Пожалуйста, напишите нам или позвоните.',false);
+    }).finally(function(){
+      submit.disabled=false;
+      submit.textContent=original;
+    });
+  });
+
+  refreshChallenge();
+})();
+</script>
 </body>
 </html>
