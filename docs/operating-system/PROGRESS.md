@@ -23,7 +23,7 @@ Last updated: 2026-06-29
 
 ## In progress
 
-- Phase 3 indexation and webmaster signal preparation.
+- Phase 3 indexation and webmaster signals: robots-based sitemap discovery is live; authenticated Yandex.Webmaster and Google Search Console submission is pending account access.
 
 ## Open
 

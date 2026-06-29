@@ -94,7 +94,7 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 **Goal:** Give search engines clear crawl/indexation signals for the new GEO surface.
 
-**Status:** Open.
+**Status:** In progress. Robots-based sitemap discovery is live; authenticated console submission is pending account access.
 
 **Done means:**
 
@@ -114,6 +114,14 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 - Date of sitemap submission.
 - Screenshots or notes from Yandex.Webmaster and Google Search Console.
 - Any discovered indexing/canonical errors.
+
+**Current evidence:**
+
+- `https://yafest.ru/robots.txt` includes `Sitemap: https://yafest.ru/sitemap.xml`.
+- `https://yafest.ru/sitemap.xml` returns HTTP 200 and lists 10 canonical URLs.
+- All 10 sitemap URLs returned HTTP 200 in the 2026-06-29 Phase 3 preflight.
+- Local environment has no Google Search Console or Yandex.Webmaster API token; browser automation was unavailable, so authenticated console submission remains manual or requires user login in an available browser.
+- Handoff: `docs/operating-system/handoffs/2026-06-29-phase-3-indexation-preflight.md`
 
 ## Phase 4 - Product and Entity Map
 
