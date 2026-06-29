@@ -129,7 +129,8 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 **Goal:** Convert scattered Ya-Fest facts into a normalized product/entity registry that can feed pages, schema, FAQ, ads, and future AI summaries.
 
-**Status:** Open.
+**Status:** Done locally. Production deployment is tracked with Phase 5 because
+the public HTML proof pass ships in the same static-surface change.
 
 **Done means:**
 
@@ -159,6 +160,17 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 - `docs/operating-system/15-entity-memory/yafest-entity-registry.md`
 
+**Current evidence:**
+
+- Canonical registry: `docs/operating-system/15-entity-memory/yafest-entity-registry.md`
+- Working product inventory: `docs/operating-system/15-entity-memory/product-facts-inventory.md`
+- Working teacher/proof inventory: `docs/operating-system/15-entity-memory/teacher-proof-inventory.md`
+- Entity-memory status updated in `docs/operating-system/15-entity-memory/STATE.md`
+- Source rules remain in `docs/operating-system/15-entity-memory/CONTRACTS.md`
+- Verification: `node "HTML landing for claude/test-geo-static.mjs"`,
+  `node "HTML landing for claude/test-camp-booking-form.mjs"`, and
+  `git diff --check`
+
 **Accepted source rule:**
 
 - Production-site prices, dates, and participation conditions are current unless a newer explicit source overrides them.
@@ -170,7 +182,8 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 
 **Goal:** Turn the product/entity map into crawlable pages with enough proof for people, search engines, and AI systems to trust the content.
 
-**Status:** Open.
+**Status:** Done locally. Production deployment and live verification are the
+next operational step.
 
 **Done means:**
 
@@ -193,6 +206,22 @@ The GEO task is complete when Ya-Fest has a verified public site surface, submit
 - `/theatre-cinema-sochi.html`
 - `/facts.html`
 - future stable teacher/proof/archive pages if implemented on the static surface.
+
+**Current evidence:**
+
+- `camp.html` now exposes stable anchors for `ТЕАТРО КАМПУС` and
+  `DANCE КАМПУС`.
+- `facts.html` links current products to stable URLs/anchors.
+- `festivals.html` exposes named jury proof instead of generic placeholders.
+- `theatre-sea.html` and `cinema-sea.html` expose named archive jury proof from
+  organizer briefs.
+- `laboratories.html` exposes the clean official email instead of an obfuscated
+  Cloudflare email placeholder.
+- `sitemap.xml` has refreshed `lastmod` values for touched proof pages.
+- Gap analysis: `docs/operating-system/05-brand-geo-content/phase-5-proof-gap-analysis.md`
+- Verification: `node "HTML landing for claude/test-geo-static.mjs"`,
+  `node "HTML landing for claude/test-camp-booking-form.mjs"`, and
+  `git diff --check`
 
 ## Phase 6 - Structured Data, FAQ, and Answer Blocks
 

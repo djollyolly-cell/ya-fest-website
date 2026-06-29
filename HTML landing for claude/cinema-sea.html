@@ -88,6 +88,12 @@
 .icard ul li{font-size:.87rem;color:var(--muted);padding-left:13px;position:relative;line-height:1.5}
 .icard ul li::before{content:"•";position:absolute;left:0;font-weight:700}
 .icard p{font-size:.88rem;color:var(--muted);line-height:1.7}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:8px 0 34px}
+.proof-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:16px;min-height:100%}
+.proof-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:10px}
+.proof-card h3{font-size:.9rem;margin-bottom:5px}
+.proof-card p{font-size:.78rem;line-height:1.55;color:var(--muted)}
+.proof-note{font-size:.8rem;color:var(--muted);line-height:1.65;margin:-12px 0 22px}
 /* AGES */
 .ages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
 .age{border-radius:12px;padding:14px;text-align:center;border:1px solid}
@@ -243,6 +249,17 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
     <div class="pill">👩‍🎭 Лучшая женская роль</div>
   </div>
   <p style="font-size:.82rem;color:var(--muted);margin-bottom:40px">Игровые к/м фильмы оцениваются по возрастным категориям. Жюри присуждает: Лауреат I, II, III степеней, Дипломант I, II, III степеней.</p>
+
+  <div class="sec-t">Жюри фестивальной серии</div>
+  <p class="proof-note">Имена ниже перенесены из организаторского брифа фестиваля «Кино у моря 2026» и используются как доказательная база архивной страницы.</p>
+  <div class="proof-grid">
+    <div class="proof-card"><img src="jury/tolstaya.jpg" alt="Стася Толстая" loading="lazy"><h3>Стася Толстая</h3><p>Актриса, сценарист, режиссёр. ВГИК, Театр Наций, театр им. Вахтангова.</p></div>
+    <div class="proof-card"><img src="jury/дмитрий чеботарев.png" alt="Дмитрий Чеботарёв" loading="lazy"><h3>Дмитрий Чеботарёв</h3><p>Актёр Электротеатра Станиславский, лауреат премии «Золотой лист».</p></div>
+    <div class="proof-card"><img src="jury/filshtinsky.jpg" alt="Вениамин Фильштинский" loading="lazy"><h3>Вениамин Фильштинский</h3><p>Театральный режиссёр, профессор, заведующий кафедрой актёрского мастерства и режиссуры.</p></div>
+    <div class="proof-card"><img src="jury/cherkassky.jpg" alt="Сергей Черкасский" loading="lazy"><h3>Сергей Черкасский</h3><p>Режиссёр, доктор искусствоведения, профессор.</p></div>
+    <div class="proof-card"><img src="jury/антонина кузнецова.png" alt="Антонина Кузнецова" loading="lazy"><h3>Антонина Кузнецова</h3><p>Советская и российская актриса, мастер художественного слова.</p></div>
+    <div class="proof-card"><img src="jury/Радда Новикова.jpg" alt="Радда Новикова" loading="lazy"><h3>Радда Новикова</h3><p>Режиссёр кино и телевидения.</p></div>
+  </div>
 
   <div class="sec-t">Условия участия</div>
   <div class="two">

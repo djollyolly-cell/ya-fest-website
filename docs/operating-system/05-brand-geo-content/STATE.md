@@ -6,6 +6,8 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 
 - First static GEO pass implemented locally on the production-oriented static HTML surface: `facts.html`, `llms.txt`, home-page facts block, campus FAQ/search-intent block, adult campus quick facts, and expanded static GEO smoke checks.
 - Production verification confirmed `facts.html`, `llms.txt`, sitemap, robots, and sitemap-listed routes are available on `https://yafest.ru`.
+- Phase 5 proof/content pass implemented locally on the static surface: stable anchors for `ТЕАТРО КАМПУС` and `DANCE КАМПУС`, linked facts-page product entries, named jury proof on `festivals.html`, named archive jury proof on `theatre-sea.html` and `cinema-sea.html`, clean official email on `laboratories.html`, refreshed sitemap `lastmod`, and expanded static smoke checks.
+- Phase 5 gap analysis exists at `phase-5-proof-gap-analysis.md`.
 
 ## Skeleton or foundation
 
@@ -14,7 +16,9 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 
 ## Not implemented or not verified
 
-- Webmaster/indexation submission is not verified yet.
+- Event-specific VK album/post URLs are not inventoried yet.
+- Winner/result summaries for the archive festivals are not in the repository yet.
+- Phase 5 local changes require production deployment before live verification can be recorded.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Risks and compatibility notes

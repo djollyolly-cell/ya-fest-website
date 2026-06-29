@@ -21,17 +21,19 @@ Last updated: 2026-06-29
 - Phase goals for the remaining GEO work are documented in [goals/2026-06-29-yafest-geo-phase-goals.md](goals/2026-06-29-yafest-geo-phase-goals.md).
 - Production static GEO deploy completed for `https://yafest.ru` and Phase 2 live verification passed.
 - Phase 3 sitemap signals completed: Yandex.Webmaster shows sitemap from `robots.txt` with status `ok`, and Google Search Console accepted `sitemap.xml` with 10 discovered pages.
+- Phase 4 entity map completed locally: canonical registry, product facts inventory, and teacher/proof inventory now live under `15-entity-memory/`.
+- Phase 5 ecosystem/proof pass completed locally on the static surface: stable campus anchors, proof-oriented jury blocks, archive jury proof, facts-page product links, clean laboratory contact email, refreshed sitemap, and expanded static checks.
 
 ## In progress
 
-- Phase 4 product and entity map preparation; Phase 4/5 source rules are accepted in [DECISIONS.md](DECISIONS.md) and [15-entity-memory/CONTRACTS.md](15-entity-memory/CONTRACTS.md).
+- Production deploy and live verification for the Phase 4/5 static changes.
 
 ## Open
 
 - Request recrawl for priority URLs in Google Search Console and Yandex.Webmaster where useful.
 - Decide whether React/Vite under `website/` remains as a prototype or is retired; until then, do not deploy it.
-- Normalize product map across festivals, campuses, teachers, prices, dates, and application rules.
-- Decide prerender/static-generation strategy.
+- Inventory event-specific VK album/post URLs and archive winners/results when those public sources are selected.
+- Decide prerender/static-generation strategy for future generated pages, if the static surface grows beyond hand-maintained HTML.
 
 ## Do not repeat
 
