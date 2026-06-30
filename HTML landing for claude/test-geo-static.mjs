@@ -117,6 +117,9 @@ assert.doesNotMatch(laboratories, /cdn-cgi\/l\/email-protection/, 'laboratories 
 assert.match(theatreSea, /Жюри фестивальной серии/, 'theatre archive should expose named jury proof block');
 assert.match(theatreSea, /Стася Толстая/, 'theatre archive should include source-backed jury names');
 assert.match(theatreSea, /Коротко об архиве/, 'theatre archive should expose visible answer blocks');
+assert.match(theatreSea, /Протокол победителей по номинациям/, 'theatre archive should name the missing winner protocol clearly');
+assert.match(theatreSea, /не опубликован на текущей странице/, 'theatre archive should not imply unsupported winner names exist');
+assert.match(theatreSea, /без официального источника/, 'theatre archive should avoid unsupported winner claims');
 assert.equal(hasJsonLd(theatreSea, 'WebPage'), true, 'theatre archive should include WebPage JSON-LD');
 assert.equal(hasJsonLd(theatreSea, 'Event'), true, 'theatre archive should include Event JSON-LD');
 assert.equal(hasJsonLd(theatreSea, 'FAQPage'), true, 'theatre archive should include FAQPage JSON-LD');
@@ -124,6 +127,9 @@ assert.equal(jsonLdNodes(theatreSea).find((node) => node['@type'] === 'Event')?.
 assert.match(cinemaSea, /Жюри фестивальной серии/, 'cinema archive should expose named jury proof block');
 assert.match(cinemaSea, /Дмитрий Чеботар/, 'cinema archive should include source-backed jury names');
 assert.match(cinemaSea, /Коротко об архиве/, 'cinema archive should expose visible answer blocks');
+assert.match(cinemaSea, /Протокол победителей по номинациям/, 'cinema archive should name the missing winner protocol clearly');
+assert.match(cinemaSea, /не опубликован на текущей странице/, 'cinema archive should not imply unsupported winner names exist');
+assert.match(cinemaSea, /без официального источника/, 'cinema archive should avoid unsupported winner claims');
 assert.equal(hasJsonLd(cinemaSea, 'WebPage'), true, 'cinema archive should include WebPage JSON-LD');
 assert.equal(hasJsonLd(cinemaSea, 'Event'), true, 'cinema archive should include Event JSON-LD');
 assert.equal(hasJsonLd(cinemaSea, 'FAQPage'), true, 'cinema archive should include FAQPage JSON-LD');

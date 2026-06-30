@@ -25,6 +25,10 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   `winter-theatre.html` now names the unsupported winner-protocol gap in visible
   HTML and matching FAQ JSON-LD instead of publishing or implying winner names
   without an official source.
+- Theatre-sea and cinema-sea source-backed GEO pass completed locally on
+  2026-06-30: both archive pages now carry the same anti-hallucination
+  "Что известно об итогах?" block in visible HTML and matching FAQ JSON-LD,
+  preventing future winner-name fabrication on those pages as well.
 
 ## Skeleton or foundation
 
@@ -38,6 +42,10 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 - `Зимний театр` nomination-winner protocol and event-specific VK/Telegram
   source URL are not found yet; winner names must remain unpublished until a
   source is attached.
+- `Театр у моря` and `Кино у моря` nomination-winner protocols, named winners,
+  and event-specific VK/Telegram source URLs are not found yet; the public
+  archive pages now state this explicitly and must not publish winner names
+  until a source is attached.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Verified live

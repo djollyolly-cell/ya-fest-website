@@ -106,6 +106,11 @@ conflicts.
   page lists documents and payment rules.
 - Proof: archive page, VK group link, source markdown brief. Event photo album
   URL is still missing.
+- Source-backed gap: a public nomination-winner protocol, named winners, and
+  event-specific VK/Telegram post or album URL were not found in repository
+  evidence during the 2026-06-30 archive source pass. The public archive page
+  now names this gap explicitly; do not publish winner names until an official
+  source URL is attached.
 
 ### P5. Кино у моря
 
@@ -129,6 +134,11 @@ conflicts.
   page lists documents and payment rules.
 - Proof: archive page, VK group link, source markdown brief. Event photo album
   URL is still missing.
+- Source-backed gap: a public nomination-winner protocol, the `Кинозабег`
+  special-prize winner, named winners, and event-specific VK/Telegram post or
+  album URL were not found in repository evidence during the 2026-06-30 archive
+  source pass. The public archive page now names this gap explicitly; do not
+  publish winner names until an official source URL is attached.
 
 ### P6. Зимний театр
 
@@ -246,6 +256,9 @@ have product mapping plus a public source-backed credential and visual asset.
 6. VK album/post URLs for specific events are not yet inventoried.
 7. `Зимний театр` winner/result protocol is not source-backed yet. The public
    page now states this explicitly instead of implying named winners.
+8. `Театр у моря` and `Кино у моря` winner/result protocols are not source-backed
+   yet either. Both public archive pages now state this explicitly instead of
+   implying named winners or a named `Кинозабег` winner.
 
 ## Phase 5 Handoff
 
