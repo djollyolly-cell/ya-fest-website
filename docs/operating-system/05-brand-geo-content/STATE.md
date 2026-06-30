@@ -14,8 +14,9 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   `laboratories.html`, refreshed sitemap `lastmod`, and expanded static smoke
   checks.
 - Phase 5 gap analysis exists at `phase-5-proof-gap-analysis.md`.
-- Phase 6 structured-data and answer-block pass is implemented locally on the
-  static surface: `camp.html` and `theatre-cinema-sochi.html` have expanded
+- Phase 6 structured-data and answer-block pass is implemented on the
+  static surface and deployed to `https://yafest.ru` from commit `3673811`:
+  `camp.html` and `theatre-cinema-sochi.html` have expanded
   `WebPage`, `Course`, `Person`, `Event`, and `FAQPage` JSON-LD where supported;
   archive pages have `WebPage`, completed `Event`, and visible FAQ/answer blocks
   with matching `FAQPage` JSON-LD; `test-geo-static.mjs` validates the new schema
@@ -41,6 +42,9 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 - `https://yafest.ru/laboratories.html` exposes `mailto:producer.ya@mail.ru`.
 - `https://yafest.ru/sitemap.xml` has refreshed `lastmod` values and all 10
   sitemap URLs returned HTTP 200 after deployment.
+- Phase 6 live verification confirmed required JSON-LD types on `camp.html`,
+  `theatre-cinema-sochi.html`, `theatre-sea.html`, `cinema-sea.html`, and
+  `winter-theatre.html`; visible answer blocks were present on those pages.
 
 ## Risks and compatibility notes
 

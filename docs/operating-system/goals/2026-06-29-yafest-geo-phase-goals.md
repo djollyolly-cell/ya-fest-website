@@ -228,8 +228,7 @@ because the HTML pass ships in the same static-surface change.
 
 **Goal:** Add structured, quotable, and source-backed answer formats on top of the real content instead of using schema as a substitute for content.
 
-**Status:** Done locally. Production deployment and live verification are the
-next operational step.
+**Status:** Done and deployed to `https://yafest.ru` from commit `3673811`.
 
 **Done means:**
 
@@ -266,13 +265,17 @@ next operational step.
 - Local verification: `node "HTML landing for claude/test-geo-static.mjs"`,
   `node "HTML landing for claude/test-camp-booking-form.mjs"`, and
   `git diff --check`.
+- Live verification after deploy: all 10 sitemap URLs returned HTTP 200;
+  required JSON-LD types parsed on `camp.html`, `theatre-cinema-sochi.html`,
+  `theatre-sea.html`, `cinema-sea.html`, and `winter-theatre.html`; visible
+  answer blocks were present on changed pages.
 
 ## Phase 7 - Monitoring and Continuous GEO QA
 
 **Goal:** Make GEO upkeep repeatable so future changes do not drift away from the canonical brand facts.
 
-**Status:** Done locally. Production deployment and live verification are the
-next operational step.
+**Status:** Done and deployed to repository/server checkout from commit
+`3673811`.
 
 **Done means:**
 

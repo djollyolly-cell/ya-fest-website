@@ -3,7 +3,8 @@
 Date: 2026-06-30
 Surface: `HTML landing for claude/`
 Canonical domain: `https://yafest.ru/`
-Status: implemented locally; production deploy/live verification pending.
+Deployed static commit: `3673811`
+Status: deployed and verified live.
 
 ## Summary
 
@@ -41,6 +42,12 @@ handoff template for future QA runs.
 - `node "HTML landing for claude/test-camp-booking-form.mjs"`: pass.
 - Changed HTML image references: pass.
 - `git diff --check`: clean.
+- Live sitemap sweep: all 10 URLs in `https://yafest.ru/sitemap.xml` returned
+  HTTP 200.
+- Live JSON-LD parse/type check passed for `camp.html`,
+  `theatre-cinema-sochi.html`, `theatre-sea.html`, `cinema-sea.html`, and
+  `winter-theatre.html`.
+- Live answer-block checks confirmed visible FAQ/answer content on changed pages.
 
 ## Deliberate Non-Goals
 
@@ -50,5 +57,5 @@ handoff template for future QA runs.
 
 ## Next Step
 
-- Commit, push, deploy the static surface to `https://yafest.ru`, then record
-  live verification in this handoff and the phase-goals evidence.
+- Use the recurring QA checklist for future GEO/content changes and monthly
+  checks.
