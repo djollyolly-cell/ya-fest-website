@@ -16,15 +16,126 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "Это лагерь или творческий кампус?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Такие программы часто ищут как театральный лагерь в Сочи или танцевальный лагерь у моря. В позиционировании Я-Фест это летние творческие кампусы по театру, кино и хореографии: с педагогами, программой, практикой и итоговым результатом."
+      "@type": "WebPage",
+      "@id": "https://yafest.ru/camp.html#webpage",
+      "url": "https://yafest.ru/camp.html",
+      "name": "ТЕАТРО КАМПУС и DANCE КАМПУС — летние творческие кампусы Я-Фест",
+      "description": "Летние творческие кампусы по театру и хореографии для детей и подростков от 6 до 17 лет, 5–15 августа 2026 в Сочи Парк Отеле.",
+      "inLanguage": "ru",
+      "isPartOf": { "@type": "WebSite", "name": "Я-Фест", "url": "https://yafest.ru/" },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": "https://yafest.ru/jury/олеся%20железняк.jpg" }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://yafest.ru/camp.html#teatro",
+      "name": "ТЕАТРО КАМПУС",
+      "description": "Летний творческий кампус Я-Фест по театру для детей и подростков от 6 до 17 лет: актёрское мастерство, речь и движение, кино-лаборатория, «Игра в поступление», встречи с кастинг-директорами, гала-вечер и финальный фестиваль с призами.",
+      "url": "https://yafest.ru/camp.html#teatro",
+      "inLanguage": "ru",
+      "provider": { "@type": "Organization", "name": "Я-Фест", "url": "https://yafest.ru/" },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "Дети и подростки от 6 до 17 лет"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "79000",
+        "priceCurrency": "RUB",
+        "category": "Путёвка от 79 000 ₽",
+        "url": "https://yafest.ru/camp.html#teatro",
+        "availability": "https://schema.org/InStock"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Onsite",
+        "startDate": "2026-08-05",
+        "endDate": "2026-08-15",
+        "location": {
+          "@type": "Place",
+          "name": "Сочи Парк Отель",
+          "address": { "@type": "PostalAddress", "addressLocality": "Сочи", "addressCountry": "RU" }
+        }
       }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://yafest.ru/camp.html#dance",
+      "name": "DANCE КАМПУС",
+      "description": "Летний творческий кампус Я-Фест по хореографии для детей и подростков от 6 до 17 лет: классика, современная хореография, импровизация, авторские классы, мастерская для руководителей и гала-концерт.",
+      "url": "https://yafest.ru/camp.html#dance",
+      "inLanguage": "ru",
+      "provider": { "@type": "Organization", "name": "Я-Фест", "url": "https://yafest.ru/" },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "Дети и подростки от 6 до 17 лет"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "79000",
+        "priceCurrency": "RUB",
+        "category": "Путёвка от 79 000 ₽",
+        "url": "https://yafest.ru/camp.html#dance",
+        "availability": "https://schema.org/InStock"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Onsite",
+        "startDate": "2026-08-05",
+        "endDate": "2026-08-15",
+        "location": {
+          "@type": "Place",
+          "name": "Сочи Парк Отель",
+          "address": { "@type": "PostalAddress", "addressLocality": "Сочи", "addressCountry": "RU" }
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://yafest.ru/camp.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Это лагерь или творческий кампус?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Такие программы часто ищут как театральный лагерь в Сочи или танцевальный лагерь у моря. В позиционировании Я-Фест это летние творческие кампусы по театру, кино и хореографии: с педагогами, программой, практикой и итоговым результатом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда и где проходит смена?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Смена ТЕАТРО КАМПУС и DANCE КАМПУС проходит 5–15 августа 2026 года в Сочи, на территории Сочи Парк Отеля. Это 10 дней программы с проживанием, питанием и занятиями на одной площадке."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "С какого возраста принимают участников?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Детские кампусы ТЕАТРО и DANCE рассчитаны на возраст от 6 до 17 лет — индивидуально или в составе коллектива с педагогом/сопровождающим. Для взрослых от 18 лет работает отдельный кампус ТЕАТР.КИНО.СОЧИ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что входит в стоимость путёвки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В путёвку от 79 000 ₽ входят проживание в Сочи Парк Отеле, питание «шведский стол» (завтрак, обед, ужин), доступ к подогреваемым бассейнам и собственному пляжу, вся образовательная программа от педагогов, гала-вечер или гала-концерт и итоговое закрытие смены."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли скидка для коллективов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Для детских коллективов от 20 участников путёвка для руководителя (21-я) — бесплатно. Это правило указано на странице кампуса и действует для ТЕАТРО и DANCE."
+          }
+        }
+      ]
     }
   ]
 }
@@ -438,6 +549,38 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:54px 48px 3
     <div>
       <h3>Это лагерь или творческий кампус?</h3>
       <p>Такие программы часто ищут как театральный лагерь в Сочи или танцевальный лагерь у моря. В позиционировании Я-Фест это летние творческие кампусы по театру, кино и хореографии: с педагогами, программой, практикой и итоговым результатом.</p>
+    </div>
+  </section>
+
+  <section class="bonus" id="campus-when">
+    <div class="bonus-icon">?</div>
+    <div>
+      <h3>Когда и где проходит смена?</h3>
+      <p>Смена ТЕАТРО КАМПУС и DANCE КАМПУС проходит 5–15 августа 2026 года в Сочи, на территории Сочи Парк Отеля. Это 10 дней программы с проживанием, питанием и занятиями на одной площадке.</p>
+    </div>
+  </section>
+
+  <section class="bonus" id="campus-age">
+    <div class="bonus-icon">?</div>
+    <div>
+      <h3>С какого возраста принимают участников?</h3>
+      <p>Детские кампусы ТЕАТРО и DANCE рассчитаны на возраст от 6 до 17 лет — индивидуально или в составе коллектива с педагогом или сопровождающим. Для взрослых от 18 лет работает отдельный кампус <a href="theatre-cinema-sochi.html" style="color:#81c784;text-decoration:underline">ТЕАТР.КИНО.СОЧИ.</a></p>
+    </div>
+  </section>
+
+  <section class="bonus" id="campus-included">
+    <div class="bonus-icon">?</div>
+    <div>
+      <h3>Что входит в стоимость путёвки?</h3>
+      <p>В путёвку от 79 000 ₽ входят проживание в Сочи Парк Отеле, питание «шведский стол» (завтрак, обед, ужин), доступ к подогреваемым бассейнам и собственному пляжу, вся образовательная программа от педагогов, гала-вечер или гала-концерт и итоговое закрытие смены.</p>
+    </div>
+  </section>
+
+  <section class="bonus" id="campus-groups">
+    <div class="bonus-icon">?</div>
+    <div>
+      <h3>Есть ли скидка для коллективов?</h3>
+      <p>Да. Для детских коллективов от 20 участников путёвка для руководителя (21-я) — <strong style="color:#81c784">бесплатно</strong>. Это правило действует и для ТЕАТРО КАМПУС, и для DANCE КАМПУС.</p>
     </div>
   </section>
 

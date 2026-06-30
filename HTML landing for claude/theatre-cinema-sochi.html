@@ -16,24 +16,177 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "ТЕАТР.КИНО.СОЧИ.",
-  "description": "Творческий кампус для взрослых на берегу моря: актёрское мастерство, режиссура, кино-лаборатория и практическая программа.",
-  "startDate": "2026-08-05",
-  "endDate": "2026-08-15",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "location": {
-    "@type": "Place",
-    "name": "Сочи Парк Отель и Сочи Парк Арена",
-    "address": "Сириус, Сочи"
-  },
-  "organizer": {
-    "@type": "Organization",
-    "name": "Я-Фест",
-    "url": "https://yafest.ru"
-  },
-  "url": "https://yafest.ru/theatre-cinema-sochi.html"
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#webpage",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html",
+      "name": "ТЕАТР.КИНО.СОЧИ. — творческий кампус для взрослых",
+      "description": "Творческий кампус Я-Фест для взрослых на берегу моря: 10 дней актёрского мастерства, режиссёрской и кино-лаборатории, кастинг-директора и финальный показ.",
+      "inLanguage": "ru",
+      "isPartOf": { "@type": "WebSite", "name": "Я-Фест", "url": "https://yafest.ru/" }
+    },
+    {
+      "@type": "Event",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#event",
+      "name": "ТЕАТР.КИНО.СОЧИ.",
+      "description": "Творческий кампус для взрослых на берегу моря: актёрское мастерство, режиссура, кино-лаборатория и практическая программа.",
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-15",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Сочи Парк Отель и Сочи Парк Арена",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Сочи",
+          "addressRegion": "Сириус",
+          "addressCountry": "RU"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Я-Фест",
+        "url": "https://yafest.ru/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "79000",
+        "priceCurrency": "RUB",
+        "category": "Путёвка от 79 000 ₽",
+        "url": "https://yafest.ru/theatre-cinema-sochi.html",
+        "availability": "https://schema.org/InStock"
+      },
+      "url": "https://yafest.ru/theatre-cinema-sochi.html",
+      "performer": [
+        { "@type": "Person", "name": "Олеся Железняк" },
+        { "@type": "Person", "name": "Вениамин Фильштинский" },
+        { "@type": "Person", "name": "Радда Новикова" },
+        { "@type": "Person", "name": "Александр Галибин" },
+        { "@type": "Person", "name": "Сергей Черкасский" },
+        { "@type": "Person", "name": "Виталий Любский" }
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#course",
+      "name": "ТЕАТР.КИНО.СОЧИ.",
+      "description": "Творческий кампус Я-Фест для взрослых от 18 лет: актёрское мастерство, режиссёрская театральная лаборатория, режиссёрская кино-лаборатория, «Игра в поступление», киновстречи и финальный показ.",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html",
+      "inLanguage": "ru",
+      "provider": { "@type": "Organization", "name": "Я-Фест", "url": "https://yafest.ru/" },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "Взрослые участники от 18 лет"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "79000",
+        "priceCurrency": "RUB",
+        "category": "Путёвка от 79 000 ₽",
+        "url": "https://yafest.ru/theatre-cinema-sochi.html",
+        "availability": "https://schema.org/InStock"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Onsite",
+        "startDate": "2026-08-05",
+        "endDate": "2026-08-15",
+        "location": {
+          "@type": "Place",
+          "name": "Сочи Парк Отель и Сочи Парк Арена",
+          "address": { "@type": "PostalAddress", "addressLocality": "Сочи", "addressRegion": "Сириус", "addressCountry": "RU" }
+        }
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#person-zheleznyak",
+      "name": "Олеся Железняк",
+      "jobTitle": "Народная артистка РФ; актриса театра, кино, телевидения и дубляжа",
+      "image": "https://yafest.ru/jury/олеся%20железняк.jpg",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html#teachers"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#person-filshtinsky",
+      "name": "Вениамин Фильштинский",
+      "jobTitle": "Театральный режиссёр, профессор, заведующий кафедрой РГИСИ",
+      "image": "https://yafest.ru/jury/filshtinsky.jpg",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html#teachers"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#person-novikova",
+      "name": "Радда Новикова",
+      "jobTitle": "Режиссёр кино и телевидения",
+      "image": "https://yafest.ru/jury/Радда%20Новикова.jpg",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html#teachers"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#person-galibin",
+      "name": "Александр Галибин",
+      "jobTitle": "Народный артист РФ, актёр и режиссёр театра и кино",
+      "image": "https://yafest.ru/jury/galibin.jpg",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html#teachers"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#person-cherkassky",
+      "name": "Сергей Черкасский",
+      "jobTitle": "Театральный режиссёр, профессор, доктор искусствоведения",
+      "image": "https://yafest.ru/jury/cherkassky.jpg",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html#teachers"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#person-lyubsky",
+      "name": "Виталий Любский",
+      "jobTitle": "Актёр, режиссёр, педагог, доцент РГИСИ",
+      "image": "https://yafest.ru/jury/виталий%20любский.jpg",
+      "url": "https://yafest.ru/theatre-cinema-sochi.html#teachers"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://yafest.ru/theatre-cinema-sochi.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Для кого этот кампус — для профессионалов или начинающих?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ТЕАТР.КИНО.СОЧИ. — это творческий кампус для взрослых от 18 лет любого уровня подготовки: и для тех, кто хочет в профессию с нуля, и для действующих актёров, режиссёров и будущих абитуриентов творческих вузов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что входит в путёвку от 79 000 ₽?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В путёвку включены проживание в Сочи Парк Отеле, питание «шведский стол», подогреваемые бассейны, собственный пляж и вся программа кампуса: актёрское мастерство, режиссёрская и кино-лаборатории, «Игра в поступление», встречи с кастинг-директорами и киновстречи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто среди педагогов кампуса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В числе педагогов и наставников кампуса указаны Олеся Железняк, Вениамин Фильштинский, Радда Новикова, Александр Галибин, Сергей Черкасский и Виталий Любский. Профильные блоки распределены между актёрским мастерством, режиссёрской и кино-лабораториями и подготовкой к поступлению."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие даты и место проведения?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Кампус проходит 5–15 августа 2026 года в Сириусе, Сочи. Площадки — Сочи Парк Отель и Сочи Парк Арена."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -341,7 +494,7 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
 
   </div>
 
-  <div class="sec-t">Педагоги</div>
+  <div class="sec-t" id="teachers">Педагоги</div>
   <div class="teach-grid">
 
     <div class="teach">
@@ -445,6 +598,24 @@ footer{background:#07070f;border-top:1px solid var(--border);padding:50px 48px 3
       <h3>О выгоде</h3>
       <p>Стоимость путёвки <strong>ниже, чем просто проживание с питанием в Сочи Парк Отеле</strong> в те же даты. Вы получаете не только отель и море, но и 10 дней профессионального обучения у звёздных педагогов и работающую программу для портфолио.</p>
     </div>
+  </div>
+
+  <div class="sec-t" id="faq">Частые вопросы</div>
+  <div class="incl-box" style="padding:28px 32px;margin-bottom:48px">
+    <h3 style="margin-bottom:18px">Для кого этот кампус — для профессионалов или начинающих?</h3>
+    <p style="font-size:.95rem;color:rgba(240,238,248,.78);line-height:1.7;margin:0">ТЕАТР.КИНО.СОЧИ. — это творческий кампус для взрослых от 18 лет любого уровня подготовки: и для тех, кто хочет в профессию с нуля, и для действующих актёров, режиссёров и будущих абитуриентов творческих вузов.</p>
+  </div>
+  <div class="incl-box" style="padding:28px 32px;margin-bottom:48px">
+    <h3 style="margin-bottom:18px">Что входит в путёвку от 79 000 ₽?</h3>
+    <p style="font-size:.95rem;color:rgba(240,238,248,.78);line-height:1.7;margin:0">В путёвку включены проживание в Сочи Парк Отеле, питание «шведский стол», подогреваемые бассейны, собственный пляж и вся программа кампуса: актёрское мастерство, режиссёрская и кино-лаборатории, «Игра в поступление», встречи с кастинг-директорами и киновстречи.</p>
+  </div>
+  <div class="incl-box" style="padding:28px 32px;margin-bottom:48px">
+    <h3 style="margin-bottom:18px">Кто среди педагогов кампуса?</h3>
+    <p style="font-size:.95rem;color:rgba(240,238,248,.78);line-height:1.7;margin:0">В числе педагогов и наставников кампуса указаны Олеся Железняк, Вениамин Фильштинский, Радда Новикова, Александр Галибин, Сергей Черкасский и Виталий Любский. Профильные блоки распределены между актёрским мастерством, режиссёрской и кино-лабораториями и подготовкой к поступлению.</p>
+  </div>
+  <div class="incl-box" style="padding:28px 32px;margin-bottom:48px">
+    <h3 style="margin-bottom:18px">Какие даты и место проведения?</h3>
+    <p style="font-size:.95rem;color:rgba(240,238,248,.78);line-height:1.7;margin:0">Кампус проходит 5–15 августа 2026 года в Сириусе, Сочи. Площадки — Сочи Парк Отель и Сочи Парк Арена.</p>
   </div>
 
   <div class="cta-sect">

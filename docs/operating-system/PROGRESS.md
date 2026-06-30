@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-06-29
+Last updated: 2026-06-30
 
 ## Current status
 
@@ -23,10 +23,12 @@ Last updated: 2026-06-29
 - Phase 3 sitemap signals completed: Yandex.Webmaster shows sitemap from `robots.txt` with status `ok`, and Google Search Console accepted `sitemap.xml` with 10 discovered pages.
 - Phase 4 entity map completed locally: canonical registry, product facts inventory, and teacher/proof inventory now live under `15-entity-memory/`.
 - Phase 5 ecosystem/proof pass deployed to `https://yafest.ru` from commit `7526bfe`: stable campus anchors, proof-oriented jury blocks, archive jury proof, facts-page product links, clean laboratory contact email, refreshed sitemap, and expanded static checks.
+- Phase 6 structured-data and answer-block pass completed locally on the static surface: schema coverage expanded for campuses, adult campus, and archive festival pages; visible FAQ/answer blocks added where FAQPage schema is used; static smoke checks expanded.
+- Phase 7 monitoring foundation completed locally: recurring GEO QA checklist and recurring handoff template exist under `10-qa-reviews/` and `handoffs/`.
 
 ## In progress
 
-- Phase 6 planning: structured data, FAQ, and answer blocks on top of the now-visible content.
+- Production deploy and live verification for the Phase 6/7 static and operating-doc changes.
 
 ## Open
 

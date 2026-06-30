@@ -8,17 +8,17 @@ function read(name) {
 }
 
 function hasJsonLd(html, type) {
+  return jsonLdNodes(html).some((node) => node['@type'] === type);
+}
+
+function jsonLdNodes(html) {
   const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-  return scripts.some((match) => {
-    try {
-      const parsed = JSON.parse(match[1]);
-      if (Array.isArray(parsed['@graph'])) {
-        return parsed['@graph'].some((node) => node['@type'] === type);
-      }
-      return parsed['@type'] === type;
-    } catch {
-      return false;
+  return scripts.flatMap((match) => {
+    const parsed = JSON.parse(match[1]);
+    if (Array.isArray(parsed['@graph'])) {
+      return parsed['@graph'];
     }
+    return [parsed];
   });
 }
 
@@ -54,8 +54,11 @@ assert.match(robots, /Sitemap:\s*https:\/\/yafest\.ru\/sitemap\.xml/, 'robots sh
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/facts\.html<\/loc>/, 'sitemap should include facts.html');
 assert.doesNotMatch(sitemap, /ya-fest\.ru/, 'static sitemap must not use ya-fest.ru');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/festivals\.html<\/loc>[\s\S]*?<lastmod>2026-06-29<\/lastmod>/, 'sitemap should refresh festivals lastmod after proof edits');
-assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-sea\.html<\/loc>[\s\S]*?<lastmod>2026-06-29<\/lastmod>/, 'sitemap should refresh theatre archive lastmod after proof edits');
-assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/cinema-sea\.html<\/loc>[\s\S]*?<lastmod>2026-06-29<\/lastmod>/, 'sitemap should refresh cinema archive lastmod after proof edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-sea\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh theatre archive lastmod after Phase 6 schema edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/cinema-sea\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh cinema archive lastmod after Phase 6 schema edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/winter-theatre\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh winter archive lastmod after Phase 6 schema edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/camp\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh camp lastmod after Phase 6 schema edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-cinema-sochi\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh adult campus lastmod after Phase 6 schema edits');
 
 assert.match(index, /href="facts\.html"/, 'home page should link to facts page');
 assert.match(index, /Коротко о Я-Фест/i, 'home page should include quotable Ya-Fest facts');
@@ -70,6 +73,10 @@ assert.match(camp, /часто ищут как/i, 'camp page should include care
 assert.match(camp, /творческие кампусы/i, 'camp page should keep creative campus wording');
 assert.match(camp, /id="teatro"/, 'camp page should expose stable Teatro anchor');
 assert.match(camp, /id="dance"/, 'camp page should expose stable Dance anchor');
+assert.match(camp, /Когда и где проходит смена\?/, 'camp page should expose crawlable FAQ answer blocks');
+assert.match(camp, /Что входит в стоимость путёвки\?/, 'camp page should expose price/included FAQ answer block');
+assert.equal(hasJsonLd(camp, 'WebPage'), true, 'camp page should include WebPage JSON-LD');
+assert.equal(hasJsonLd(camp, 'Course'), true, 'camp page should include Course JSON-LD for campuses');
 assert.equal(hasJsonLd(camp, 'FAQPage'), true, 'camp page should include FAQPage JSON-LD');
 
 assert.match(adult, /5–15 августа/, 'adult campus page should expose dates');
@@ -77,7 +84,19 @@ assert.match(adult, /Сочи/, 'adult campus page should expose location');
 assert.match(adult, /Олеся Железняк/, 'adult campus page should expose source-backed teacher fact');
 assert.match(adult, /id="quick-facts"/, 'adult campus page should include quick-facts anchor');
 assert.match(adult, /Коротко о ТЕАТР\.КИНО\.СОЧИ\./, 'adult campus page should include quotable facts heading');
+assert.match(adult, /Частые вопросы/, 'adult campus page should expose crawlable FAQ answer blocks');
 assert.equal(hasJsonLd(adult, 'Event'), true, 'adult campus page should include Event JSON-LD');
+assert.equal(hasJsonLd(adult, 'WebPage'), true, 'adult campus page should include WebPage JSON-LD');
+assert.equal(hasJsonLd(adult, 'Course'), true, 'adult campus page should include Course JSON-LD');
+assert.equal(hasJsonLd(adult, 'Person'), true, 'adult campus page should include Person JSON-LD for source-backed teachers');
+assert.equal(hasJsonLd(adult, 'FAQPage'), true, 'adult campus page should include FAQPage JSON-LD');
+
+const adultPersonNames = jsonLdNodes(adult)
+  .filter((node) => node['@type'] === 'Person')
+  .map((node) => node.name);
+for (const name of ['Олеся Железняк', 'Вениамин Фильштинский', 'Радда Новикова', 'Сергей Черкасский', 'Виталий Любский']) {
+  assert.equal(adultPersonNames.includes(name), true, `adult campus Person JSON-LD should include ${name}`);
+}
 
 assert.match(facts, /<link rel="canonical" href="https:\/\/yafest\.ru\/facts\.html">/, 'facts page should have canonical URL');
 assert.match(facts, /Я-Фест — творческая платформа/i, 'facts page should lead with the platform definition');
@@ -97,8 +116,25 @@ assert.match(laboratories, /mailto:producer\.ya@mail\.ru/, 'laboratories footer 
 assert.doesNotMatch(laboratories, /cdn-cgi\/l\/email-protection/, 'laboratories footer should not use Cloudflare email obfuscation');
 assert.match(theatreSea, /Жюри фестивальной серии/, 'theatre archive should expose named jury proof block');
 assert.match(theatreSea, /Стася Толстая/, 'theatre archive should include source-backed jury names');
+assert.match(theatreSea, /Коротко об архиве/, 'theatre archive should expose visible answer blocks');
+assert.equal(hasJsonLd(theatreSea, 'WebPage'), true, 'theatre archive should include WebPage JSON-LD');
+assert.equal(hasJsonLd(theatreSea, 'Event'), true, 'theatre archive should include Event JSON-LD');
+assert.equal(hasJsonLd(theatreSea, 'FAQPage'), true, 'theatre archive should include FAQPage JSON-LD');
+assert.equal(jsonLdNodes(theatreSea).find((node) => node['@type'] === 'Event')?.eventStatus, 'https://schema.org/EventCompleted', 'theatre archive event schema should be completed');
 assert.match(cinemaSea, /Жюри фестивальной серии/, 'cinema archive should expose named jury proof block');
 assert.match(cinemaSea, /Дмитрий Чеботар/, 'cinema archive should include source-backed jury names');
+assert.match(cinemaSea, /Коротко об архиве/, 'cinema archive should expose visible answer blocks');
+assert.equal(hasJsonLd(cinemaSea, 'WebPage'), true, 'cinema archive should include WebPage JSON-LD');
+assert.equal(hasJsonLd(cinemaSea, 'Event'), true, 'cinema archive should include Event JSON-LD');
+assert.equal(hasJsonLd(cinemaSea, 'FAQPage'), true, 'cinema archive should include FAQPage JSON-LD');
+assert.equal(jsonLdNodes(cinemaSea).find((node) => node['@type'] === 'Event')?.eventStatus, 'https://schema.org/EventCompleted', 'cinema archive event schema should be completed');
+
+const winterTheatre = read('winter-theatre.html');
+assert.match(winterTheatre, /Коротко об архиве/, 'winter archive should expose visible answer blocks');
+assert.equal(hasJsonLd(winterTheatre, 'WebPage'), true, 'winter archive should include WebPage JSON-LD');
+assert.equal(hasJsonLd(winterTheatre, 'Event'), true, 'winter archive should include Event JSON-LD');
+assert.equal(hasJsonLd(winterTheatre, 'FAQPage'), true, 'winter archive should include FAQPage JSON-LD');
+assert.equal(jsonLdNodes(winterTheatre).find((node) => node['@type'] === 'Event')?.eventStatus, 'https://schema.org/EventCompleted', 'winter archive event schema should be completed');
 
 assert.match(llms, /^# Я-Фест/m, 'llms.txt should start with Ya-Fest heading');
 assert.match(llms, /https:\/\/yafest\.ru\/facts\.html/, 'llms.txt should link facts page');

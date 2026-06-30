@@ -14,6 +14,12 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   `laboratories.html`, refreshed sitemap `lastmod`, and expanded static smoke
   checks.
 - Phase 5 gap analysis exists at `phase-5-proof-gap-analysis.md`.
+- Phase 6 structured-data and answer-block pass is implemented locally on the
+  static surface: `camp.html` and `theatre-cinema-sochi.html` have expanded
+  `WebPage`, `Course`, `Person`, `Event`, and `FAQPage` JSON-LD where supported;
+  archive pages have `WebPage`, completed `Event`, and visible FAQ/answer blocks
+  with matching `FAQPage` JSON-LD; `test-geo-static.mjs` validates the new schema
+  and answer-block coverage.
 
 ## Skeleton or foundation
 

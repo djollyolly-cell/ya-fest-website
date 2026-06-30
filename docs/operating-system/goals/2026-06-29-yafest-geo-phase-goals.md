@@ -228,7 +228,8 @@ because the HTML pass ships in the same static-surface change.
 
 **Goal:** Add structured, quotable, and source-backed answer formats on top of the real content instead of using schema as a substitute for content.
 
-**Status:** Open.
+**Status:** Done locally. Production deployment and live verification are the
+next operational step.
 
 **Done means:**
 
@@ -252,11 +253,26 @@ because the HTML pass ships in the same static-surface change.
 - Schema validation for changed pages.
 - HTML source review for crawlable facts.
 
+**Current evidence:**
+
+- `camp.html` includes `WebPage`, `Course`, and `FAQPage` JSON-LD plus visible
+  crawlable FAQ/answer blocks.
+- `theatre-cinema-sochi.html` includes `WebPage`, `Event`, `Course`, `Person`,
+  and `FAQPage` JSON-LD plus visible FAQ/answer blocks.
+- `theatre-sea.html`, `cinema-sea.html`, and `winter-theatre.html` include
+  `WebPage`, completed `Event`, and `FAQPage` JSON-LD with matching visible
+  archive answer blocks.
+- `test-geo-static.mjs` validates the expanded schema and visible answer blocks.
+- Local verification: `node "HTML landing for claude/test-geo-static.mjs"`,
+  `node "HTML landing for claude/test-camp-booking-form.mjs"`, and
+  `git diff --check`.
+
 ## Phase 7 - Monitoring and Continuous GEO QA
 
 **Goal:** Make GEO upkeep repeatable so future changes do not drift away from the canonical brand facts.
 
-**Status:** Open.
+**Status:** Done locally. Production deployment and live verification are the
+next operational step.
 
 **Done means:**
 
@@ -277,8 +293,18 @@ because the HTML pass ships in the same static-surface change.
 - `docs/operating-system/10-qa-reviews/yafest-geo-qa-checklist.md`
 - recurring handoffs under `docs/operating-system/handoffs/`
 
+**Current evidence:**
+
+- Recurring checklist:
+  `docs/operating-system/10-qa-reviews/yafest-geo-qa-checklist.md`
+- Recurring handoff template:
+  `docs/operating-system/handoffs/TEMPLATE-geo-qa-recurring.md`
+- QA area status updated:
+  `docs/operating-system/10-qa-reviews/STATE.md`
+- Local verification: operating-doc markdown link check and `git diff --check`.
+
 ## Current Count
 
-- Completed phases: 6 (`Phase 0` through `Phase 5`)
-- Remaining phases for strong GEO completion: 2 (`Phase 6`, `Phase 7`)
-- Minimum next phase to close: `Phase 6 - Structured Data, FAQ, and Answer Blocks`
+- Completed phases: 8 (`Phase 0` through `Phase 7`)
+- Remaining phases for strong GEO completion: 0
+- Minimum next phase to close: none; move to recurring GEO QA and future content/source updates

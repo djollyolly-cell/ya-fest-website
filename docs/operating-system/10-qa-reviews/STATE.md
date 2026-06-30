@@ -7,6 +7,10 @@ The React site has Vitest and e2e-like test files. Static HTML QA now has focuse
 - Static GEO smoke test exists at `HTML landing for claude/test-geo-static.mjs` and verifies facts page, llms.txt, sitemap, robots, canonical domain, key quotable blocks, and JSON-LD presence including facts page `WebPage` and `DefinedTermSet` structured data.
 - Existing static booking form smoke test exists at `HTML landing for claude/test-camp-booking-form.mjs` and was run after the GEO pass to guard current campus booking behavior.
 - React/Vite prototype guard exists at `website/DO_NOT_DEPLOY.md` and `website/README.md`.
+- Recurring GEO QA checklist exists at `yafest-geo-qa-checklist.md` covering canonical domain, sitemap and robots, product facts, schema validity, broken links, outdated dates/prices, and teacher/proof changes, with the registry-first and handoff-on-deploy invariants.
+- Recurring GEO QA handoff template exists at `../handoffs/TEMPLATE-geo-qa-recurring.md` for per-run records.
+- Phase 7 monitoring foundation is implemented locally through the recurring
+  checklist and handoff template.
 
 ## Skeleton or foundation
 
