@@ -150,6 +150,10 @@ conflicts.
 - Proof: archive page, 25 official gallery photos, 4 site testimonials, VK group
   link. Testimonials are city/category-attributed and should not be treated as
   per-person proof.
+- Source-backed gap: a public nomination-winner protocol, named winners, and
+  event-specific VK/Telegram post or album URL were not found in repository
+  evidence during the 2026-06-30 winter archive source pass. Do not publish
+  winner names until an official source URL is attached.
 
 ### P7. Мастерские и мастер-классы Я-Фест
 
@@ -240,6 +244,8 @@ have product mapping plus a public source-backed credential and visual asset.
 5. Some portrait files duplicate latin/Cyrillic slugs; public pages should pick
    one canonical image per person where possible.
 6. VK album/post URLs for specific events are not yet inventoried.
+7. `Зимний театр` winner/result protocol is not source-backed yet. The public
+   page now states this explicitly instead of implying named winners.
 
 ## Phase 5 Handoff
 

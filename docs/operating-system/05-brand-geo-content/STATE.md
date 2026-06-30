@@ -21,6 +21,10 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   archive pages have `WebPage`, completed `Event`, and visible FAQ/answer blocks
   with matching `FAQPage` JSON-LD; `test-geo-static.mjs` validates the new schema
   and answer-block coverage.
+- Winter archive source-backed GEO pass completed locally on 2026-06-30:
+  `winter-theatre.html` now names the unsupported winner-protocol gap in visible
+  HTML and matching FAQ JSON-LD instead of publishing or implying winner names
+  without an official source.
 
 ## Skeleton or foundation
 
@@ -31,6 +35,9 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 
 - Event-specific VK album/post URLs are not inventoried yet.
 - Winner/result summaries for the archive festivals are not in the repository yet.
+- `Зимний театр` nomination-winner protocol and event-specific VK/Telegram
+  source URL are not found yet; winner names must remain unpublished until a
+  source is attached.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Verified live

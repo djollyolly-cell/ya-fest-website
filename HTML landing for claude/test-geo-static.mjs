@@ -131,6 +131,9 @@ assert.equal(jsonLdNodes(cinemaSea).find((node) => node['@type'] === 'Event')?.e
 
 const winterTheatre = read('winter-theatre.html');
 assert.match(winterTheatre, /Коротко об архиве/, 'winter archive should expose visible answer blocks');
+assert.match(winterTheatre, /Протокол победителей по номинациям/, 'winter archive should name the missing winner protocol clearly');
+assert.match(winterTheatre, /не опубликован на текущей странице/, 'winter archive should not imply unsupported winner names exist');
+assert.match(winterTheatre, /без официального источника/, 'winter archive should avoid unsupported winner claims');
 assert.equal(hasJsonLd(winterTheatre, 'WebPage'), true, 'winter archive should include WebPage JSON-LD');
 assert.equal(hasJsonLd(winterTheatre, 'Event'), true, 'winter archive should include Event JSON-LD');
 assert.equal(hasJsonLd(winterTheatre, 'FAQPage'), true, 'winter archive should include FAQPage JSON-LD');
