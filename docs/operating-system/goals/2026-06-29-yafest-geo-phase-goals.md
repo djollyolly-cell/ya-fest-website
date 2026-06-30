@@ -279,6 +279,6 @@ because the HTML pass ships in the same static-surface change.
 
 ## Current Count
 
-- Completed phases: 4 (`Phase 0`, `Phase 1`, `Phase 2`, `Phase 3`)
-- Remaining phases for strong GEO completion: 4 (`Phase 4` through `Phase 7`)
-- Minimum next phase to close: `Phase 4 - Product and Entity Map`
+- Completed phases: 6 (`Phase 0` through `Phase 5`)
+- Remaining phases for strong GEO completion: 2 (`Phase 6`, `Phase 7`)
+- Minimum next phase to close: `Phase 6 - Structured Data, FAQ, and Answer Blocks`
