@@ -3,7 +3,7 @@
 Date: 2026-07-01
 Surface: `HTML landing for claude/`
 Canonical domain: `https://yafest.ru/`
-Target commit: `a860004`
+Target content commit: `b64eb76` (archive HTML changes)
 Status: pushed to `origin/main`; production deploy blocked by hosting access.
 
 ## Summary
@@ -50,12 +50,13 @@ cd ~/www/yafest.ru
 git pull --ff-only origin main
 cp -r "HTML landing for claude/"* .
 git rev-parse --short HEAD
+git merge-base --is-ancestor b64eb76 HEAD && echo "archive HTML commit included"
 ```
 
-Expected `git rev-parse --short HEAD` output:
+Expected final check output:
 
 ```text
-a860004
+archive HTML commit included
 ```
 
 ## Post-Deploy Checks
