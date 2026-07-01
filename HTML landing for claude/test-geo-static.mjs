@@ -27,6 +27,7 @@ const requiredFiles = [
   'about.html',
   'camp.html',
   'theatre-cinema-sochi.html',
+  'family-creative-summer.html',
   'facts.html',
   'llms.txt',
   'sitemap.xml',
@@ -187,5 +188,29 @@ assert.match(llms, /^# Я-Фест/m, 'llms.txt should start with Ya-Fest headin
 assert.match(llms, /https:\/\/yafest\.ru\/facts\.html/, 'llms.txt should link facts page');
 assert.match(llms, /Do not use https:\/\/ya-fest\.ru as canonical/i, 'llms.txt should clarify non-owned domain');
 assert.match(llms, /творческий кампус/i, 'llms.txt should preserve brand wording');
+assert.match(llms, /https:\/\/yafest\.ru\/family-creative-summer\.html/, 'llms.txt should link the family hub for LLM discovery');
+
+const family = read('family-creative-summer.html');
+assert.match(family, /<link rel="canonical" href="https:\/\/yafest\.ru\/family-creative-summer\.html">/, 'family hub should declare its canonical URL');
+assert.match(family, /семьёй/i, 'family hub should keep the family-scenario headline');
+assert.match(family, /Впервые в 2026/, 'family hub should mark the debut season');
+assert.match(family, /Сочи Парк Отель/, 'family hub should name the shared hotel');
+assert.match(family, /5[–-]15 августа/, 'family hub should keep the shared dates');
+assert.match(family, /вожатые/, 'family hub should keep the vожатые supervision fact');
+assert.match(family, /семейной скидки[^.]*не предусмотрено/i, 'family hub should be honest about the missing family discount');
+assert.match(family, /camp\.html#teatro/, 'family hub should cross-link the kids theatre campus');
+assert.match(family, /camp\.html#dance/, 'family hub should cross-link the kids dance campus');
+assert.match(family, /theatre-cinema-sochi\.html/, 'family hub should cross-link the adult campus');
+assert.equal(hasJsonLd(family, 'WebPage'), true, 'family hub should include WebPage JSON-LD');
+assert.equal(hasJsonLd(family, 'ItemList'), true, 'family hub should include ItemList JSON-LD for the three programs');
+assert.equal(hasJsonLd(family, 'FAQPage'), true, 'family hub should include FAQPage JSON-LD');
+assert.equal(hasJsonLd(family, 'BreadcrumbList'), true, 'family hub should include BreadcrumbList JSON-LD');
+const familyItemList = jsonLdNodes(family).find((node) => node['@type'] === 'ItemList');
+assert.equal(familyItemList?.itemListElement?.length, 3, 'family hub ItemList should contain the three campus programs');
+
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/family-creative-summer\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should include the family hub with 2026-07-01 lastmod');
+
+assert.match(camp, /family-creative-summer\.html/, 'camp cross-block should link to the family hub');
+assert.match(adult, /family-creative-summer\.html/, 'adult cross-block should link to the family hub');
 
 console.log('static GEO checks passed');

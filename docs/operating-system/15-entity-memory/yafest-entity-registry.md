@@ -37,8 +37,12 @@ facts on 2026-07-01:
 - 2026 is the first season this cross-campus family booking is offered;
   bookings for families are coordinated case-by-case.
 
-Public representation: `camp.html` and `theatre-cinema-sochi.html` carry
-mirrored family blocks and matching FAQ entries.
+Public representation:
+- Dedicated hub page: `https://yafest.ru/family-creative-summer.html`
+  (`WebPage` + `ItemList` of the three programs + `FAQPage` + `BreadcrumbList`).
+- `camp.html` and `theatre-cinema-sochi.html` carry mirrored family blocks
+  with matching `FAQPage` entries; both link into the hub.
+- Registered in `sitemap.xml` (lastmod 2026-07-01) and `llms.txt`.
 
 ### P1. ТЕАТРО КАМПУС
 

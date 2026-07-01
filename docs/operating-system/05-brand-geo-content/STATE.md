@@ -57,6 +57,14 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   vожатые supervision, cross-visits allowed between kid/adult programs,
   each program is a separate booking with no family discount. The season
   is explicitly marked as the debut format for family bookings.
+- Family hub page created locally on 2026-07-01 as
+  `https://yafest.ru/family-creative-summer.html`. Self-contained landing:
+  hero, info strip, three programs grid cross-linked to
+  `camp.html#teatro`, `camp.html#dance`, and `theatre-cinema-sochi.html`,
+  day-structure block, debut disclosure, six-question FAQ, and CTA. JSON-LD
+  includes `WebPage`, `ItemList` (3 programs), `FAQPage`, `BreadcrumbList`.
+  Registered in `sitemap.xml` and `llms.txt`; cross-blocks on `camp.html`
+  and `theatre-cinema-sochi.html` link into it as «Подробнее».
 
 ## Skeleton or foundation
 

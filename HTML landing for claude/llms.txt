@@ -21,6 +21,7 @@ The word «лагерь» may appear in FAQ or search-intent explanations becaus
 - Laboratories and workshops: https://yafest.ru/laboratories.html
 - Creative campuses: https://yafest.ru/camp.html
 - Adult theater and cinema campus: https://yafest.ru/theatre-cinema-sochi.html
+- Family creative summer hub: https://yafest.ru/family-creative-summer.html
 - About: https://yafest.ru/about.html
 
 ## Current product areas
@@ -28,6 +29,10 @@ The word «лагерь» may appear in FAQ or search-intent explanations becaus
 - ТЕАТРО КАМПУС: creative theater campus for children and teenagers.
 - DANCE КАМПУС: creative choreography campus for children and teenagers.
 - ТЕАТР.КИНО.СОЧИ.: adult creative campus in Sirius, Sochi, 5–15 August.
+- Family creative summer: parallel P1+P2+P3 campuses in the same dates
+  (5–15 August 2026) and the same Сочи Парк Отель, so a family can travel
+  together and split into kid/adult programs. First season for this format
+  in 2026; each program is a separate booking, no family discount yet.
 - Festivals: theater and cinema festival projects, including archive and current events.
 
 ## Contacts
