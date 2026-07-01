@@ -106,11 +106,14 @@ conflicts.
   page lists documents and payment rules.
 - Proof: archive page, VK group link, source markdown brief. Event photo album
   URL is still missing.
-- Source-backed gap: a public nomination-winner protocol, named winners, and
-  event-specific VK/Telegram post or album URL were not found in repository
-  evidence during the 2026-06-30 archive source pass. The public archive page
-  now names this gap explicitly; do not publish winner names until an official
-  source URL is attached.
+- Source received 2026-07-01: signed CamScanner PDF of the joint fest
+  protocol («Театр и кино моря» 2026), covering the theatre nominations only.
+  Public URL: `https://yafest.ru/protocols/theatre-i-kino-morya-2026.pdf`
+  (SHA-1 `edd5fa55850d29933844e73f8ed1ad866d5ffebe`). Filled protocol table:
+  `docs/operating-system/15-entity-memory/sources/2026-04-theatre-sea-winner-protocol-filled.md`.
+  All 14 awards are now published on `theatre-sea.html`
+  (visible HTML + `Event.award` array + `Event.subjectOf` PDF citation +
+  `FAQPage` «Кто победил в фестивале?» entry).
 
 ### P5. Кино у моря
 
@@ -134,11 +137,16 @@ conflicts.
   page lists documents and payment rules.
 - Proof: archive page, VK group link, source markdown brief. Event photo album
   URL is still missing.
-- Source-backed gap: a public nomination-winner protocol, the `Кинозабег`
-  special-prize winner, named winners, and event-specific VK/Telegram post or
-  album URL were not found in repository evidence during the 2026-06-30 archive
-  source pass. The public archive page now names this gap explicitly; do not
-  publish winner names until an official source URL is attached.
+- Partial source 2026-07-01: the joint fest protocol
+  `https://yafest.ru/protocols/theatre-i-kino-morya-2026.pdf` covers theatre
+  nominations only. The cinema archive page publishes the shared theatre
+  results with an honest disclaimer that cinema-side nominations and the
+  `Кинозабег` special-prize are still without a public source.
+- Source-backed gap (still open): cinema-nomination protocol (best film,
+  directing, camera, screenplay, acting) and `Кинозабег` special-prize winner
+  were not found in repository evidence. The public archive page names this
+  gap explicitly; do not publish cinema winner names until an official source
+  URL is attached.
 
 ### P6. Зимний театр
 
@@ -267,16 +275,21 @@ have product mapping plus a public source-backed credential and visual asset.
 6. VK album/post URLs for specific events are not yet inventoried.
 7. `Зимний театр` winner/result protocol is not source-backed yet. The public
    page now states this explicitly instead of implying named winners.
-8. `Театр у моря` and `Кино у моря` winner/result protocols are not source-backed
-   yet either. Both public archive pages now state this explicitly instead of
-   implying named winners or a named `Кинозабег` winner.
-9. Aggregate `festivals.html` and `laboratories.html` also reference completed
-   festival/workshop outcomes. They now inherit the same source-backed gap and
-   must not be used to introduce winner names without an official source.
-10. The 2026-07-01 archive outcome source inventory is recorded at
-    `archive-outcome-source-inventory-2026-07-01.md`. It checked local repo
-    evidence, public web search, official VK handles, VK API access attempts,
-    and Telegram/public media. It did not find an official result protocol.
+8. `Театр у моря` winner protocol is source-backed via the signed
+   «Театр и кино моря» 2026 PDF at
+   `https://yafest.ru/protocols/theatre-i-kino-morya-2026.pdf` and is now
+   published on `theatre-sea.html`, `festivals.html`, `laboratories.html`,
+   and (with a theatre-part disclaimer) on `cinema-sea.html`.
+9. `Кино у моря` cinema-nominations and `Кинозабег` special-prize protocols
+   are still not source-backed. Cinema-sea archive keeps an honest disclaimer;
+   do not publish cinema winner names without an official source URL.
+10. Aggregate `festivals.html` and `laboratories.html` now link the theatre
+    protocol while retaining explicit gap disclosures for the cinema-side and
+    `Зимний театр`.
+11. The 2026-07-01 archive outcome source inventory is recorded at
+    `archive-outcome-source-inventory-2026-07-01.md`. Its 2026-07-01 update
+    records the received `Театр и кино моря` PDF and the still-open cinema and
+    `Зимний театр` gaps.
 
 ## Phase 5 Handoff
 

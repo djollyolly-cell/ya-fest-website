@@ -3,7 +3,20 @@
 Date: 2026-07-01
 Scope: winner/result protocols for `Зимний театр`, `Театр у моря`,
 `Кино у моря`, and festival-linked workshop outcomes including `Кинозабег`.
-Status: no official winner protocol or named winner source found.
+Status: partial — signed protocol for `Театр у моря` / «Театр и кино моря»
+2026 received on 2026-07-01 and mirrored to production; `Зимний театр`,
+`Кино у моря` cinema-nomination protocol, and `Кинозабег` are still without
+an official source.
+
+## Received Sources (2026-07-01)
+
+- Festival: «Театр и кино моря» 2026 (covers P4 «Театр у моря»).
+  - Public canonical URL: `https://yafest.ru/protocols/theatre-i-kino-morya-2026.pdf`.
+  - Local mirror: `docs/operating-system/15-entity-memory/sources/2026-04-theatre-i-kino-morya-protocol.pdf`.
+  - SHA-1: `edd5fa55850d29933844e73f8ed1ad866d5ffebe`.
+  - Format: signed CamScanner PDF, 3 pages, seal + director signature (Труфанова П.С.).
+  - Content: theatre nominations only, flat degree list (Гран-при / Лауреаты I–III / Дипломанты I–III), no cinema categories, no `Кинозабег`.
+  - Filled protocol table: `docs/operating-system/15-entity-memory/sources/2026-04-theatre-sea-winner-protocol-filled.md`.
 
 ## Sources Checked
 
@@ -75,24 +88,28 @@ Ya-Fest VK group, and names hosts/jury categories. It does not publish results,
 winners, laureates, or a nomination protocol. Treat it as non-official
 participation/broadcast context only, not winner proof.
 
-## Decision
+## Decision (updated 2026-07-01)
 
-Do not replace the current public source-backed gap blocks with winner names.
-
-Keep these claims unpublished until an official source URL is attached:
+Publish `Театр у моря` winners using the received signed protocol.
+Keep the following claims unpublished until their own official source URLs
+are attached:
 
 - `Зимний театр` nomination-winner protocol and named winners.
-- `Театр у моря` nomination-winner protocol and named winners.
-- `Кино у моря` nomination-winner protocol and named winners.
+- `Кино у моря` cinema-nomination protocol and named winners
+  (the received protocol names theatre nominees only).
 - `Кинозабег` special-prize winner.
-- Aggregate winner claims on `festivals.html` and `laboratories.html`.
+- Aggregate cinema-side winner claims on `festivals.html` and
+  `laboratories.html`.
 
 ## Next Source Paths
 
-The next useful step is off-code organizer confirmation:
-
-1. Ask the producer/organizer whether a protocol PDF, spreadsheet, post, album,
-   or VK discussion with official results exists.
-2. If it exists, attach the exact URL/file in this inventory and update
-   `yafest-entity-registry.md`.
-3. Only then update public HTML/JSON-LD with named winners.
+1. Ask the producer whether a separate cinema-nominations protocol exists for
+   «Кино у моря» 2026 (best film, directing, camera, screenplay, acting,
+   `Кинозабег`).
+2. If it exists, mirror it under `docs/operating-system/15-entity-memory/sources/`,
+   upload to `~/www/yafest.ru/protocols/` via SSH, and follow the same
+   publish flow.
+3. Ask the producer for a signed «Зимний театр» 2026 protocol using the
+   same template.
+4. After each publish pass, update `yafest-entity-registry.md`,
+   `05-brand-geo-content/STATE.md`, and public HTML/JSON-LD in one commit.

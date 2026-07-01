@@ -35,8 +35,20 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   outcome names in visible HTML.
 - Archive outcome source inventory completed on 2026-07-01:
   `../15-entity-memory/archive-outcome-source-inventory-2026-07-01.md`
-  records local repo, public search, VK, and Telegram checks. No official
-  winner protocol or named winner source was found.
+  records local repo, public search, VK, and Telegram checks. Signed protocol
+  for the theatre part of «Театр и кино моря» 2026 was subsequently received
+  and mirrored on the same day; the cinema-side protocol and `Кинозабег`
+  special-prize source are still missing.
+- Signed protocol publish pass completed locally on 2026-07-01: the official
+  CamScanner PDF of the theatre part of «Театр и кино моря» 2026 is mirrored
+  to `https://yafest.ru/protocols/theatre-i-kino-morya-2026.pdf`. All 14
+  awards are published in visible HTML on `theatre-sea.html` and (with an
+  honest disclaimer about the missing cinema-nominations protocol) on
+  `cinema-sea.html`. `festivals.html` carries a brief Гран-при mention plus
+  a PDF link, and `laboratories.html` swaps the anti-hallucination protocol
+  wording for a link to the theatre protocol while keeping the `Кинозабег`
+  gap explicit. `Event` JSON-LD on both archive pages carries the `award`
+  array and a `subjectOf` citation to the PDF.
 
 ## Skeleton or foundation
 
@@ -45,19 +57,20 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 
 ## Not implemented or not verified
 
-- Event-specific VK album/post URLs are not inventoried yet.
-- Winner/result summaries for the archive festivals are not in the repository yet.
+- Event-specific VK album/post URLs are still not inventoried; the received
+  «Театр и кино моря» protocol was delivered as a CamScanner PDF, not a VK
+  post/album URL.
 - `Зимний театр` nomination-winner protocol and event-specific VK/Telegram
   source URL are not found yet; winner names must remain unpublished until a
   source is attached.
-- `Театр у моря` and `Кино у моря` nomination-winner protocols, named winners,
-  and event-specific VK/Telegram source URLs are not found yet; the public
-  archive pages now state this explicitly and must not publish winner names
-  until a source is attached.
-- Aggregate `festivals.html` and workshop `laboratories.html` pages also depend
-  on those unresolved protocols; they now state the gap explicitly and must not
-  introduce winner names or `Кинозабег` special-prize recipients without an
-  official source.
+- `Кино у моря` cinema-nominations protocol (best film, directing, camera,
+  screenplay, acting) and the `Кинозабег` special-prize winner are not found
+  yet; the joint «Театр и кино моря» protocol covers theatre nominations only.
+  The cinema archive page publishes the shared theatre results with a visible
+  disclaimer and keeps a machine-readable Кинозабег gap; do not publish
+  cinema-side winner names until an official source URL is attached.
+- Aggregate `festivals.html` and workshop `laboratories.html` pages retain
+  disclosures for the unresolved cinema-side and `Зимний театр` gaps.
 - 2026-07-01 source inventory found one non-official local-media Telegram post
   about `Зимний театр` participation/broadcast context, but no official results
   or winner protocol.
@@ -75,6 +88,12 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
 - Phase 6 live verification confirmed required JSON-LD types on `camp.html`,
   `theatre-cinema-sochi.html`, `theatre-sea.html`, `cinema-sea.html`, and
   `winter-theatre.html`; visible answer blocks were present on those pages.
+- Signed-protocol PDF at
+  `https://yafest.ru/protocols/theatre-i-kino-morya-2026.pdf` is already live
+  (HTTP 200, SHA-1 `edd5fa55850d29933844e73f8ed1ad866d5ffebe`). Live
+  verification of the published winner blocks on `theatre-sea.html`,
+  `cinema-sea.html`, `festivals.html`, and `laboratories.html` is pending
+  the 2026-07-01 deploy.
 
 ## Risks and compatibility notes
 
