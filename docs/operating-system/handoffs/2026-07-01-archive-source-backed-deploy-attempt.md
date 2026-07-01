@@ -3,7 +3,7 @@
 Date: 2026-07-01
 Surface: `HTML landing for claude/`
 Canonical domain: `https://yafest.ru/`
-Target commit: `b64eb76`
+Target commit: `a860004`
 Status: pushed to `origin/main`; production deploy blocked by hosting access.
 
 ## Summary
@@ -55,7 +55,7 @@ git rev-parse --short HEAD
 Expected `git rev-parse --short HEAD` output:
 
 ```text
-b64eb76
+a860004
 ```
 
 ## Post-Deploy Checks
@@ -64,7 +64,8 @@ Run from local machine or hosting shell:
 
 ```bash
 for p in winter-theatre.html theatre-sea.html cinema-sea.html; do
-  curl -L -s "https://yafest.ru/$p" | rg "Протокол победителей по номинациям|без официального источника"
+  curl -L -s "https://yafest.ru/$p" \
+    | grep -F -e "Протокол победителей по номинациям" -e "без официального источника"
 done
 ```
 
@@ -73,4 +74,3 @@ Each page should return both phrases.
 ## Deploy Status
 
 No production deploy was performed from this agent session.
-
