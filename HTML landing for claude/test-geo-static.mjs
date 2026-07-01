@@ -53,12 +53,13 @@ assert.match(robots, /Sitemap:\s*https:\/\/yafest\.ru\/sitemap\.xml/, 'robots sh
 
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/facts\.html<\/loc>/, 'sitemap should include facts.html');
 assert.doesNotMatch(sitemap, /ya-fest\.ru/, 'static sitemap must not use ya-fest.ru');
-assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/festivals\.html<\/loc>[\s\S]*?<lastmod>2026-06-29<\/lastmod>/, 'sitemap should refresh festivals lastmod after proof edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/festivals\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh festivals lastmod after source-backed archive edits');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-sea\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh theatre archive lastmod after Phase 6 schema edits');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/cinema-sea\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh cinema archive lastmod after Phase 6 schema edits');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/winter-theatre\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh winter archive lastmod after Phase 6 schema edits');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/camp\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh camp lastmod after Phase 6 schema edits');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-cinema-sochi\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh adult campus lastmod after Phase 6 schema edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/laboratories\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh laboratories lastmod after source-backed workshop edits');
 
 assert.match(index, /href="facts\.html"/, 'home page should link to facts page');
 assert.match(index, /Коротко о Я-Фест/i, 'home page should include quotable Ya-Fest facts');
@@ -112,8 +113,14 @@ const laboratories = read('laboratories.html');
 assert.match(festivals, /Григорий Заславский/, 'festivals page should expose named jury proof');
 assert.match(festivals, /Вениамин Фильштинский/, 'festivals page should reuse source-backed jury names');
 assert.doesNotMatch(festivals, /Артисты театра и кино<\/div><div class="jrole">Ведущие российские актёры/, 'festivals page should not use generic jury placeholders');
+assert.match(festivals, /Протокол победителей по номинациям/, 'festivals page should name the missing winner protocol clearly');
+assert.match(festivals, /не опубликован на текущей странице/, 'festivals page should not imply unsupported winner names exist');
+assert.match(festivals, /без официального источника/, 'festivals page should avoid unsupported winner claims');
 assert.match(laboratories, /mailto:producer\.ya@mail\.ru/, 'laboratories footer should expose clean official email');
 assert.doesNotMatch(laboratories, /cdn-cgi\/l\/email-protection/, 'laboratories footer should not use Cloudflare email obfuscation');
+assert.match(laboratories, /Протокол победителей по номинациям/, 'laboratories page should name the missing festival-linked protocol clearly');
+assert.match(laboratories, /не опубликован на текущей странице/, 'laboratories page should not imply unsupported workshop outcome names exist');
+assert.match(laboratories, /без официального источника/, 'laboratories page should avoid unsupported workshop winner claims');
 assert.match(theatreSea, /Жюри фестивальной серии/, 'theatre archive should expose named jury proof block');
 assert.match(theatreSea, /Стася Толстая/, 'theatre archive should include source-backed jury names');
 assert.match(theatreSea, /Коротко об архиве/, 'theatre archive should expose visible answer blocks');

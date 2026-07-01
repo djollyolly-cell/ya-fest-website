@@ -29,6 +29,10 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   2026-06-30: both archive pages now carry the same anti-hallucination
   "Что известно об итогах?" block in visible HTML and matching FAQ JSON-LD,
   preventing future winner-name fabrication on those pages as well.
+- Festivals and laboratories source-backed GEO pass completed locally on
+  2026-07-01: `festivals.html` and `laboratories.html` now name the same
+  source-backed gap for festival-linked winner protocols and unsupported
+  outcome names in visible HTML.
 
 ## Skeleton or foundation
 
@@ -46,6 +50,10 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   and event-specific VK/Telegram source URLs are not found yet; the public
   archive pages now state this explicitly and must not publish winner names
   until a source is attached.
+- Aggregate `festivals.html` and workshop `laboratories.html` pages also depend
+  on those unresolved protocols; they now state the gap explicitly and must not
+  introduce winner names or `Кинозабег` special-prize recipients without an
+  official source.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Verified live

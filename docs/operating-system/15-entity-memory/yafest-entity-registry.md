@@ -185,6 +185,11 @@ conflicts.
 - Application conditions: contact form or official phone/email.
 - Proof: current page and source markdown briefs; needs stronger public proof in
   Phase 5/6.
+- Source-backed gap: festival-linked workshop outcomes depend on the unresolved
+  `Театр у моря` / `Кино у моря` winner protocols and the `Кинозабег`
+  special-prize source. The public `laboratories.html` page now states this gap
+  explicitly; do not publish named workshop winners or final-status participant
+  claims until an official source URL is attached.
 
 ## Person Records
 
@@ -259,6 +264,9 @@ have product mapping plus a public source-backed credential and visual asset.
 8. `Театр у моря` and `Кино у моря` winner/result protocols are not source-backed
    yet either. Both public archive pages now state this explicitly instead of
    implying named winners or a named `Кинозабег` winner.
+9. Aggregate `festivals.html` and `laboratories.html` also reference completed
+   festival/workshop outcomes. They now inherit the same source-backed gap and
+   must not be used to introduce winner names without an official source.
 
 ## Phase 5 Handoff
 
