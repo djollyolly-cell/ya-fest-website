@@ -57,8 +57,8 @@ assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/festivals\.html<\/loc>[\s\S]*?
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-sea\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh theatre archive lastmod after signed-protocol publish');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/cinema-sea\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh cinema archive lastmod after signed-protocol publish');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/winter-theatre\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh winter archive lastmod after Phase 6 schema edits');
-assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/camp\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh camp lastmod after Phase 6 schema edits');
-assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-cinema-sochi\.html<\/loc>[\s\S]*?<lastmod>2026-06-30<\/lastmod>/, 'sitemap should refresh adult campus lastmod after Phase 6 schema edits');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/camp\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh camp lastmod after family cross-block publish');
+assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/theatre-cinema-sochi\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh adult campus lastmod after family cross-block publish');
 assert.match(sitemap, /<loc>https:\/\/yafest\.ru\/laboratories\.html<\/loc>[\s\S]*?<lastmod>2026-07-01<\/lastmod>/, 'sitemap should refresh laboratories lastmod after source-backed workshop edits');
 
 assert.match(index, /href="facts\.html"/, 'home page should link to facts page');
@@ -76,9 +76,18 @@ assert.match(camp, /id="teatro"/, 'camp page should expose stable Teatro anchor'
 assert.match(camp, /id="dance"/, 'camp page should expose stable Dance anchor');
 assert.match(camp, /Когда и где проходит смена\?/, 'camp page should expose crawlable FAQ answer blocks');
 assert.match(camp, /Что входит в стоимость путёвки\?/, 'camp page should expose price/included FAQ answer block');
+assert.match(camp, /А если вся семья творческая/, 'camp page should expose the family cross-block for parents');
+assert.match(camp, /theatre-cinema-sochi\.html/, 'camp page should cross-link the adult campus for the family scenario');
+assert.match(camp, /вожатые/, 'camp page should name the vожатые supervision fact for family scenario');
+assert.match(camp, /впервые в 2026/i, 'camp page should mark the family cross-campus scenario as a debut season');
 assert.equal(hasJsonLd(camp, 'WebPage'), true, 'camp page should include WebPage JSON-LD');
 assert.equal(hasJsonLd(camp, 'Course'), true, 'camp page should include Course JSON-LD for campuses');
 assert.equal(hasJsonLd(camp, 'FAQPage'), true, 'camp page should include FAQPage JSON-LD');
+const campFaqNames = jsonLdNodes(camp)
+  .filter((node) => node['@type'] === 'FAQPage')
+  .flatMap((node) => node.mainEntity ?? [])
+  .map((q) => q.name);
+assert.equal(campFaqNames.some((name) => /семь/i.test(name)), true, 'camp FAQPage should include a family-scenario question');
 
 assert.match(adult, /5–15 августа/, 'adult campus page should expose dates');
 assert.match(adult, /Сочи/, 'adult campus page should expose location');
@@ -86,11 +95,21 @@ assert.match(adult, /Олеся Железняк/, 'adult campus page should exp
 assert.match(adult, /id="quick-facts"/, 'adult campus page should include quick-facts anchor');
 assert.match(adult, /Коротко о ТЕАТР\.КИНО\.СОЧИ\./, 'adult campus page should include quotable facts heading');
 assert.match(adult, /Частые вопросы/, 'adult campus page should expose crawlable FAQ answer blocks');
+assert.match(adult, /А если приехали с ребёнком/, 'adult campus page should expose the family cross-block for adults with kids');
+assert.match(adult, /camp\.html/, 'adult campus page should cross-link the kids campuses for the family scenario');
+assert.match(adult, /6[–-]17/, 'adult campus family block should name kid age range');
+assert.match(adult, /вожатые/, 'adult campus family block should name vожатые supervision fact');
+assert.match(adult, /впервые в 2026/i, 'adult campus family block should mark the debut season');
 assert.equal(hasJsonLd(adult, 'Event'), true, 'adult campus page should include Event JSON-LD');
 assert.equal(hasJsonLd(adult, 'WebPage'), true, 'adult campus page should include WebPage JSON-LD');
 assert.equal(hasJsonLd(adult, 'Course'), true, 'adult campus page should include Course JSON-LD');
 assert.equal(hasJsonLd(adult, 'Person'), true, 'adult campus page should include Person JSON-LD for source-backed teachers');
 assert.equal(hasJsonLd(adult, 'FAQPage'), true, 'adult campus page should include FAQPage JSON-LD');
+const adultFaqNames = jsonLdNodes(adult)
+  .filter((node) => node['@type'] === 'FAQPage')
+  .flatMap((node) => node.mainEntity ?? [])
+  .map((q) => q.name);
+assert.equal(adultFaqNames.some((name) => /ребёнк/i.test(name)), true, 'adult campus FAQPage should include a family/kid-scenario question');
 
 const adultPersonNames = jsonLdNodes(adult)
   .filter((node) => node['@type'] === 'Person')

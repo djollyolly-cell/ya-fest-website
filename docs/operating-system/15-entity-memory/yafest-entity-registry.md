@@ -23,6 +23,23 @@ conflicts.
 
 ## Product Records
 
+### Cross-campus family scenario (2026 debut)
+
+The three August 2026 campuses (P1, P2, P3) share the same dates
+(5–15 August) and the same venue (Сочи Парк Отель). Producer-confirmed
+facts on 2026-07-01:
+
+- A family can stay in one room.
+- During the day, kids in P1/P2 are supervised by вожатые while adults are
+  either in P3 or resting.
+- Programs run in parallel but both sides may visit each other.
+- Each program is a separate booking. No family discount exists in 2026.
+- 2026 is the first season this cross-campus family booking is offered;
+  bookings for families are coordinated case-by-case.
+
+Public representation: `camp.html` and `theatre-cinema-sochi.html` carry
+mirrored family blocks and matching FAQ entries.
+
 ### P1. ТЕАТРО КАМПУС
 
 - Type: summer creative campus, theatre, children/teens.

@@ -49,6 +49,14 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   wording for a link to the theatre protocol while keeping the `Кинозабег`
   gap explicit. `Event` JSON-LD on both archive pages carries the `award`
   array and a `subjectOf` citation to the PDF.
+- Family cross-campus scenario published locally on 2026-07-01: `camp.html`
+  and `theatre-cinema-sochi.html` now carry mirrored «А если вся семья
+  творческая?» / «А если приехали с ребёнком?» blocks plus family-scenario
+  FAQ entries. Content is based on producer-confirmed facts: same dates
+  (5–15 августа), same Сочи Парк Отель, family in one room, kids under
+  vожатые supervision, cross-visits allowed between kid/adult programs,
+  each program is a separate booking with no family discount. The season
+  is explicitly marked as the debut format for family bookings.
 
 ## Skeleton or foundation
 
