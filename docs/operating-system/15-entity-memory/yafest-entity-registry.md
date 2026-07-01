@@ -160,10 +160,16 @@ conflicts.
 - Proof: archive page, 25 official gallery photos, 4 site testimonials, VK group
   link. Testimonials are city/category-attributed and should not be treated as
   per-person proof.
+- External context: 2026-07-01 source inventory found a non-official local-media
+  Telegram post from `Власть Советов | Выселки` confirming planned participation
+  of one theatre studio and VK broadcast context for `Зимний театр`; it is not
+  winner/result proof.
 - Source-backed gap: a public nomination-winner protocol, named winners, and
   event-specific VK/Telegram post or album URL were not found in repository
   evidence during the 2026-06-30 winter archive source pass. Do not publish
   winner names until an official source URL is attached.
+  A broader 2026-07-01 public source inventory also found no official winner
+  protocol.
 
 ### P7. Мастерские и мастер-классы Я-Фест
 
@@ -267,6 +273,10 @@ have product mapping plus a public source-backed credential and visual asset.
 9. Aggregate `festivals.html` and `laboratories.html` also reference completed
    festival/workshop outcomes. They now inherit the same source-backed gap and
    must not be used to introduce winner names without an official source.
+10. The 2026-07-01 archive outcome source inventory is recorded at
+    `archive-outcome-source-inventory-2026-07-01.md`. It checked local repo
+    evidence, public web search, official VK handles, VK API access attempts,
+    and Telegram/public media. It did not find an official result protocol.
 
 ## Phase 5 Handoff
 

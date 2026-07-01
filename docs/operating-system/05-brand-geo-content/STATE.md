@@ -33,6 +33,10 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   2026-07-01: `festivals.html` and `laboratories.html` now name the same
   source-backed gap for festival-linked winner protocols and unsupported
   outcome names in visible HTML.
+- Archive outcome source inventory completed on 2026-07-01:
+  `../15-entity-memory/archive-outcome-source-inventory-2026-07-01.md`
+  records local repo, public search, VK, and Telegram checks. No official
+  winner protocol or named winner source was found.
 
 ## Skeleton or foundation
 
@@ -54,6 +58,9 @@ A GEO strategy design exists. The first implementation pass now exists on the pr
   on those unresolved protocols; they now state the gap explicitly and must not
   introduce winner names or `Кинозабег` special-prize recipients without an
   official source.
+- 2026-07-01 source inventory found one non-official local-media Telegram post
+  about `Зимний театр` participation/broadcast context, but no official results
+  or winner protocol.
 - Any future feature described in roadmap or source documents remains unimplemented until code/files/checks prove otherwise.
 
 ## Verified live
